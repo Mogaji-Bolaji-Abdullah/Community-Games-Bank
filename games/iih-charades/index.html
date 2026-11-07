@@ -80,11 +80,79 @@
 <script>'use strict';
 
 const ROUNDS = [
-  { name: 'Easy & Fun', tag: 'WARM UP', emoji: '☀', color: 'lime', words: ['Masquerade','Gorilla','Drummer','Thief','Tailor','Hunter','Fisherman','Boxer','Bride','Soldier','Barber','Monkey','Dancer','Farmer','Mosquito','Chef','Lion','Photographer','Teacher','Elephant'] },
-  { name: 'Interesting & Relatable', tag: 'GETTING WARMER', emoji: '✳', color: 'orange', words: ['Vulcanizer','Hawker','Conductor','Herbalist','Carpenter','Referee','Preacher','Magician','Bouncer','Comedian','Mechanic','Midwife','Wrestler','Beggar','Acrobat','Gatekeeper','Sculptor','DJ','Traffic Warden','Palm-wine Tapper'] },
-  { name: 'Nigerian & African Culture', tag: 'CULTURE CHECK', emoji: '✦', color: 'purple', words: ['Agbada','Gele','Durbar','Calabash','Shekere','Djembe','Aso-ebi','Ankara','Suya','Amala','Mortar','Pestle','Okada','Keke','Danfo','Kilishi','Akara','Fufu','Sallah','Talking Drum'] },
-  { name: 'Challenging & Hilarious', tag: 'NO PRESSURE', emoji: '★', color: 'orange', words: ['Exorcist','Hypnotist','Chameleon','Ostrich','Undertaker','Auctioneer','Bodyguard','Fortune-teller','Sleepwalker','Astronaut','Puppeteer','Sumo Wrestler','Contortionist','Gold-digger','Sniper','Pickpocket','Tightrope Walker','Ventriloquist','Cheerleader','Stuntman'] },
-  { name: 'IIH Special', tag: 'THE GRAND FINALE', emoji: '⚡', color: 'lime', words: ['Investor','Programmer','Hacker','Influencer','Podcaster','Entrepreneur','Designer','Robot','Mentor','Streamer','Recruiter','Gamer','Innovator','Freelancer','Pitchman'] }
+  { name: 'Easy & Fun', tag: 'WARM UP', emoji: '☀', color: 'lime', words: ['Masquerade','Gorilla','Drummer','Thief','Tailor','Hunter','Fisherman','Boxer','Bride','Soldier','Barber','Monkey','Dancer','Farmer','Mosquito','Chef','Lion','Teacher','Elephant', "Gossip",
+    'Yawning','Kissing','Hugging','Jumping','Running','Praying','Clapping','Winking','Stretching','Tickling','Whistling','Shivering','Sneezing','Coughing','Shaving','Diving','Crawling','Kneeling','Pointing','Dressing', 'Bowing','Dancing','Singing','Swimming','Sleeping','Crying','Laughing','Eating','Sweeping','Brushing Teeth'
+  ] },
+
+{
+  name: 'Interesting & Relatable',
+  tag: 'GETTING WARMER',
+  emoji: '✳',
+  color: 'orange',
+  words: [
+    'Vulcanizer', 'Hawker', 'Conductor', 'Herbalist',
+    'Carpenter', 'Referee', 'Preacher', 'Magician',
+    'Bouncer', 'Comedian', 'Mechanic', 'Midwife',
+    'Wrestler', 'Beggar', 'Acrobat', 'Gatekeeper',
+    'Sculptor', 'DJ', 'Traffic Warden', 'Palm-wine Tapper',
+    'Landlord', 'Neighbour', 'Shopkeeper', 'Bodybuilder',
+    'Policeman', 'Waitress', 'Cleaner', 'Tourist',
+    'Delivery Rider', 'Hairdresser',
+    'Driver','Nurse','Pilot','Teacher','Student','Waiter','Plumber','Electrician','Gardener','Nanny','Secretary','Dentist','Soldier','Pastor','Lawyer','Trader','Receptionist','Coach','Painter','Photocopier'
+  ]
+},
+
+
+
+  { name: 'Nigerian & African Culture', tag: 'CULTURE CHECK', emoji: '✦', color: 'purple', words: ['Agbada','Gele','Durbar','Calabash','Shekere','Djembe','Aso-ebi','Ankara','Suya','Amala','Mortar','Pestle','Okada','Keke','Danfo','Kilishi','Akara','Fufu','Sallah','Talking Drum',
+    'Jollof Rice',
+'Boli',
+'Zobo',
+'Egusi',
+'Kora',
+'Adire',
+'Aso-Oke',
+'Egungun',
+'Amapiano',
+'Calabash Seller', 'Fila','Iro','Buba','Beads','Waist Beads','Cowries','Horsetail','Hand Fan','Talking Stick','Drum','Coral Beads','Turban','Head Tie','Wrapper','Walking Stick','Chief Cap','Royal Crown','Horse Whip','Aso Drape','Henna'
+  ] },
+
+
+
+
+  { name: 'Challenging & Hilarious', tag: 'NO PRESSURE', emoji: '★', color: 'orange', words: ['Exorcist','Hypnotist','Chameleon','Ostrich','Undertaker','Auctioneer','Bodyguard','Fortune-teller','Sleepwalker','Astronaut','Puppeteer','Sumo Wrestler','Contortionist','Gold-digger','Sniper','Pickpocket','Tightrope Walker','Ventriloquist','Cheerleader','Stuntman',
+'Baby',
+'Police Officer',
+'Doctor',
+'Ghost',
+'Witch',
+'Superhero',
+'Clown',
+'Robot',
+'King',
+'Queen',
+'Olosho','Area Boy','Mallam','Alhaji','Babalawo','Gele Tying','Village Head','Strict Landlord','Gossiping Neighbour','Stubborn Child','Strict Mother','Dramatic Father','Fake Prophet','Market Woman','Drunk Man','Jealous Wife','Wedding MC', 'Aboki','Drum Major','Wedding Guest'
+
+
+
+  ] },
+  { name: 'IIH Special', tag: 'THE GRAND FINALE', emoji: '⚡', color: 'lime', words: ['Investor','Programmer','Hacker','Influencer','Podcaster','Entrepreneur','Designer','Robot','Mentor','Streamer','Recruiter','Gamer','Innovator','Freelancer','Pitchman',
+
+
+
+'Presenter',
+'Photographer',
+'Typist',
+'Teacher',
+'Student',
+'Musician',
+'Footballer',
+'Reporter',
+'Artist',
+'Blogger', 'Laptop','Keyboard','Mouse','Internet','Wi-Fi','Website','App','Email','Password','Camera','Microphone','Headphones','Projector','Printer','Smartphone','Calculator','Drone','Charger','Power Bank', 'Smartwatch','Tablet','Television','Remote Control','Video Call'
+
+
+   ] }
 ];
 const PALETTE = [
   { bg:'#d8f3ac', text:'#365524' },{ bg:'#f8d4c4', text:'#9a5030' },{ bg:'#e2d6ff', text:'#6552a5' },
@@ -185,7 +253,7 @@ function wordPane(){const t=currentTeam();if(!t)return startPane();const paused=
 function reviewPane(){const t=currentTeam();return `<div class="stack"><div class="result-hero"><div class="kicker">✓ TURN COMPLETE</div><h2>${esc(t.name)} brought the vibes.</h2><p>Great hustle! Your points have been added to the leaderboard.</p></div><div class="card"><div class="small-title"><h3>Turn recap</h3><span class="round-capsule">${esc(activeRound().name)}</span></div><div class="review-points"><div class="review-point"><strong>${game.correct}</strong><span>WORDS GUESSED</span></div><div class="review-point"><strong>${game.skipped}</strong><span>WORDS SKIPPED</span></div><div class="review-point"><strong>${score(t)}</strong><span>TOTAL POINTS</span></div></div><button class="button primary big full" data-action="completeTurn">${game.completed.length+1===game.entrants.length?'See round results →':'Next team →'}</button><p class="tip">This turn counts only after you continue. All teams get one turn per round.</p></div></div>`}
 function leaderboardRows(ids,full=false){const ranked=allRanked(ids);const highest=Math.max(1,...ranked.map(score));return ranked.map((t,i)=>`<div class="leader-row"><div class="leader-rank">${i>0&&score(ranked[i-1])===score(t)?'=':String(i+1).padStart(2,'0')}</div>${avatar(t)}<div><div class="leader-name">${esc(t.name)}${full?`<small>Round ${game.round+1}: ${roundScore(t)} pts</small>`:''}</div><div class="rank-bar"><span style="width:${Math.max(0,score(t)/highest*100)}%"></span></div></div><div class="leader-score">${score(t)}</div></div>`).join('')}
 function sidebarLeaderboard(){return `<div class="stack"><div class="card card-tight"><div class="small-title"><h3>Leaderboard</h3><span class="round-capsule">● LIVE</span></div>${game.teams.length?leaderboardRows(game.teams.map(t=>t.id)):'<div class="empty">Teams will appear here.</div>'}<button class="button outline sm full" style="margin-top:15px" data-view="leaderboard">Full leaderboard ↗</button></div><div class="highlight-panel"><div class="label">THE MOMENT WE LIVE FOR</div><h3>Big energy.<br><span class="hl">Bigger laughs.</span></h3><p>Five rounds. One final showdown. Every point counts.</p><div class="progress-stat">${game.mode==='lobby'?'SET UP THE SQUAD':`${Math.min(game.round+1,5)} / 5 ROUNDS`}</div></div></div>`}
-function lobbyPane(){return `<div class="stack"><div class="welcome"><div class="inside"><div class="welcome-star">✳</div><div class="kicker">WELCOME TO THE CHARADES CLUB</div><h2>The stage is yours. <span style="color:#789943">Let’s play!</span></h2><p>Build your squads, set the clock, and get ready for five chaotic rounds of Nigerian and African charades. The leaderboard handles the maths.</p><button class="button primary big" data-view="teams">✦ Set up your teams →</button></div></div><div class="info-grid"><div class="info-tile"><b>5</b><span>THEMED ROUNDS</span></div><div class="info-tile"><b>95</b><span>WORD PROMPTS</span></div><div class="info-tile"><b>${game.teams.length}</b><span>TEAMS READY</span></div></div>${game.teams.length>=2?`<div class="card"><div class="small-title"><h3>All set?</h3><span class="pill green">${game.teams.length} teams ready</span></div><p class="subtle">Every team will get a timed turn. You can review scores and choose how many advance after each round.</p><button class="button lime big full" data-action="startGame">▶ Start the tournament</button></div>`:''}</div>`}
+function lobbyPane(){return `<div class="stack"><div class="welcome"><div class="inside"><div class="welcome-star">✳</div><div class="kicker">WELCOME TO THE CHARADES CLUB</div><h2>The stage is yours. <span style="color:#789943">Let’s play!</span></h2><p>Build your squads, set the clock, and get ready for five chaotic rounds of Nigerian and African charades. The leaderboard handles the maths.</p><button class="button primary big" data-view="teams">✦ Set up your teams →</button></div></div><div class="info-grid"><div class="info-tile"><b>5</b><span>THEMED ROUNDS</span></div><div class="info-tile"><b>250</b><span>WORD PROMPTS</span></div><div class="info-tile"><b>${game.teams.length}</b><span>TEAMS READY</span></div></div>${game.teams.length>=2?`<div class="card"><div class="small-title"><h3>All set?</h3><span class="pill green">${game.teams.length} teams ready</span></div><p class="subtle">Every team will get a timed turn. You can review scores and choose how many advance after each round.</p><button class="button lime big full" data-action="startGame">▶ Start the tournament</button></div>`:''}</div>`}
 function resultsPane(){const ranked=allRanked(game.entrants);const final=game.round===4;const qualified=calcQualified();const tieAtCutoff=!final&&game.qualifierOverrides===null&&qualified.length>game.qualifierCount;return `<div class="stack"><div class="result-hero"><div class="kicker">${final?'✳ GRAND FINALE RESULTS':'✳ ROUND '+(game.round+1)+' WRAPPED'}</div><h2>${final?'That was a SHOW.':'Scores are in! 🎉'}</h2><p>${final?'The last round is done. Time to celebrate the top team.':'All teams have played. Review the standings and decide who goes through.'}</p></div><div class="card"><div class="small-title"><h3>${final?'Final standings':'Round '+(game.round+1)+' standings'}</h3><span class="round-capsule">${esc(activeRound().name)}</span></div><div class="scroll-table"><table class="result-table"><thead><tr><th>Rank</th><th>Team</th><th>Round pts</th><th>Total</th><th>${final?'Result':'Status'}</th></tr></thead><tbody>${ranked.map((t,i)=>`<tr class="${!final&&qualified.includes(t.id)?'qualifies':''}"><td class="place">#${i+1}</td><td><div class="team-line" style="font-size:12px">${avatar(t)}${esc(t.name)}</div></td><td>${roundScore(t)}</td><td><b>${score(t)}</b></td><td>${final?(score(t)===score(ranked[0])?'<span class="qual-badge">★ Top score</span>':'<span class="qual-badge out">Finalist</span>'):`<span class="qual-badge ${qualified.includes(t.id)?'':'out'}">${qualified.includes(t.id)?'✓ Advances':'Eliminated'}</span>`}</td></tr>`).join('')}</tbody></table></div>${!final?`<div class="round-summary"><div class="setting"><div><strong>Qualifying slots</strong><p>Advance the top teams by cumulative points.</p></div><select class="input small" id="qualifier-count" aria-label="Qualifying slots">${ranked.map((_,i)=>`<option value="${i+1}" ${game.qualifierCount===i+1?'selected':''}>${i+1}</option>`).join('')}</select></div><div class="setting"><div><strong>Manually choose qualifiers</strong><p>Use these checkboxes if you need to settle a tie or override rankings.</p></div></div><div class="round-list">${ranked.map(t=>`<label class="checkline"><input type="checkbox" data-qualify="${esc(t.id)}" ${qualified.includes(t.id)?'checked':''}><span>${esc(t.name)}</span><span class="tiny-detail">· ${score(t)} points</span></label>`).join('')}</div></div>${tieAtCutoff?'<div class="notice"><strong>Tie at the cutoff!</strong> Tied teams automatically advance together. Adjust the selection manually if you hold a playoff.</div>':''}<div class="notice" style="margin:15px 0">${qualified.length} team${qualified.length===1?'':'s'} selected for Round ${game.round+2}. Confirm or adjust them, then reveal the announcement with a drumroll.</div>${game.reveal==='sealed'?'<button class="button lime big full" data-action="revealQualifiers">🥁 Drumroll! Reveal qualifying teams</button>':game.reveal==='rolling'?'<div class="reveal-banner"><span class="drum-pulse">🥁</span><b>The suspense is real…</b> Drumroll in progress!</div>':`<div class="reveal-banner successful">✦ ${qualified.length} team${qualified.length===1?'':'s'} announced as qualified!</div><button class="button primary big full" data-action="advance">Continue to Round ${game.round+2} →</button>`}`:game.reveal!=='revealed'?`${game.reveal==='rolling'?'<div class="reveal-banner"><span class="drum-pulse">🥁</span>Drumroll… revealing the final scores!</div>':'<button class="button lime big full" data-action="revealQualifiers">🥁 Drumroll! Reveal final standings</button>'}`:isFinalTie()?`<div class="notice" style="margin:20px 0"><strong>We have a tie!</strong> The highest-scoring teams will each get a 30-second tiebreaker turn.</div><button class="button lime big full" data-action="tiebreak">⚡ Start tiebreaker</button>`:`<div class="notice" style="margin:20px 0"><strong>Ready to announce the champion?</strong> Rankings use cumulative points across all rounds.</div><button class="button lime big full" data-action="crown">🏆 Crown the winner</button>`}</div></div>`}
 function finishedPane(){const ranked=allRanked(game.entrants);const winner=ranked[0];return `<div class="stack"><div class="result-hero" style="text-align:center;padding:43px 25px"><div class="kicker" style="justify-content:center">THE MOMENT WE CAME FOR</div><div class="confetti">✳ ✦ ★</div><h2 style="margin-bottom:8px">AND THE WINNER IS...</h2><div class="winner">${esc(winner?.name||'CHAMPIONS')}</div><p style="margin:15px 0 0">${score(winner)} points · IIH MIX & MINGLE CHARADES CHAMPION</p></div><div class="card"><div class="small-title"><h3>Final leaderboard</h3><span class="round-capsule">GAME COMPLETE</span></div><div class="full-leader">${leaderboardRows(game.teams.map(t=>t.id),true)}</div><div class="button-row" style="margin-top:22px"><button class="button primary grow" data-action="exportCsv">↓ Export scores</button><button class="button outline grow" data-action="reset">↻ New game</button></div></div></div>`}
 function cancelledPane(){return `<div class="stack"><div class="result-hero"><div class="kicker">✕ GAME ENDED</div><h2>Tournament cancelled.</h2><p>The game has stopped. Your previous scores are still available for export or backup.</p></div><div class="card"><div class="small-title"><h3>Final recorded standings</h3><span class="pill">NO CHAMPION DECLARED</span></div><div class="full-leader">${leaderboardRows(game.teams.map(t=>t.id),true)}</div><div class="button-row" style="margin-top:22px"><button class="button outline grow" data-action="exportCsv">↓ Export scores</button><button class="button lime grow" data-action="reset">↻ New tournament</button></div></div></div>`}
