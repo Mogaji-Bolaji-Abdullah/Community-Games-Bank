@@ -75,3 +75,13 @@ html,body{max-width:100%;overflow-x:clip}
 .answer-slot.revealed{animation:flatAnswerReveal .24s ease-out both}
 @media(max-width:480px){.info-dialog{width:calc(100vw - 16px)}.dialog-header{padding:18px 17px 11px}.dialog-header h2{font-size:26px}.info-dialog form{padding:0 17px 20px}.rules-intro,.modal-copy{margin:0 17px 12px}.rules-note{margin:7px 17px 15px;padding:13px}.rules-grid{padding:0 17px 12px;grid-template-columns:1fr}.rules-grid article{padding:14px}.dialog-actions{padding:0 17px 18px}.custom-actions{grid-template-columns:1fr 1fr}.hero{min-width:0}}
 @media(prefers-reduced-motion:reduce){.answer-slot.revealed{animation:none}}
+
+/* Flat 2D illustration system: crisp shapes, solid fills, no faux-3D depth. */
+.hero-graphic,.hero-graphic *,.board-demo,.demo-sticker,.demo-burst,.mock-stage,.brand-mark,.stage-question,.answer-slot,.host-answer,.recap-card{perspective:none!important;transform-style:flat!important;text-shadow:none!important;filter:none!important}
+.hero-graphic,.hero-graphic:hover,.mock-stage,.mock-stage:hover{transform:none!important;box-shadow:none!important}
+.board-demo,.demo-sticker,.demo-burst{transform:none!important;box-shadow:none!important}
+.board-demo{border:2px solid #6e8acb!important;border-radius:14px!important;background:#203f80!important}
+.brand-mark{transform:none!important;box-shadow:none!important;border:2px solid currentColor!important}
+.hero-graphic:before,.hero-graphic:after,.demo-burst:before,.demo-burst:after{display:none!important;box-shadow:none!important}
+.stage,.panel,.recap-card{box-shadow:none!important}
+@media(max-width:700px){.hero-graphic{width:100%;max-width:100%;margin-inline:auto}.hero-graphic *{max-width:100%}}
