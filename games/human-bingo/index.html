@@ -28,10 +28,15 @@
       <a class="logo" href="../../index.html">COMMUNITY <span>GAMES BANK</span></a>
       <div class="header-actions">
         <span class="connection-status" id="connectionStatus">Connecting…</span>
+        <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="true" aria-label="Sound is on. Turn sound off">🔊</button>
         <a class="header-link" href="../../index.html">All games ↗</a>
       </div>
     </div>
   </header>
+
+  <p class="offline-banner hidden" id="offlineBanner" role="alert">
+    You're offline. Your card is saved on this phone and will sync when you're back online.
+  </p>
 
   <main class="container">
 
@@ -179,6 +184,10 @@
 
             <button class="button" type="submit">Join game</button>
             <p class="form-message" id="joinMessage" aria-live="polite"></p>
+            <p class="privacy-note">
+              We only store the name you enter and your score, not who you found.
+              Games are deleted after 24 hours.
+            </p>
           </form>
         </div>
 
@@ -224,6 +233,7 @@
           <button class="button button-secondary" id="startTimer" type="button">Start timer</button>
           <button class="button button-secondary" id="downloadResults" type="button">Download results</button>
           <button class="button button-danger" id="endGame" type="button">End game</button>
+          <button class="button button-secondary" id="newGame" type="button">Start a new game</button>
         </div>
 
         <p class="controls-note" id="gameStatusText"></p>
@@ -273,7 +283,10 @@
     <section class="participant-game hidden" id="participantGame">
       <div class="participant-heading">
         <span class="eyebrow">LET THE NETWORKING BEGIN</span>
-        <h2 id="participantWelcome">Your Human Bingo card</h2>
+        <div class="participant-title">
+          <h2 id="participantWelcome">Your Human Bingo card</h2>
+          <button class="text-button" id="leaveGame" type="button">Leave game</button>
+        </div>
         <p>Find someone who matches a square, ask for their player code, then tap the square and enter it.</p>
       </div>
 

@@ -24,7 +24,17 @@
         "Enjoys playing sports",
         "Has attended a networking event",
         "Has an interesting hobby",
-        "Met someone new today"
+        "Met someone new today",
+        "Has a nickname",
+        "Can whistle a tune",
+        "Was born in a different state from where they live now",
+        "Has run a race",
+        "Has grown a plant from a seed",
+        "Can say hello in five languages",
+        "Has been on a plane",
+        "Has a hidden talent",
+        "Prefers tea to coffee",
+        "Has made a new friend this year"
       ]
     },
     {
@@ -51,7 +61,17 @@
         "Is interested in blockchain",
         "Has taught someone to code",
         "Has a technology startup idea",
-        "Wants to build a tech company"
+        "Wants to build a tech company",
+        "Uses Git",
+        "Has put a website online",
+        "Uses dark mode in their code editor",
+        "Has fixed a bug late at night",
+        "Uses an AI tool at work",
+        "Has designed an app screen",
+        "Has written a technical blog post",
+        "Has a GitHub profile",
+        "Has built something with no-code tools",
+        "Has spoken at a tech meetup"
       ]
     },
     {
@@ -78,7 +98,17 @@
         "Runs a side business",
         "Has a business website",
         "Has participated in an accelerator",
-        "Plans to start a business"
+        "Plans to start a business",
+        "Has sold something online",
+        "Has written a business plan",
+        "Runs a social media page for a brand",
+        "Has negotiated a deal",
+        "Has a product idea they have not started yet",
+        "Has worked as a freelancer",
+        "Has registered a domain name",
+        "Has made a pitch deck",
+        "Has taken a business course",
+        "Has customers in another state"
       ]
     },
     {
@@ -105,7 +135,17 @@
         "Has taught a fellow student",
         "Is preparing for graduation",
         "Has received a scholarship",
-        "Has a career mentor"
+        "Has a career mentor",
+        "Has stayed up all night before an exam",
+        "Has led a group project",
+        "Studies with music on",
+        "Has taken an online course",
+        "Has changed their mind about their career",
+        "Has represented their school at an event",
+        "Has a favourite lecturer",
+        "Has joined a study group this month",
+        "Has worked part-time while studying",
+        "Has written for a campus magazine or blog"
       ]
     },
     {
@@ -132,7 +172,17 @@
         "Has attended a job interview this year",
         "Has worked with an international team",
         "Has received a professional award",
-        "Has a career goal for this year"
+        "Has a career goal for this year",
+        "Has updated their CV this year",
+        "Has led a meeting",
+        "Works partly from home and partly from the office",
+        "Has given a presentation at work",
+        "Has learned a new work tool this year",
+        "Has supervised an intern",
+        "Has worked night shifts",
+        "Has worked for a nonprofit",
+        "Has moved to a new city for a job",
+        "Has organized a work event"
       ]
     },
     {
@@ -159,7 +209,17 @@
         "Has a favourite book",
         "Enjoys trying new food",
         "Has a funny travel story",
-        "Can tell a good joke"
+        "Can tell a good joke",
+        "Can whistle",
+        "Has been to a wedding this year",
+        "Can cook a dish from another country",
+        "Prefers tea to coffee",
+        "Has a favourite Nollywood movie",
+        "Can juggle",
+        "Has climbed a big hill or mountain",
+        "Has a family nickname",
+        "Can do a cartwheel",
+        "Is the oldest child in their family"
       ]
     }
   ]

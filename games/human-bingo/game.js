@@ -23,6 +23,7 @@ const playersEmpty = document.getElementById("playersEmpty");
 // ----- Names used to remember things in this browser -----
 const ORGANIZER_KEY = "humanBingoOrganizer"; // which game this phone is running
 const PLAYER_KEY = "humanBingoPlayer";       // this phone's bingo card
+const SOUND_KEY = "humanBingoSound";         // "on" or "off"
 
 // ----- Game data while the page is open -----
 let templates = [];
@@ -100,6 +101,73 @@ async function connectToSupabase() {
 function isConnected() {
   return supabaseClient !== null && currentUserId !== null;
 }
+
+// ================================
+// SOUND ON / OFF
+// ================================
+
+const soundToggle = document.getElementById("soundToggle");
+
+function isSoundOn() {
+  try {
+    return localStorage.getItem(SOUND_KEY) !== "off";
+  } catch (error) {
+    return true;
+  }
+}
+
+function showSoundSetting() {
+  const on = isSoundOn();
+  soundToggle.textContent = on ? "🔊" : "🔇";
+  soundToggle.setAttribute("aria-pressed", String(on));
+  soundToggle.setAttribute("aria-label", on ? "Sound is on. Turn sound off" : "Sound is off. Turn sound on");
+  soundToggle.title = on ? "Sound on" : "Sound off";
+}
+
+soundToggle.addEventListener("click", () => {
+  try {
+    localStorage.setItem(SOUND_KEY, isSoundOn() ? "off" : "on");
+  } catch (error) {
+    // If saving fails, the button just won't remember the choice
+  }
+  showSoundSetting();
+});
+
+// ================================
+// OFFLINE / BACK ONLINE
+// ================================
+
+const offlineBanner = document.getElementById("offlineBanner");
+
+// The phone lost its internet connection
+window.addEventListener("offline", () => {
+  setConnectionStatus("offline", "Offline");
+  offlineBanner.classList.remove("hidden");
+});
+
+// The internet is back: reconnect and send anything we missed
+window.addEventListener("online", async () => {
+  offlineBanner.classList.add("hidden");
+
+  if (!isConnected()) {
+    const connected = await connectToSupabase();
+    if (connected) {
+      await restoreSession();
+    }
+    return;
+  }
+
+  setConnectionStatus("online", "Connected");
+
+  if (currentPlayer) {
+    syncProgress();
+    refreshPlayerGame();
+  }
+
+  if (lobbyGame) {
+    loadPlayers(lobbyGame.id);
+  }
+});
 
 // ================================
 // HELPERS
@@ -739,6 +807,39 @@ downloadButton.addEventListener("click", () => {
   URL.revokeObjectURL(link.href);
 });
 
+// Close this game and go back to the "Create a game" form
+document.getElementById("newGame").addEventListener("click", async () => {
+  const sure = confirm(
+    isGameOver(lobbyGame)
+      ? "Start a new game?"
+      : "Start a new game? This game will be ended first."
+  );
+
+  if (!sure) {
+    return;
+  }
+
+  if (!isGameOver(lobbyGame)) {
+    const ended = await updateGame({ status: "ended" });
+    if (!ended) {
+      return;
+    }
+  }
+
+  if (lobbyChannel) {
+    supabaseClient.removeChannel(lobbyChannel);
+    lobbyChannel = null;
+  }
+
+  lobbyGame = null;
+  lastPlayers = [];
+  removeSaved(ORGANIZER_KEY);
+  organizerLobby.classList.add("hidden");
+  createGameForm.reset();
+  updateWinModeOptions();
+  document.getElementById("organizer").scrollIntoView({ behavior: "smooth" });
+});
+
 // ================================
 // TIMERS (organizer and players)
 // ================================
@@ -1090,9 +1191,9 @@ squareForm.addEventListener("submit", async (event) => {
     return;
   }
 
-  if (!isConnected()) {
+  if (!isConnected() || !navigator.onLine) {
     dialogMessage.textContent =
-      "You are offline. Check your internet connection and try again.";
+      "You are offline. Connect to the internet and try again.";
     return;
   }
 
@@ -1106,7 +1207,9 @@ squareForm.addEventListener("submit", async (event) => {
     foundPlayer = await findPlayerByCode(code);
   } catch (error) {
     console.error("Could not check code:", error);
-    dialogMessage.textContent = "Could not check the code. Please try again.";
+    dialogMessage.textContent = navigator.onLine
+      ? "Could not check the code. Please try again."
+      : "You are offline. Connect to the internet and try again.";
     submitButton.disabled = false;
     return;
   }
@@ -1289,8 +1392,40 @@ function updatePlayerGameState() {
   }
 }
 
-// What happens if the organizer removes this player
-function handleRemovedPlayer() {
+// The player leaves the game themselves
+document.getElementById("leaveGame").addEventListener("click", async () => {
+  const over = isGameOver(playerGame);
+
+  const sure = confirm(
+    over
+      ? "Leave this game? Your card will be cleared from this phone."
+      : "Leave this game? You will be removed from the leaderboard."
+  );
+
+  if (!sure) {
+    return;
+  }
+
+  // While the game is running, remove the player so their name is freed.
+  // After it ends, keep them on the leaderboard for the organizer's results.
+  if (!over && isConnected()) {
+    const { error } = await supabaseClient
+      .from("players")
+      .delete()
+      .eq("id", currentPlayer.playerId);
+
+    if (error) {
+      console.error("Could not leave the game:", error);
+      alert("Sorry, that didn't work. Check your connection and try again.");
+      return;
+    }
+  }
+
+  leaveCard("You left the game. You can join another one any time.");
+});
+
+// Clear the card from this phone and go back to the "Join" form
+function leaveCard(message) {
   removeSaved(PLAYER_KEY);
   currentPlayer = null;
   playerGame = null;
@@ -1301,8 +1436,14 @@ function handleRemovedPlayer() {
   }
 
   participantGame.classList.add("hidden");
-  joinMessage.textContent = "You were removed from that game by the organizer.";
+  participantGame.classList.remove("is-locked");
+  joinMessage.textContent = message;
   document.getElementById("join").scrollIntoView({ behavior: "smooth" });
+}
+
+// What happens if the organizer removes this player
+function handleRemovedPlayer() {
+  leaveCard("You were removed from that game by the organizer.");
 }
 
 // Count completed squares
@@ -1482,6 +1623,10 @@ function launchConfetti() {
 let audioContext = null;
 
 function playWinSound() {
+  if (!isSoundOn()) {
+    return;
+  }
+
   try {
     const AudioContextClass = window.AudioContext || window.webkitAudioContext;
 
@@ -1583,7 +1728,13 @@ function prefillRoomCode() {
 }
 
 async function startGame() {
+  showSoundSetting();
   updateWinModeOptions();
+
+  if (!navigator.onLine) {
+    offlineBanner.classList.remove("hidden");
+  }
+
   loadTemplates();
   prefillRoomCode();
 

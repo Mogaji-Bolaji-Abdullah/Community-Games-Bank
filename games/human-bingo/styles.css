@@ -7,7 +7,7 @@
   --peach: #ff987b;
   --lavender: #b4a4ff;
   --white: #ffffff;
-  --muted: #687581;
+  --muted: #5d6974;
   --line: #e1e5e6;
   --radius: 24px;
   --shadow: 0 12px 35px rgba(17, 29, 41, 0.07);
@@ -79,7 +79,7 @@ button {
 }
 
 .logo span {
-  color: #168c75;
+  color: #11735f;
 }
 
 .header-link {
@@ -121,6 +121,50 @@ button {
   background: #bd4937;
 }
 
+.sound-toggle {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--white);
+  font-size: 15px;
+  line-height: 1;
+}
+
+.offline-banner {
+  margin: 0;
+  padding: 12px 20px;
+  background: #bd4937;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.privacy-note {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.participant-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.text-button {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+}
+
 /* HERO */
 
 .hero {
@@ -134,7 +178,7 @@ button {
 .eyebrow {
   display: inline-block;
   margin-bottom: 15px;
-  color: #168c75;
+  color: #11735f;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 1.5px;
@@ -150,7 +194,7 @@ button {
 }
 
 .hero h1 span {
-  color: #168c75;
+  color: #11735f;
 }
 
 .hero-description {
@@ -234,7 +278,7 @@ button {
   padding: 6px 11px;
   border-radius: 30px;
   background: #e5faf4;
-  color: #168c75;
+  color: #11735f;
   font-size: 11px;
   font-weight: 800;
 }
@@ -314,7 +358,7 @@ button {
   margin-bottom: 15px;
   border-radius: 12px;
   background: #e5faf4;
-  color: #168c75;
+  color: #11735f;
   font-size: 22px;
 }
 
@@ -441,7 +485,7 @@ button {
 }
 
 .room-code-box span {
-  color: #168c75;
+  color: #11735f;
   font-size: 12px;
   font-weight: 800;
 }
@@ -515,7 +559,7 @@ button {
   padding: 5px 11px;
   border-radius: 30px;
   background: #e5faf4;
-  color: #168c75;
+  color: #11735f;
   font-size: 12px;
   font-weight: 800;
 }
@@ -729,7 +773,7 @@ button {
 }
 
 .join-link a {
-  color: #168c75;
+  color: #11735f;
   font-weight: 700;
 }
 
@@ -768,7 +812,7 @@ button {
 .prompt-list li::before {
   counter-increment: prompts;
   content: counter(prompts, decimal-leading-zero) " ";
-  color: #168c75;
+  color: #11735f;
   font-weight: 800;
 }
 
@@ -941,7 +985,7 @@ button {
 }
 
 .square-number {
-  color: #168c75;
+  color: #11735f;
   font-size: 11px;
   font-weight: 800;
 }
@@ -1061,6 +1105,10 @@ button {
   border-radius: var(--radius);
   background: var(--navy);
   color: var(--white);
+}
+
+.rules-panel .eyebrow {
+  color: var(--teal);
 }
 
 .rules-panel h2 {
