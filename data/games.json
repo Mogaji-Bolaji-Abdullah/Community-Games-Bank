@@ -79,5 +79,42 @@
       "lineOne": "CROWD",
       "lineTwo": "SAYS!"
     }
+  },
+  {
+    "id": "piece-by-piece",
+    "title": "Piece by Piece",
+    "eyebrow": "BUILD TOGETHER · BEAT THE CLOCK",
+    "description": "A live, team-based jigsaw challenge. Join your teammates on one shared puzzle, drag pieces into place and race the clock.",
+    "category": "Collaborative games",
+    "tags": [
+      "Team games",
+      "Collaborative games",
+      "Energizers"
+    ],
+    "searchTerms": [
+      "jigsaw",
+      "puzzle",
+      "teamwork",
+      "collaboration",
+      "african art",
+      "group challenge",
+      "competition",
+      "timer",
+      "multiplayer"
+    ],
+    "details": [
+      "2–4 teams",
+      "2–3 players per team",
+      "5–15 minute rounds"
+    ],
+    "status": "live",
+    "href": "/games/piece-by-piece/",
+    "sourceHref": "https://github.com/Mogaji-Bolaji-Abdullah/Community-Games-Bank/tree/main/games/piece-by-piece",
+    "art": {
+      "theme": "lime",
+      "sticker": "PUT IT TOGETHER",
+      "lineOne": "PIECE",
+      "lineTwo": "BY PIECE."
+    }
   }
 ]
