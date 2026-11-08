@@ -167,3 +167,33 @@ html,body{max-width:100%;overflow-x:clip}
  .games-more-wrap{margin-top:20px}
  .games-more-wrap .button{width:100%;max-width:340px}
 }
+
+
+/* MOTION RESTORE — keep movement flat and lightweight, never faux-3D. */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  .button, .wishlist-button, .icon-button, .game-card, .roadmap-card,
+  .step, .step-icon, .desktop-nav a, .preview-pip, .charades-poster {
+    transition: transform .28s ease, background-color .25s ease, border-color .25s ease, opacity .25s ease;
+  }
+  .button:hover, .wishlist-button:hover { transform: translateY(-2px) !important; }
+  .game-card:hover, .roadmap-card:hover { transform: translateY(-3px) !important; }
+  .step:hover .step-icon { transform: translateY(-3px) !important; }
+  .mock-window { animation: cgbFloat 6s ease-in-out infinite !important; }
+  .tag-top { animation: cgbTagFloat 5.5s ease-in-out infinite !important; }
+  .tag-bottom { animation: cgbTagFloat 6.2s ease-in-out infinite reverse !important; }
+  .hero-spark { animation: cgbSpark 9s ease-in-out infinite alternate !important; }
+  .marquee-inner.is-looping { animation: marqueeRoll 38s linear infinite !important; }
+  .poster-stars { animation: cgbSpark 5s ease-in-out infinite alternate !important; }
+  .trivia-bubble { animation: cgbBubble 5.5s ease-in-out infinite !important; }
+  .spinner-art { animation: rouletteRotate 19s linear infinite !important; }
+  .reveal-target { will-change: opacity, transform; }
+}
+@keyframes cgbFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+@keyframes cgbTagFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+@keyframes cgbSpark { from{opacity:.65;transform:translateY(0)} to{opacity:1;transform:translateY(-5px)} }
+@keyframes cgbBubble { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+@media (prefers-reduced-motion: reduce) {
+  .mock-window,.tag-top,.tag-bottom,.hero-spark,.marquee-inner.is-looping,
+  .poster-stars,.trivia-bubble,.spinner-art { animation:none !important; }
+}
