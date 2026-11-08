@@ -120,7 +120,7 @@
 
   // Sections reveal on entry, not by hiding the site until JavaScript loads.
   function setupReveals(){
-    if(reducedMotion.matches || !('IntersectionObserver' in window)) return;
+    if(!('IntersectionObserver' in window)) return;
     document.body.classList.add('motion-on');
     const selectors = [
       '.section-header > div','.library-count','.directory-tools','.roadmap-title',
