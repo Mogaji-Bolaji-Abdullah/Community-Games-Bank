@@ -130,18 +130,16 @@ html,body{max-width:100%;overflow-x:clip}
 .charades-poster{border:2px solid #344b2e!important;background:#d9edb5!important;color:#20331f!important}
 .survey-illustration{border:2px solid #1b3773!important;background:#203f80!important;color:#fff!important}
 .little-sticker,.floating-tag{border:1px solid #d9dfd1!important}
-.tag-top,.tag-bottom{animation:none!important}
 .game-card:hover .charades-poster{transform:none!important}
-.mock-window{animation:none!important}
 .contribute-panel:after,.hero-art:before,.hero-art:after{box-shadow:none!important;filter:none!important}
 @media(prefers-reduced-motion:no-preference){.game-card:hover .game-visual{transform:translateY(-2px)!important}}
 
 
 /* FINAL ART-DIRECTION OVERRIDE: flat 2D only. Decorative starbursts and faux-depth stickers removed. */
 .hero-spark,.hero-spark-one,.hero-spark-two,.floating-tag,.art-corner-stamp,.contrib-deco,.contrib-sticker,.poster-stars,.little-sticker{display:none!important}
-.mock-window,.mock-window:hover,.hero-art:before,.hero-art:after{transform:none!important;box-shadow:none!important;filter:none!important;perspective:none!important}
+.mock-window,.mock-window:hover,.hero-art:before,.hero-art:after{box-shadow:none!important;filter:none!important;perspective:none!important}
 .mock-window{border:2px solid #263329!important;border-radius:18px!important}
-.button,.button:hover,.wishlist-button,.wishlist-button:hover,.icon-button,.github-top,.brandmark,.brandmark i{transform:none!important;box-shadow:none!important;filter:none!important}
+.button,.button:hover,.wishlist-button,.wishlist-button:hover,.icon-button,.github-top,.brandmark,.brandmark i{box-shadow:none!important;filter:none!important}
 .button{border-width:1px!important;border-radius:10px!important}
 .game-visual,.charades-poster,.survey-illustration,.roadmap-art,.spinner-art,.bingo-grid{box-shadow:none!important;filter:none!important;transform:none!important;perspective:none!important}
 .spinner-art{border:2px solid currentColor!important;border-radius:50%!important}
@@ -196,4 +194,48 @@ html,body{max-width:100%;overflow-x:clip}
 @media (prefers-reduced-motion: reduce) {
   .mock-window,.tag-top,.tag-bottom,.hero-spark,.marquee-inner.is-looping,
   .poster-stars,.trivia-bubble,.spinner-art { animation:none !important; }
+}
+
+
+/* CGB motion system v4 — flat 2D movement; cache-busted from the HTML. */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth !important; }
+  body.motion-on .reveal-target {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: none;
+    transition: opacity .65s ease var(--reveal-delay,0ms), transform .65s cubic-bezier(.2,.7,.2,1) var(--reveal-delay,0ms);
+  }
+  body.motion-on .reveal-target.is-visible { opacity:1; transform:translateY(0); }
+  body.motion-on .hero-copy .eyebrow,
+  body.motion-on .hero-copy h1,
+  body.motion-on .hero-copy .hero-description,
+  body.motion-on .hero-copy .hero-buttons,
+  body.motion-on .hero-copy .benefits {
+    animation: cgbRise .7s cubic-bezier(.2,.7,.2,1) both;
+  }
+  body.motion-on .hero-copy h1 { animation-delay: .12s; }
+  body.motion-on .hero-copy .hero-description { animation-delay: .24s; }
+  body.motion-on .hero-copy .hero-buttons { animation-delay: .36s; }
+  body.motion-on .hero-copy .benefits { animation-delay: .48s; }
+  .mock-window { animation: cgbFloatFlat 6s ease-in-out infinite !important; }
+  .tag-top { animation: cgbFloatFlat 5.5s ease-in-out infinite !important; }
+  .tag-bottom { animation: cgbFloatFlat 6.2s ease-in-out infinite reverse !important; }
+  .hero-spark { animation: cgbSparkFlat 8s ease-in-out infinite alternate !important; }
+  .marquee-inner.is-looping { animation: marqueeRoll 38s linear infinite !important; }
+  .trivia-bubble { animation: cgbFloatFlat 5.5s ease-in-out infinite !important; }
+  .spinner-art { animation: rouletteRotate 24s linear infinite !important; }
+  .game-card,.roadmap-card,.button,.wishlist-button,.step-icon {
+    transition: transform .25s ease, background-color .25s ease, border-color .25s ease !important;
+  }
+  .game-card:hover,.roadmap-card:hover { transform:translateY(-4px) !important; }
+  .button:hover,.wishlist-button:hover { transform:translateY(-2px) !important; }
+  .step:hover .step-icon { transform:translateY(-3px) !important; }
+}
+@keyframes cgbRise { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:translateY(0)} }
+@keyframes cgbFloatFlat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+@keyframes cgbSparkFlat { from{opacity:.55} to{opacity:1} }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto !important; }
+  body.motion-on .reveal-target { opacity:1 !important; transform:none !important; transition:none !important; }
 }
