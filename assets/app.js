@@ -93,8 +93,8 @@
     dialog.showModal();document.body.classList.add('dialog-open');$('#ideaName').focus();
   }
   function closeSuggest() {dialog.close();document.body.classList.remove('dialog-open');}
-  $('[data-open-suggest]').forEach(btn=>btn.addEventListener('click',()=>openSuggest()));
-  $('[data-request]').forEach(btn=>btn.addEventListener('click',()=>openSuggest(btn.dataset.request)));
+  $$('[data-open-suggest]').forEach(btn=>btn.addEventListener('click',()=>openSuggest()));
+  $$('[data-request]').forEach(btn=>btn.addEventListener('click',()=>openSuggest(btn.dataset.request)));
   $('#closeDialog').addEventListener('click',closeSuggest);
   dialog.addEventListener('close',()=>document.body.classList.remove('dialog-open'));
   dialog.addEventListener('click',(event)=>{if(event.target===dialog)closeSuggest();});
