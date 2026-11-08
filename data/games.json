@@ -116,5 +116,43 @@
       "lineOne": "PIECE",
       "lineTwo": "BY PIECE."
     }
+  },
+  {
+    "id": "human-bingo",
+    "title": "Human Bingo",
+    "eyebrow": "MEET PEOPLE · MAKE CONNECTIONS",
+    "description": "Turn networking into a game. Create a room, share the code or QR, and challenge everyone to find people who match their bingo prompts.",
+    "category": "Networking games",
+    "tags": [
+      "Networking games",
+      "Icebreakers",
+      "Team games"
+    ],
+    "searchTerms": [
+      "human bingo",
+      "networking",
+      "icebreaker",
+      "meet people",
+      "connection",
+      "bingo card",
+      "QR code",
+      "room code",
+      "community events",
+      "introductions"
+    ],
+    "details": [
+      "9–25 squares per card",
+      "Custom prompts and templates",
+      "Live player leaderboard"
+    ],
+    "status": "live",
+    "href": "/games/human-bingo/",
+    "sourceHref": "https://github.com/Mogaji-Bolaji-Abdullah/Community-Games-Bank/tree/main/games/human-bingo",
+    "art": {
+      "theme": "blue",
+      "sticker": "MEET YOUR PEOPLE",
+      "lineOne": "HUMAN",
+      "lineTwo": "BINGO!"
+    }
   }
 ]
