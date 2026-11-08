@@ -16,6 +16,7 @@
     const visual = el('div', `game-visual visual-${theme}`);
     visual.setAttribute('aria-hidden', 'true');
     visual.innerHTML = `<span class="little-sticker">${esc(art.sticker||'LET’S PLAY ↗')}</span><div class="charades-poster"><div class="poster-top">COMMUNITY GAMES BANK</div><div class="poster-stars">✳</div><div class="poster-word"><span class="poster-word-one">${esc(art.lineOne||'LET’S')}</span><br><em class="poster-word-two">${esc(art.lineTwo||'PLAY.')}</em></div><div class="poster-foot">GOOD GAMES. GREAT PEOPLE.</div></div>`;
+    if(game.id==='crowd-says') visual.innerHTML = `<span class="little-sticker">GUESS. REVEAL. STEAL.</span><div class="survey-illustration"><div class="survey-top"><span class="survey-spark">✳</span><strong>CROWD SAYS!</strong><span class="survey-spark">✳</span></div><div class="survey-question">What's on the board?</div><div class="survey-answers"><div><b>01</b><span>GOOD ANSWER</span><strong>40</strong></div><div><b>02</b><span>BIG REVEAL!</span><strong>25</strong></div><div class="blank"><b>03</b><span>?????</span><strong>??</strong></div><div class="blank"><b>04</b><span>?????</span><strong>??</strong></div></div><div class="survey-bottom">3 STRIKES <span>✕ ✕ ✕</span> ONE STEAL</div></div>`;
     const info = el('div','game-content');
     const top = el('div','game-topline');
     top.append(el('span','status-badge','PLAYABLE NOW'),el('span','game-category',game.category.toUpperCase()));
@@ -24,7 +25,7 @@
     const meta = el('div','game-meta');
     game.details.forEach(detail => meta.append(el('span','',detail)));
     const actions = el('div','game-actions');
-    const play = el('a','button button-dark button-large','Play the game →');
+    const play = el('a','button button-dark button-large','Play now →');
     play.href=game.href;
     play.setAttribute('aria-label',`Play ${game.title}`);
     const src=el('a','inline-source','View source ↗');
@@ -82,38 +83,33 @@
     }
   }
 
-  function suggestIssue(title,description,context='') {
-    const body=[
-      '## Game idea',title,
-      '', '## Best for',context||'Community events and group activities',
-      '', '## How to play',description||'I would love to see this game added to the Community Games Bank.',
-      '', '## Additional notes','I am happy to discuss the idea with the community.'
-    ].join('\n');
-    return `${REPO}/issues/new?title=${encodeURIComponent(`Game suggestion: ${title}`)}&body=${encodeURIComponent(body)}`;
-  }
-
   const dialog=$('#suggestDialog');
   const form=$('#suggestForm');
+  const submitButton=form.querySelector('[type="submit"]');
+  const status=$('#suggestStatus');
   function openSuggest(prefill='') {
     form.reset();
     if(prefill) $('#ideaName').value=prefill;
-    dialog.showModal();document.body.classList.add('dialog-open');
-    $('#ideaName').focus();
+    status.textContent=''; submitButton.disabled=false; submitButton.textContent='Send game suggestion →';
+    dialog.showModal();document.body.classList.add('dialog-open');$('#ideaName').focus();
   }
   function closeSuggest() {dialog.close();document.body.classList.remove('dialog-open');}
-  $$('[data-open-suggest]').forEach(btn=>btn.addEventListener('click',()=>openSuggest()));
-  $$('[data-request]').forEach(btn=>btn.addEventListener('click',()=>openSuggest(btn.dataset.request)));
+  $('[data-open-suggest]').forEach(btn=>btn.addEventListener('click',()=>openSuggest()));
+  $('[data-request]').forEach(btn=>btn.addEventListener('click',()=>openSuggest(btn.dataset.request)));
   $('#closeDialog').addEventListener('click',closeSuggest);
   dialog.addEventListener('close',()=>document.body.classList.remove('dialog-open'));
   dialog.addEventListener('click',(event)=>{if(event.target===dialog)closeSuggest();});
-  form.addEventListener('submit',(event)=>{
-    event.preventDefault();
-    if(!form.reportValidity())return;
-    const name=$('#ideaName').value.trim(),desc=$('#ideaDescription').value.trim(),context=$('#ideaUse').value;
-    if(!name||!desc||!context)return;
-    const url=suggestIssue(name,desc,context);
-    closeSuggest();
-    window.location.assign(url);
+  form.addEventListener('submit',async(event)=>{
+    event.preventDefault(); if(!form.reportValidity())return;
+    const payload={game_name:$('#ideaName').value.trim(),use_case:$('#ideaUse').value,description:$('#ideaDescription').value.trim(),website:$('#ideaWebsite').value};
+    if(!payload.game_name||!payload.description||!payload.use_case)return;
+    submitButton.disabled=true;submitButton.textContent='Sending…';status.textContent='Saving your suggestion…';
+    try{
+      const response=await fetch('/api/suggest',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      const result=await response.json().catch(()=>({}));
+      if(!response.ok)throw new Error(result.error||'We couldn’t save your suggestion. Please try again.');
+      status.textContent='Thanks! Your game idea has been added to the suggestions inbox.';submitButton.textContent='Suggestion sent ✓';form.reset();
+    }catch(error){status.textContent=error.message||'Something went wrong. Please try again.';submitButton.disabled=false;submitButton.textContent='Try again →';}
   });
 
   const menu=$('#menuToggle'),mobile=$('#mobileNav');
@@ -212,7 +208,7 @@
     });
   }
   function rotatePoster(index){
-    const card=$('.game-visual');
+    const card=$('.visual-lime');
     if(!card)return;
     clearTimeout(posterTimeout);
     if(!card.querySelector('.poster-word-one'))return;

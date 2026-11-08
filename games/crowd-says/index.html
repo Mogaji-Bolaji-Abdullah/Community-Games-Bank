@@ -1,23 +1,48 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#111d29">
-<meta name="description" content="Crowd Says! A host-led survey showdown built for community events, workshops and game nights. Nigerian, African and global question packs.">
-<meta property="og:title" content="Crowd Says! — A community survey showdown"><meta property="og:description" content="Two teams. Hidden answers. Big reactions. Play a free, host-controlled survey game with your crowd.">
-<title>Crowd Says! — The Community Survey Showdown</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles.css">
-
-<script src="./game.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101c44">
+  <meta name="description" content="Crowd Says! — a free, host-controlled survey showdown for Nigerian, African and global community events. Teams, hidden answers, strikes, steals and a projector screen.">
+  <title>Crowd Says! — A guessing game for groups</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./questions.js" defer></script>
+  <script src="./app.js" defer></script>
 </head>
 <body>
-<div id="siteShell">
-<header class="topbar container"><a href="./" class="wordmark" aria-label="Crowd Says home"><span class="brandMark" aria-hidden="true">✳</span><span>CROWD<span class="brandAccent">SAYS!</span><small>THE COMMUNITY SHOWDOWN</small></span></a><div class="top-actions"><span class="top-tag">EARLY ACCESS · PLAYTEST BUILD</span><button type="button" class="top-link" id="topRules">How to play <span aria-hidden="true">↗</span></button><button type="button" class="icon-button" id="soundToggle" title="Toggle sound" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg></button><button type="button" class="top-link audience-link" id="openAudience">Audience display <span aria-hidden="true">↗</span></button></div></header>
-<main id="app" aria-live="polite"><div class="loadingState container"><span class="loadingSpinner"></span> Setting up the show...</div></main>
-<footer class="site-footer container"><div><span class="foot-logo">✳ CROWD SAYS!</span><span>Made for people who bring people together.</span></div><div class="foot-right"><a href="https://github.com/Mogaji-Bolaji-Abdullah/Community-Games-Bank/tree/main/games/crowd-says" target="_blank" rel="noopener">Source on GitHub ↗</a><span>Experimental game · Curated play scores, not survey data</span></div></footer>
-</div>
-<div id="rulesDialog" class="modal-backdrop" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="rulesTitle"><div class="modal-head"><span class="mini-label">HOST PLAYBOOK</span><button class="close-button" type="button" id="closeRules" aria-label="Close rules">×</button></div><h2 id="rulesTitle">How to run the showdown.</h2><p class="modal-lead">For community managers, facilitators and event hosts. You run one laptop; teams answer aloud and the crowd watches the big board.</p><div class="steps"><div><b>01</b><p><strong>Make two teams.</strong> Choose names, select Nigeria, Africa or Global packs and decide how many rounds to play. A host or MC operates the buttons.</p></div><div><b>02</b><p><strong>Face-off.</strong> Read the question. Invite one player per team to answer; reveal any matching answers. The player with the higher-ranked answer wins control, then chooses <em>play</em> or <em>pass</em>.</p></div><div><b>03</b><p><strong>Play the board.</strong> The controlling team takes turns guessing. The host reveals answers and awards their displayed points to a round pot. A wrong answer is one strike.</p></div><div><b>04</b><p><strong>Three strikes = steal.</strong> The opposing team gets ONE final guess. If it reveals a new correct answer, they take the whole round pot. If not, the original team banks it. Clearing the board banks the pot immediately.</p></div><div><b>05</b><p><strong>Count the points.</strong> Rounds 1–2 are ×1, rounds 3–4 are ×2, and rounds 5+ are ×3. After the last round, the highest total wins. Try the optional two-player Bonus Dash.</p></div></div><div class="rules-note"><strong>Fair-play rules:</strong> No phones or audience hints; teams answer within the host's time limit; the host accepts reasonable synonyms and settles disputes. Unrevealed answers are never shown on the projector. The points are fictional, editorial play values — not results from a real survey.</div><button type="button" class="btn primary full" id="rulesGotIt">Got it — let's play <span>→</span></button></div></div>
-<div class="toast" role="status" aria-live="polite" id="toast"></div>
-</body></html>
+  <div class="noise" aria-hidden="true"></div>
+  <div id="app" aria-live="polite"></div>
+  <div id="effect-layer" aria-hidden="true"></div>
+  <dialog id="rules-dialog" class="info-dialog">
+    <div class="dialog-header"><div><span class="eyebrow">EVERYONE CAN PLAY</span><h2>How to play Crowd Says!</h2></div><button class="icon-button close-dialog" data-action="closeRules" aria-label="Close rules">✕</button></div>
+    <div class="rules-intro">Two teams guess the hidden answers. The host reveals matches, tracks points and decides the winner.</div>
+    <div class="rules-grid">
+      <article><span class="rule-number">01</span><h3>Choose your teams</h3><p>Make 2–8 teams. Choose ready-made questions, your own, or a mix. Pick the number of rounds and a timer. Put the separate audience screen on your projector.</p></article>
+      <article><span class="rule-number">02</span><h3>Face-off & take control</h3><p>The host reads the prompt. One representative from each of the two selected teams gives an answer. The host determines who wins the face-off and selects the team that will play the board.</p></article>
+      <article><span class="rule-number">03</span><h3>Reveal or strike</h3><p>Players take turns guessing an answer on the board. The host clicks the matching answer privately to reveal it. Incorrect or repeated answers earn one strike. After three strikes, the rival team gets one steal attempt.</p></article>
+      <article><span class="rule-number">04</span><h3>Steal the round</h3><p>The rival team gives just one answer. If it matches an unrevealed answer, they win the entire round pot. If not, the original team keeps the pot. Clearing the whole board also wins the round.</p></article>
+      <article><span class="rule-number">05</span><h3>Points & winner</h3><p>Each revealed answer adds its displayed play points to the round pot. Round 1–2: 1×; rounds 3–4: 2×; rounds 5+: 3×. The team with the most total points at the end wins.</p></article>
+      <article><span class="rule-number">06</span><h3>Host rules</h3><p>The host has the final say on close answers, timing and disputes. Keep answers secret, take turns, respect all cultures and participants, and play fair. Timers do not automatically issue strikes.</p></article>
+    </div>
+    <div class="rules-note"><strong>Important:</strong> The included question cards are original, curated prompts with <em>illustrative play-point values</em> — not results from 100 surveyed people. This is an independent event game, not affiliated with the Family Feud TV franchise. The audience display syncs only between windows on the same device/browser; it is not a multi-device online room.</div>
+    <div class="dialog-actions"><button class="btn btn-primary" data-action="closeRules">Got it — let's play <span>↗</span></button></div>
+  </dialog>
+  <dialog id="custom-dialog" class="info-dialog narrow">
+    <div class="dialog-header"><div><span class="eyebrow">MAKE IT YOURS</span><h2>Add a custom question</h2></div><button class="icon-button" data-action="closeCustom" aria-label="Close form">✕</button></div>
+    <p class="modal-copy">Write a question for your event, add answers and set points. Choose My questions to play yours, or All cards to mix them in.</p>
+    <form id="custom-form">
+      <label class="field-label" for="custom-prompt">Your question</label>
+      <textarea id="custom-prompt" rows="2" placeholder="Name something people bring to a meetup..." required maxlength="220"></textarea>
+      <label class="field-label" for="custom-answers">Answers, one per line</label>
+      <textarea id="custom-answers" rows="7" placeholder="Networking | 35&#10;Eating snacks | 25&#10;Taking photos | 18&#10;Playing games | 12&#10;Making friends | 7&#10;Listening to talks | 3" required></textarea>
+      <p class="field-hint">Add 4–8 different answers, one per line. Use <strong>Answer | points</strong> (for example: <strong>Jollof rice | 40</strong>). Higher points mean a higher-ranked answer.</p>
+      <div id="custom-error" class="form-error" role="alert"></div>
+      <button class="btn btn-primary full" type="submit">Save my question <span>＋</span></button>
+    </form>
+  </dialog>
+</body>
+</html>
