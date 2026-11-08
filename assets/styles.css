@@ -135,3 +135,15 @@ html,body{max-width:100%;overflow-x:clip}
 .mock-window{animation:none!important}
 .contribute-panel:after,.hero-art:before,.hero-art:after{box-shadow:none!important;filter:none!important}
 @media(prefers-reduced-motion:no-preference){.game-card:hover .game-visual{transform:translateY(-2px)!important}}
+
+
+/* FINAL ART-DIRECTION OVERRIDE: flat 2D only. Decorative starbursts and faux-depth stickers removed. */
+.hero-spark,.hero-spark-one,.hero-spark-two,.floating-tag,.art-corner-stamp,.contrib-deco,.contrib-sticker,.poster-stars,.little-sticker{display:none!important}
+.mock-window,.mock-window:hover,.hero-art:before,.hero-art:after{transform:none!important;box-shadow:none!important;filter:none!important;perspective:none!important}
+.mock-window{border:2px solid #263329!important;border-radius:18px!important}
+.button,.button:hover,.wishlist-button,.wishlist-button:hover,.icon-button,.github-top,.brandmark,.brandmark i{transform:none!important;box-shadow:none!important;filter:none!important}
+.button{border-width:1px!important;border-radius:10px!important}
+.game-visual,.charades-poster,.survey-illustration,.roadmap-art,.spinner-art,.bingo-grid{box-shadow:none!important;filter:none!important;transform:none!important;perspective:none!important}
+.spinner-art{border:2px solid currentColor!important;border-radius:50%!important}
+.roadmap-art,.game-visual{background:#eef2e7!important;border:1px solid #d6deca!important}
+.brandmark{transform:none!important}
