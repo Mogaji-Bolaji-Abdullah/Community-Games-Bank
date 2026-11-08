@@ -83,38 +83,33 @@
     }
   }
 
-  function suggestIssue(title,description,context='') {
-    const body=[
-      '## Game idea',title,
-      '', '## Best for',context||'Community events and group activities',
-      '', '## How to play',description||'I would love to see this game added to the Community Games Bank.',
-      '', '## Additional notes','I am happy to discuss the idea with the community.'
-    ].join('\n');
-    return `${REPO}/issues/new?title=${encodeURIComponent(`Game suggestion: ${title}`)}&body=${encodeURIComponent(body)}`;
-  }
-
   const dialog=$('#suggestDialog');
   const form=$('#suggestForm');
+  const submitButton=form.querySelector('[type="submit"]');
+  const status=$('#suggestStatus');
   function openSuggest(prefill='') {
     form.reset();
     if(prefill) $('#ideaName').value=prefill;
-    dialog.showModal();document.body.classList.add('dialog-open');
-    $('#ideaName').focus();
+    status.textContent=''; submitButton.disabled=false; submitButton.textContent='Send game suggestion →';
+    dialog.showModal();document.body.classList.add('dialog-open');$('#ideaName').focus();
   }
   function closeSuggest() {dialog.close();document.body.classList.remove('dialog-open');}
-  $$('[data-open-suggest]').forEach(btn=>btn.addEventListener('click',()=>openSuggest()));
-  $$('[data-request]').forEach(btn=>btn.addEventListener('click',()=>openSuggest(btn.dataset.request)));
+  $('[data-open-suggest]').forEach(btn=>btn.addEventListener('click',()=>openSuggest()));
+  $('[data-request]').forEach(btn=>btn.addEventListener('click',()=>openSuggest(btn.dataset.request)));
   $('#closeDialog').addEventListener('click',closeSuggest);
   dialog.addEventListener('close',()=>document.body.classList.remove('dialog-open'));
   dialog.addEventListener('click',(event)=>{if(event.target===dialog)closeSuggest();});
-  form.addEventListener('submit',(event)=>{
-    event.preventDefault();
-    if(!form.reportValidity())return;
-    const name=$('#ideaName').value.trim(),desc=$('#ideaDescription').value.trim(),context=$('#ideaUse').value;
-    if(!name||!desc||!context)return;
-    const url=suggestIssue(name,desc,context);
-    closeSuggest();
-    window.location.assign(url);
+  form.addEventListener('submit',async(event)=>{
+    event.preventDefault(); if(!form.reportValidity())return;
+    const payload={game_name:$('#ideaName').value.trim(),use_case:$('#ideaUse').value,description:$('#ideaDescription').value.trim(),website:$('#ideaWebsite').value};
+    if(!payload.game_name||!payload.description||!payload.use_case)return;
+    submitButton.disabled=true;submitButton.textContent='Sending…';status.textContent='Saving your suggestion…';
+    try{
+      const response=await fetch('/api/suggest',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      const result=await response.json().catch(()=>({}));
+      if(!response.ok)throw new Error(result.error||'We couldn’t save your suggestion. Please try again.');
+      status.textContent='Thanks! Your game idea has been added to the suggestions inbox.';submitButton.textContent='Suggestion sent ✓';form.reset();
+    }catch(error){status.textContent=error.message||'Something went wrong. Please try again.';submitButton.disabled=false;submitButton.textContent='Try again →';}
   });
 
   const menu=$('#menuToggle'),mobile=$('#mobileNav');
