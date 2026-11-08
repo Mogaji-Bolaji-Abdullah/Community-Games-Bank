@@ -119,3 +119,19 @@ body.motion-on.hero-enter .tag-bottom{animation:tagAppear .85s var(--motion-snap
 html,body{max-width:100%;overflow-x:clip}
 .hero-art,.library-header{min-width:0}
 @media(max-width:360px){.hero-art{overflow:clip;border-radius:15px}.library-count{flex-shrink:0}.library-header{gap:12px}.section-header>div{min-width:0}.mock-bottom{gap:5px}}
+
+/* CGB flat 2D art direction — remove faux depth from every decorative illustration. */
+.hero-art{perspective:none!important;filter:none!important}
+.mock-window,.mock-window:hover{transform:none!important;box-shadow:none!important;border:2px solid #263329!important;border-radius:18px!important}
+.mock-body{box-shadow:none!important}
+.floating-tag,.tag-top,.tag-bottom,.hero-spark,.contrib-sticker,.contrib-deco,.about-stamp,.game-visual,.charades-poster,.survey-illustration,.little-sticker,.poster-stars,.bingo-grid,.spinner-art,.mock-stage,.game-card .game-visual *{filter:none!important;text-shadow:none!important;box-shadow:none!important;perspective:none!important;transform-style:flat!important}
+.game-visual,.charades-poster,.survey-illustration,.contrib-sticker{transform:none!important;border-radius:16px!important}
+.game-visual{border:1px solid #dfe5d6!important;background:#eef3e7!important}
+.charades-poster{border:2px solid #344b2e!important;background:#d9edb5!important;color:#20331f!important}
+.survey-illustration{border:2px solid #1b3773!important;background:#203f80!important;color:#fff!important}
+.little-sticker,.floating-tag{border:1px solid #d9dfd1!important}
+.tag-top,.tag-bottom{animation:none!important}
+.game-card:hover .charades-poster{transform:none!important}
+.mock-window{animation:none!important}
+.contribute-panel:after,.hero-art:before,.hero-art:after{box-shadow:none!important;filter:none!important}
+@media(prefers-reduced-motion:no-preference){.game-card:hover .game-visual{transform:translateY(-2px)!important}}
