@@ -1,0 +1,32 @@
+name: "🐞 Report a bug"
+description: "Help fix a problem with the directory or one of the games."
+title: "Bug: "
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Where is the problem?
+      placeholder: e.g. Directory search / Charades leaderboard
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: What did you expect to happen instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include buttons clicked, filters used, or game settings.
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Device and browser
+      placeholder: e.g. iPhone Safari / Windows Chrome
+    validations:
+      required: false

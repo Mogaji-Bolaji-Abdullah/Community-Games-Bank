@@ -1,0 +1,41 @@
+[
+  {
+    "id": "charades-club",
+    "title": "Charades Club",
+    "eyebrow": "ACT IT OUT · GUESS IT FAST",
+    "description": "Take turns acting out hilarious prompts, race against the clock, and climb the live leaderboard. It's the game that gets everyone on their feet.",
+    "category": "Team games",
+    "tags": [
+      "Team games",
+      "Energizers"
+    ],
+    "searchTerms": [
+      "charades",
+      "guessing",
+      "acting",
+      "party",
+      "meetups",
+      "socials",
+      "icebreaker",
+      "nigerian",
+      "african",
+      "team building",
+      "community",
+      "mingle"
+    ],
+    "details": [
+      "2–64 teams",
+      "5 themed rounds",
+      "Live leaderboard"
+    ],
+    "status": "live",
+    "href": "/games/iih-charades/",
+    "sourceHref": "https://github.com/Mogaji-Bolaji-Abdullah/Community-Games-Bank/tree/main/games/iih-charades",
+    "art": {
+      "theme": "lime",
+      "sticker": "YOUR TURN! ↗",
+      "lineOne": "ACT",
+      "lineTwo": "IT OUT."
+    }
+  }
+]

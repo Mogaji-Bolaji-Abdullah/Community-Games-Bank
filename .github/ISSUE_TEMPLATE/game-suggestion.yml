@@ -1,0 +1,51 @@
+name: "🎲 Suggest a game"
+description: "Share an activity or game you'd love to see in Community Games Bank."
+title: "Game suggestion: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping the Community Games Bank grow! No coding needed. Tell us how your game brings people together.
+  - type: input
+    id: game_name
+    attributes:
+      label: Game name
+      description: What do you call the game?
+      placeholder: e.g. Human Bingo
+    validations:
+      required: true
+  - type: dropdown
+    id: best_for
+    attributes:
+      label: Best for
+      options:
+        - Icebreakers & introductions
+        - Team bonding
+        - Energizers & warm-ups
+        - Workshops & learning
+        - Networking events
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: how_to_play
+    attributes:
+      label: How does it work?
+      description: Describe the rules, materials, player count, and why people enjoy it.
+      placeholder: "People split into teams, then..."
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: Reference or inspiration (optional)
+      description: Add any links or inspiration. Please do not paste copyrighted game rules verbatim.
+    validations:
+      required: false
+  - type: checkboxes
+    id: help_build
+    attributes:
+      label: Would you like to help build or test it?
+      options:
+        - label: I'd be happy to contribute or test this game.
+          required: false
