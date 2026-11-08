@@ -1,0 +1,975 @@
+[
+  {
+    "id": "nigeria-01",
+    "category": "Nigeria",
+    "question": "Name something people often take to a Nigerian owambe.",
+    "answers": [
+      {
+        "text": "Aso-ebi outfit",
+        "points": 35
+      },
+      {
+        "text": "Cash or spraying money",
+        "points": 26
+      },
+      {
+        "text": "Phone / camera",
+        "points": 19
+      },
+      {
+        "text": "Gift",
+        "points": 12
+      },
+      {
+        "text": "Dancing shoes",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-02",
+    "category": "Nigeria",
+    "question": "What might you hear a Nigerian parent say when you leave the lights on?",
+    "answers": [
+      {
+        "text": "Switch it off!",
+        "points": 34
+      },
+      {
+        "text": "Who pays NEPA bill?",
+        "points": 27
+      },
+      {
+        "text": "Are you the owner?",
+        "points": 18
+      },
+      {
+        "text": "Come back here",
+        "points": 13
+      },
+      {
+        "text": "Save electricity",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-03",
+    "category": "Nigeria",
+    "question": "Name a popular Nigerian street food or snack.",
+    "answers": [
+      {
+        "text": "Suya",
+        "points": 37
+      },
+      {
+        "text": "Puff-puff",
+        "points": 24
+      },
+      {
+        "text": "Akara",
+        "points": 17
+      },
+      {
+        "text": "Roasted corn",
+        "points": 13
+      },
+      {
+        "text": "Boli / roasted plantain",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "nigeria-04",
+    "category": "Nigeria",
+    "question": "Name something you might find at a Nigerian wedding reception.",
+    "answers": [
+      {
+        "text": "Jollof rice",
+        "points": 40
+      },
+      {
+        "text": "DJ / live band",
+        "points": 24
+      },
+      {
+        "text": "Party souvenirs",
+        "points": 16
+      },
+      {
+        "text": "MC / host",
+        "points": 12
+      },
+      {
+        "text": "Dance floor",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-05",
+    "category": "Nigeria",
+    "question": "Name a reason a Lagos commuter might arrive late.",
+    "answers": [
+      {
+        "text": "Traffic / go-slow",
+        "points": 36
+      },
+      {
+        "text": "Heavy rain / flooding",
+        "points": 25
+      },
+      {
+        "text": "Vehicle breakdown",
+        "points": 18
+      },
+      {
+        "text": "Transport delay",
+        "points": 12
+      },
+      {
+        "text": "Road construction",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "nigeria-06",
+    "category": "Nigeria",
+    "question": "Name something Nigerians say during a power outage.",
+    "answers": [
+      {
+        "text": "NEPA has taken light",
+        "points": 38
+      },
+      {
+        "text": "Bring fuel",
+        "points": 24
+      },
+      {
+        "text": "Where is the torch?",
+        "points": 18
+      },
+      {
+        "text": "Charge the power bank",
+        "points": 12
+      },
+      {
+        "text": "Start the generator",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-07",
+    "category": "Nigeria",
+    "question": "Name a food many Nigerians pair with stew or sauce.",
+    "answers": [
+      {
+        "text": "Rice",
+        "points": 35
+      },
+      {
+        "text": "Yam",
+        "points": 26
+      },
+      {
+        "text": "Plantain",
+        "points": 19
+      },
+      {
+        "text": "Bread",
+        "points": 12
+      },
+      {
+        "text": "Spaghetti",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-08",
+    "category": "Nigeria",
+    "question": "Name something you might see in a Nigerian market.",
+    "answers": [
+      {
+        "text": "Pepper / tomatoes",
+        "points": 34
+      },
+      {
+        "text": "Clothes / fabrics",
+        "points": 27
+      },
+      {
+        "text": "Traders calling customers",
+        "points": 18
+      },
+      {
+        "text": "Wheelbarrow",
+        "points": 13
+      },
+      {
+        "text": "Baskets of produce",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-09",
+    "category": "Nigeria",
+    "question": "Name a phrase you may hear in a Nigerian queue.",
+    "answers": [
+      {
+        "text": "Who is last?",
+        "points": 37
+      },
+      {
+        "text": "Please shift",
+        "points": 24
+      },
+      {
+        "text": "I was here before you",
+        "points": 17
+      },
+      {
+        "text": "No jumping queue",
+        "points": 13
+      },
+      {
+        "text": "Oga, abeg",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "nigeria-10",
+    "category": "Nigeria",
+    "question": "Name something people often do at a Nigerian naming ceremony.",
+    "answers": [
+      {
+        "text": "Pray / bless the baby",
+        "points": 40
+      },
+      {
+        "text": "Eat and share food",
+        "points": 24
+      },
+      {
+        "text": "Take photos",
+        "points": 16
+      },
+      {
+        "text": "Give gifts",
+        "points": 12
+      },
+      {
+        "text": "Sing / celebrate",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-11",
+    "category": "Nigeria",
+    "question": "Name a common reason people gather around a TV during football.",
+    "answers": [
+      {
+        "text": "Watch a big match",
+        "points": 36
+      },
+      {
+        "text": "Cheer their team",
+        "points": 25
+      },
+      {
+        "text": "Argue about players",
+        "points": 18
+      },
+      {
+        "text": "Celebrate a goal",
+        "points": 12
+      },
+      {
+        "text": "See the score",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "nigeria-12",
+    "category": "Nigeria",
+    "question": "Name an item commonly packed for a Nigerian road trip.",
+    "answers": [
+      {
+        "text": "Water / drinks",
+        "points": 38
+      },
+      {
+        "text": "Snacks",
+        "points": 24
+      },
+      {
+        "text": "Power bank / charger",
+        "points": 18
+      },
+      {
+        "text": "Spare clothes",
+        "points": 12
+      },
+      {
+        "text": "Headphones",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-01",
+    "category": "Africa",
+    "question": "Name a famous African destination travellers dream of visiting.",
+    "answers": [
+      {
+        "text": "Cape Town",
+        "points": 38
+      },
+      {
+        "text": "Zanzibar",
+        "points": 24
+      },
+      {
+        "text": "Victoria Falls",
+        "points": 18
+      },
+      {
+        "text": "Marrakech",
+        "points": 12
+      },
+      {
+        "text": "Serengeti",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-02",
+    "category": "Africa",
+    "question": "Name an African dish known beyond its home country.",
+    "answers": [
+      {
+        "text": "Jollof rice",
+        "points": 35
+      },
+      {
+        "text": "Injera",
+        "points": 26
+      },
+      {
+        "text": "Couscous",
+        "points": 19
+      },
+      {
+        "text": "Fufu",
+        "points": 12
+      },
+      {
+        "text": "Bunny chow",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-03",
+    "category": "Africa",
+    "question": "Name something you might see at a cultural festival in Africa.",
+    "answers": [
+      {
+        "text": "Traditional dance",
+        "points": 34
+      },
+      {
+        "text": "Colourful fabrics",
+        "points": 27
+      },
+      {
+        "text": "Drumming",
+        "points": 18
+      },
+      {
+        "text": "Local food",
+        "points": 13
+      },
+      {
+        "text": "Parade / costumes",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-04",
+    "category": "Africa",
+    "question": "Name a popular African music style.",
+    "answers": [
+      {
+        "text": "Afrobeats",
+        "points": 37
+      },
+      {
+        "text": "Amapiano",
+        "points": 24
+      },
+      {
+        "text": "Highlife",
+        "points": 17
+      },
+      {
+        "text": "Bongo Flava",
+        "points": 13
+      },
+      {
+        "text": "Soukous",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "africa-05",
+    "category": "Africa",
+    "question": "Name an animal people hope to see on an African safari.",
+    "answers": [
+      {
+        "text": "Lion",
+        "points": 40
+      },
+      {
+        "text": "Elephant",
+        "points": 24
+      },
+      {
+        "text": "Giraffe",
+        "points": 16
+      },
+      {
+        "text": "Zebra",
+        "points": 12
+      },
+      {
+        "text": "Rhino",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-06",
+    "category": "Africa",
+    "question": "Name an item often sold in an African craft market.",
+    "answers": [
+      {
+        "text": "Beaded jewellery",
+        "points": 36
+      },
+      {
+        "text": "Handwoven baskets",
+        "points": 25
+      },
+      {
+        "text": "Printed fabrics",
+        "points": 18
+      },
+      {
+        "text": "Wooden carvings",
+        "points": 12
+      },
+      {
+        "text": "Artwork",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "africa-07",
+    "category": "Africa",
+    "question": "Name something people share during a community celebration.",
+    "answers": [
+      {
+        "text": "Food",
+        "points": 38
+      },
+      {
+        "text": "Music",
+        "points": 24
+      },
+      {
+        "text": "Stories",
+        "points": 18
+      },
+      {
+        "text": "Dancing",
+        "points": 12
+      },
+      {
+        "text": "Gifts",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-08",
+    "category": "Africa",
+    "question": "Name a way people travel between nearby African towns.",
+    "answers": [
+      {
+        "text": "Bus / minibus",
+        "points": 35
+      },
+      {
+        "text": "Taxi",
+        "points": 26
+      },
+      {
+        "text": "Motorcycle",
+        "points": 19
+      },
+      {
+        "text": "Private car",
+        "points": 12
+      },
+      {
+        "text": "Train",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-09",
+    "category": "Africa",
+    "question": "Name an African country known for beaches.",
+    "answers": [
+      {
+        "text": "Seychelles",
+        "points": 34
+      },
+      {
+        "text": "Mauritius",
+        "points": 27
+      },
+      {
+        "text": "Tanzania",
+        "points": 18
+      },
+      {
+        "text": "Ghana",
+        "points": 13
+      },
+      {
+        "text": "Kenya",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-10",
+    "category": "Africa",
+    "question": "Name something you might see at a big African football viewing centre.",
+    "answers": [
+      {
+        "text": "Big screen",
+        "points": 37
+      },
+      {
+        "text": "Team jerseys",
+        "points": 24
+      },
+      {
+        "text": "Loud cheers",
+        "points": 17
+      },
+      {
+        "text": "Snacks / drinks",
+        "points": 13
+      },
+      {
+        "text": "Goal celebrations",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "africa-11",
+    "category": "Africa",
+    "question": "Name a type of handmade African fashion accessory.",
+    "answers": [
+      {
+        "text": "Beaded necklace",
+        "points": 40
+      },
+      {
+        "text": "Headwrap",
+        "points": 24
+      },
+      {
+        "text": "Bracelet",
+        "points": 16
+      },
+      {
+        "text": "Leather sandals",
+        "points": 12
+      },
+      {
+        "text": "Woven bag",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-12",
+    "category": "Africa",
+    "question": "Name something visitors like to buy as an African travel souvenir.",
+    "answers": [
+      {
+        "text": "Art prints",
+        "points": 36
+      },
+      {
+        "text": "Traditional fabric",
+        "points": 25
+      },
+      {
+        "text": "Crafts / carvings",
+        "points": 18
+      },
+      {
+        "text": "Spices",
+        "points": 12
+      },
+      {
+        "text": "Jewellery",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "global-01",
+    "category": "Global",
+    "question": "Name something people usually forget when packing for a trip.",
+    "answers": [
+      {
+        "text": "Toothbrush",
+        "points": 38
+      },
+      {
+        "text": "Phone charger",
+        "points": 24
+      },
+      {
+        "text": "Passport / ID",
+        "points": 18
+      },
+      {
+        "text": "Socks",
+        "points": 12
+      },
+      {
+        "text": "Sunscreen",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-02",
+    "category": "Global",
+    "question": "Name an app people check shortly after waking up.",
+    "answers": [
+      {
+        "text": "WhatsApp / messages",
+        "points": 35
+      },
+      {
+        "text": "Instagram",
+        "points": 26
+      },
+      {
+        "text": "Email",
+        "points": 19
+      },
+      {
+        "text": "TikTok",
+        "points": 12
+      },
+      {
+        "text": "Weather app",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-03",
+    "category": "Global",
+    "question": "Name something that can ruin an online meeting.",
+    "answers": [
+      {
+        "text": "Bad internet",
+        "points": 34
+      },
+      {
+        "text": "Muted microphone",
+        "points": 27
+      },
+      {
+        "text": "Background noise",
+        "points": 18
+      },
+      {
+        "text": "Low battery",
+        "points": 13
+      },
+      {
+        "text": "Wrong link",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-04",
+    "category": "Global",
+    "question": "Name something people do to celebrate a birthday.",
+    "answers": [
+      {
+        "text": "Eat cake",
+        "points": 37
+      },
+      {
+        "text": "Sing Happy Birthday",
+        "points": 24
+      },
+      {
+        "text": "Give gifts",
+        "points": 17
+      },
+      {
+        "text": "Take photos",
+        "points": 13
+      },
+      {
+        "text": "Throw a party",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "global-05",
+    "category": "Global",
+    "question": "Name a sport people enjoy watching with friends.",
+    "answers": [
+      {
+        "text": "Football / soccer",
+        "points": 40
+      },
+      {
+        "text": "Basketball",
+        "points": 24
+      },
+      {
+        "text": "Tennis",
+        "points": 16
+      },
+      {
+        "text": "Cricket",
+        "points": 12
+      },
+      {
+        "text": "Formula 1",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-06",
+    "category": "Global",
+    "question": "Name something you might see in an airport.",
+    "answers": [
+      {
+        "text": "Suitcases",
+        "points": 36
+      },
+      {
+        "text": "Departure screens",
+        "points": 25
+      },
+      {
+        "text": "Security checks",
+        "points": 18
+      },
+      {
+        "text": "Boarding gates",
+        "points": 12
+      },
+      {
+        "text": "Duty-free shops",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "global-07",
+    "category": "Global",
+    "question": "Name a reason someone might be late to work.",
+    "answers": [
+      {
+        "text": "Traffic",
+        "points": 38
+      },
+      {
+        "text": "Overslept",
+        "points": 24
+      },
+      {
+        "text": "Transport delay",
+        "points": 18
+      },
+      {
+        "text": "Family emergency",
+        "points": 12
+      },
+      {
+        "text": "Bad weather",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-08",
+    "category": "Global",
+    "question": "Name something friends often bring to a picnic.",
+    "answers": [
+      {
+        "text": "Snacks / food",
+        "points": 35
+      },
+      {
+        "text": "Drinks",
+        "points": 26
+      },
+      {
+        "text": "Picnic mat",
+        "points": 19
+      },
+      {
+        "text": "Games",
+        "points": 12
+      },
+      {
+        "text": "Music speaker",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-09",
+    "category": "Global",
+    "question": "Name something people do when their phone battery is low.",
+    "answers": [
+      {
+        "text": "Find a charger",
+        "points": 34
+      },
+      {
+        "text": "Turn on low power mode",
+        "points": 27
+      },
+      {
+        "text": "Borrow a power bank",
+        "points": 18
+      },
+      {
+        "text": "Dim the screen",
+        "points": 13
+      },
+      {
+        "text": "Close apps",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-10",
+    "category": "Global",
+    "question": "Name something you might find at a music concert.",
+    "answers": [
+      {
+        "text": "Stage",
+        "points": 37
+      },
+      {
+        "text": "Speakers",
+        "points": 24
+      },
+      {
+        "text": "Crowd",
+        "points": 17
+      },
+      {
+        "text": "Lights",
+        "points": 13
+      },
+      {
+        "text": "Merchandise",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "global-11",
+    "category": "Global",
+    "question": "Name a reason people leave a group chat.",
+    "answers": [
+      {
+        "text": "Too many messages",
+        "points": 40
+      },
+      {
+        "text": "Spam / adverts",
+        "points": 24
+      },
+      {
+        "text": "Arguments",
+        "points": 16
+      },
+      {
+        "text": "Not interested",
+        "points": 12
+      },
+      {
+        "text": "Notifications",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-12",
+    "category": "Global",
+    "question": "Name a fun activity at a team-building retreat.",
+    "answers": [
+      {
+        "text": "Icebreaker games",
+        "points": 36
+      },
+      {
+        "text": "Trivia quiz",
+        "points": 25
+      },
+      {
+        "text": "Treasure hunt",
+        "points": 18
+      },
+      {
+        "text": "Group challenge",
+        "points": 12
+      },
+      {
+        "text": "Talent show",
+        "points": 9
+      }
+    ]
+  }
+]
+

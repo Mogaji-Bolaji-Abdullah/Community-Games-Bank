@@ -1,0 +1,1090 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111d29">
+<meta name="description" content="Crowd Says! A host-led survey showdown built for community events, workshops and game nights. Nigerian, African and global question packs.">
+<meta property="og:title" content="Crowd Says! — A community survey showdown"><meta property="og:description" content="Two teams. Hidden answers. Big reactions. Play a free, host-controlled survey game with your crowd.">
+<title>Crowd Says! — The Community Survey Showdown</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{--night:#111d29;--night2:#1b3043;--night3:#29415a;--paper:#f6f5f1;--ink:#152131;--muted:#68727e;--teal:#3ed6b3;--yellow:#f9d968;--peach:#ff987b;--lav:#b4a4ff;--line:#e1e5e6;--glass:rgba(255,255,255,.1);--radius:24px;--shadow:0 18px 58px rgba(19,34,47,.12)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',system-ui,-apple-system,sans-serif;min-width:320px}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.48;cursor:not-allowed!important}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}h1,h2,h3,p{margin-top:0}h1,h2,h3,.wordmark,.score-big,.round-pot,.hero-title{font-family:'Space Grotesk',sans-serif;letter-spacing:-.055em}a{color:inherit;text-decoration:none}.container{max-width:1440px;padding-left:clamp(19px,4.2vw,66px);padding-right:clamp(19px,4.2vw,66px);margin-left:auto;margin-right:auto}.topbar{display:flex;align-items:center;justify-content:space-between;min-height:92px;gap:24px}.wordmark{font-weight:800;font-size:23px;display:inline-flex;align-items:center;gap:11px;line-height:.85;letter-spacing:-.065em}.brandMark{display:grid;place-items:center;width:45px;height:45px;border-radius:14px;background:var(--teal);color:var(--night);font-size:33px;transform:rotate(-12deg)}.brandAccent{color:#1e9c86}.wordmark small{display:block;font-family:'DM Sans',sans-serif;font-weight:800;font-size:8px;letter-spacing:.15em;color:#81919a;margin-top:9px}.top-actions{display:flex;align-items:center;gap:16px}.top-tag,.top-link,.mini-label,.kicker,.tiny-flag{font-size:10px;font-weight:800;letter-spacing:.12em}.top-tag{padding:9px 12px;color:#65727f;border:1px solid var(--line);border-radius:40px}.top-link{background:none;border:0;color:#394657;padding:9px}.top-link:hover{text-decoration:underline}.icon-button{width:40px;height:40px;display:grid;place-items:center;border:1px solid #d7dcde;border-radius:12px;background:#fff}.icon-button svg{width:19px;height:19px}.icon-button.is-muted{color:#c06b5c;background:#ffebe7}.audience-link{background:var(--night);color:white;border-radius:40px;padding:12px 17px}.site-footer{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:23px;padding-bottom:35px;gap:20px;color:#75828a;font-size:11px}.site-footer>div{display:flex;gap:15px;align-items:center;flex-wrap:wrap}.foot-logo{font-family:'Space Grotesk',sans-serif;font-weight:800;color:var(--night)}.foot-right{justify-content:flex-end}.foot-right a{color:var(--ink);font-weight:700}.loadingState{height:55vh;display:flex;align-items:center;gap:12px}.loadingSpinner{border:3px solid #ddd;border-top-color:var(--night);width:25px;height:25px;border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.btn{border:0;border-radius:13px;padding:15px 20px;display:inline-flex;align-items:center;justify-content:center;gap:12px;font-weight:800;font-size:13px;transition:transform .2s,background .2s,box-shadow .2s;min-height:48px}.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 9px 20px rgba(0,0,0,.09)}.btn.primary{background:var(--teal);color:#0a3329}.btn.dark{background:var(--night);color:white}.btn.ghost{border:1px solid #d5ddde;color:#233348;background:white}.btn.soft{background:#e9efef;color:#263c4c}.btn.danger{background:#ffefed;color:#a63624}.btn.yellow{background:var(--yellow);color:var(--night)}.btn.full{width:100%}.btn.small{font-size:12px;min-height:39px;padding:10px 14px}.btn.tiny{font-size:11px;min-height:33px;padding:6px 10px;border-radius:9px}.muted{color:var(--muted)}.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#fff;padding:8px 12px;border-radius:999px;color:#576675;font-size:11px;font-weight:800}.pill.dark{background:var(--night2);color:#a3dccc;border:1px solid #37546a}.dot{display:inline-block;width:7px;height:7px;background:var(--teal);border-radius:50%}.kicker{color:#318f7b;display:flex;align-items:center;gap:8px;margin-bottom:17px}.hero{display:grid;grid-template-columns:1.03fr .97fr;gap:clamp(28px,4vw,70px);padding-top:49px;padding-bottom:90px;align-items:center}.hero h1{font-size:clamp(49px,6.5vw,100px);line-height:.98;margin-bottom:22px;max-width:680px}.hero h1 em{font-style:normal;color:#148d78}.hero-copy{color:#65727d;font-size:16px;max-width:520px;line-height:1.8}.hero-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:31px}.hero-meta{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:29px;font-size:11px;color:#7b858d}.hero-meta span{display:flex;align-items:center;gap:7px}.mock-stage{border-radius:34px;position:relative;background:var(--night);padding:18px;box-shadow:0 22px 54px rgba(13,33,42,.22);transform:rotate(2deg);transition:transform .4s}.mock-stage:hover{transform:rotate(0)}.mock-stage:before{content:'✳';position:absolute;top:-48px;right:-27px;color:var(--teal);font-size:76px;z-index:-1}.mock-header{display:flex;justify-content:space-between;align-items:center;color:#d4e3e7;font-size:10px;letter-spacing:.1em;font-weight:800;padding:14px 13px}.mock-board{border-radius:24px;background:#22384d;padding:19px 17px 22px;border:1px solid #527089}.mock-question{color:white;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(21px,2.4vw,37px);text-align:center;line-height:1.17;margin:13px 0 23px;letter-spacing:-.04em}.fake-row{background:#3c5670;border:1px solid #627990;border-radius:12px;margin-bottom:9px;display:flex;justify-content:space-between;align-items:center;padding:11px 13px;color:#b9cad2;font-weight:700;font-size:13px}.fake-row.filled{background:var(--yellow);border-color:var(--yellow);color:#263246}.fake-row b{background:rgba(0,0,0,.12);border-radius:7px;padding:5px 9px}.mock-bottom{display:flex;justify-content:space-between;gap:12px;color:white;margin-top:14px}.mini-team{flex:1;background:#2b4254;border-radius:12px;padding:13px}.mini-team strong{display:block;font-family:'Space Grotesk',Arial,sans-serif;font-size:24px}.mini-team span{display:block;color:#9db3c3;font-size:10px}.x-marks{display:flex;align-items:center;font-size:23px;color:var(--peach);font-weight:900;letter-spacing:6px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:26px}.section-head h2{font-size:clamp(30px,3.5vw,49px);line-height:1.04;margin-bottom:10px}.section-head p{line-height:1.65;color:var(--muted);max-width:500px;margin:0}.setup{padding-bottom:85px}.setup-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:25px}.panel{background:white;border:1px solid #e0e5e6;border-radius:var(--radius);padding:clamp(20px,2.2vw,32px);box-shadow:0 6px 23px rgba(20,38,48,.035)}.panel-title{font-size:21px;margin-bottom:19px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{margin-bottom:21px}.field label,.field-label{font-weight:800;color:#2a3742;font-size:12px;display:block;margin-bottom:9px}.field small{display:block;margin-top:6px;color:#7a8590;font-size:11px}.field input,.field select{border:1px solid #dce3e5;border-radius:12px;padding:13px 14px;width:100%;background:#fbfcfa;color:#1c2c39;min-height:48px}.field input:focus,.field select:focus{outline:2px solid var(--teal)}.pack-select{display:flex;gap:8px;flex-wrap:wrap}.pack-toggle{cursor:pointer;position:relative}.pack-toggle input{position:absolute;opacity:0;pointer-events:none}.pack-toggle span{display:flex;border:1px solid #dce3e5;border-radius:12px;background:#f7f9f8;padding:12px 15px;color:#465766;font-size:12px;font-weight:800;transition:all .2s;gap:8px;align-items:center}.pack-toggle input:checked+span{border-color:#48b7a2;background:#dbf8ed;color:#165a4e}.pack-toggle input:focus-visible+span{outline:3px solid #37a891;outline-offset:3px}.note-box{background:#f3f7f4;border-radius:16px;padding:17px 20px;border:1px solid #e0e9e3;line-height:1.7;color:#526a60;font-size:12px}.note-box strong{color:#24473a}.setup-side{background:var(--night);color:#fff;border-radius:var(--radius);padding:29px;display:flex;flex-direction:column;justify-content:space-between;min-height:445px;overflow:hidden;position:relative}.setup-side:before{content:'✳';position:absolute;font-size:275px;color:#1f3b49;right:-78px;top:-102px;line-height:1}.setup-side>*{position:relative}.setup-side .mini-label{color:var(--teal)}.setup-side h3{font-size:40px;line-height:1.08;margin-top:26px;max-width:270px}.setup-side p{color:#a8bac4;font-size:13px;line-height:1.8;max-width:285px}.side-facts{border-top:1px solid #3d5161;padding-top:17px;display:grid;gap:15px}.side-facts b{color:var(--teal);font-family:'Space Grotesk',Arial,sans-serif;font-size:20px;margin-right:9px}.side-facts span{font-size:12px;color:#d1e1e7}.stripe{background:var(--yellow);text-align:center;padding:17px;color:#493f20;font-weight:800;font-size:12px;letter-spacing:.02em}.host-wrap{padding-top:24px;padding-bottom:80px}.host-header{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:22px;flex-wrap:wrap}.host-title{display:flex;flex-direction:column;gap:4px}.host-title h1{font-size:clamp(27px,3vw,42px);margin-bottom:0}.host-title p{margin:0;color:var(--muted);font-size:12px}.host-actions{display:flex;gap:8px;flex-wrap:wrap}.score-strip{display:grid;grid-template-columns:1fr auto 1fr;gap:13px;align-items:center;background:var(--night);border-radius:24px;padding:15px;margin-bottom:21px}.score-team{padding:15px 20px;color:#fff;border-radius:16px;min-width:0}.score-team.active{background:#304a5c}.score-team:nth-of-type(3){text-align:right}.score-team small{font-size:10px;color:#a8bbca;letter-spacing:.08em;text-transform:uppercase;font-weight:800}.score-team strong{display:block;font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(30px,4vw,57px);line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.score-team p{font-size:12px;color:#d7edf0;margin:0}.score-vs{font-family:'Space Grotesk',Arial,sans-serif;font-weight:800;color:var(--yellow);font-size:15px;letter-spacing:-.02em}.host-grid{display:grid;grid-template-columns:minmax(0,1.37fr) minmax(295px,.63fr);gap:22px}.board-host{background:var(--night);color:white;border-radius:26px;overflow:hidden;box-shadow:var(--shadow)}.board-upper{background:var(--night2);padding:27px clamp(16px,3vw,35px) 17px}.board-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#97b6c5}.board-prompt{font-size:clamp(25px,3vw,42px);line-height:1.1;margin:17px 0 8px;color:#fff;max-width:850px}.board-tip{color:#9db9c5;font-size:12px;line-height:1.6;margin-bottom:4px}.answer-list{display:grid;gap:9px;padding:22px clamp(14px,3vw,35px)}.answer-row{display:grid;grid-template-columns:35px minmax(0,1fr) 60px auto;gap:10px;align-items:center;min-height:61px;border-radius:14px;background:#2b4154;border:1px solid #425c70;padding:10px 12px;color:white;text-align:left;transition:.2s}.answer-row:hover:not(:disabled){border-color:#7d98a4;transform:translateX(2px)}.answer-row .number{border:1px solid #69839a;display:grid;place-items:center;border-radius:9px;width:31px;height:33px;color:#bfd4dd;font-weight:800;font-size:12px}.answer-row .answer-text{font-size:clamp(12px,1.35vw,15px);font-weight:800;letter-spacing:-.01em;white-space:normal}.answer-row .answer-points{font-family:'Space Grotesk',Arial,sans-serif;font-size:23px;font-weight:800;text-align:right;color:var(--yellow)}.answer-row .answer-action{font-size:10px;font-weight:800;color:#a9c7c9;width:65px;text-align:center}.answer-row.revealed{background:#1a544e;border-color:#42ac95}.answer-row.revealed .number{border-color:#4caf9a;color:#b8f6df}.answer-row.revealed .answer-action{color:#62dfae}.answer-row.available{opacity:.78}.board-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;border-top:1px solid #3f5160;padding:18px clamp(16px,3vw,35px);gap:12px}.board-footer small{color:#9fb4c0;font-size:11px}.round-pot{font-size:27px;color:var(--teal);font-weight:800}.round-pot span{color:#afc2ca;font-size:11px;font-family:'DM Sans';font-weight:700;letter-spacing:0}.side-col{display:grid;align-content:start;gap:19px}.side-box{padding:22px;border:1px solid #e0e5e6;border-radius:22px;background:#fff}.side-box h3{font-size:20px;margin-bottom:10px}.side-box p{font-size:12px;color:#6f7b85;line-height:1.7}.side-box .actions-stack{display:grid;gap:9px;margin-top:16px}.side-box .actions-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.phase-label{display:inline-flex;border-radius:50px;padding:7px 10px;background:#e9f8f2;color:#317560;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.strike-track{display:flex;justify-content:space-between;gap:7px;margin:16px 0}.strike-chip{font-size:28px;font-weight:900;color:#c6ced2;border:2px solid #e7ebeb;border-radius:12px;flex:1;text-align:center;padding:7px}.strike-chip.on{background:#ffeded;color:#e65b4b;border-color:#ffbfaf;animation:pop .3s}.timer-display{font-family:'Space Grotesk',Arial,sans-serif;font-size:55px;line-height:1;font-weight:800;letter-spacing:-.08em;text-align:center;color:var(--ink);padding:9px}.timer-display.warning{color:#e96a54}.timer-cue{text-align:center;font-size:10px;color:#81909a;font-weight:800;letter-spacing:.1em}.control-button-grid{display:flex;gap:7px;justify-content:center;margin-top:13px;flex-wrap:wrap}.result-section{padding:27px clamp(19px,4vw,66px) 75px;max-width:1170px;margin:auto}.result-banner{border-radius:29px;padding:clamp(28px,5vw,67px);background:var(--night);color:white;text-align:center;position:relative;overflow:hidden}.result-banner:before{content:'✳';position:absolute;color:#27465a;font-size:360px;right:-80px;top:-150px}.result-banner>*{position:relative}.result-banner h1{font-size:clamp(38px,6vw,78px);margin:14px 0;line-height:1}.result-banner p{max-width:660px;margin:0 auto 18px;color:#bfd0d9;line-height:1.7}.result-banner .celebrate{color:var(--teal);font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(28px,4vw,53px);font-weight:800}.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}.result-table{margin-top:20px}.result-table table{border-collapse:collapse;width:100%;font-size:13px}.result-table th,.result-table td{text-align:left;padding:15px 12px;border-bottom:1px solid #e4e8e8}.result-table td:last-child,.result-table th:last-child{text-align:right}.round-answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:15px}.round-answers>div{padding:12px;border-radius:10px;background:#f1f6f4;font-size:12px;display:flex;justify-content:space-between;gap:8px}.modal-backdrop[hidden]{display:none!important}.modal-backdrop{position:fixed;inset:0;z-index:90;display:flex;justify-content:center;align-items:center;background:rgba(8,21,32,.74);padding:18px;backdrop-filter:blur(8px);overflow:auto}.modal{background:#fff;border-radius:27px;padding:clamp(20px,3vw,40px);width:min(100%,750px);max-height:92vh;overflow:auto;box-shadow:0 24px 70px rgba(0,0,0,.2)}.modal-head{display:flex;justify-content:space-between;align-items:center}.modal-head .mini-label{color:#30917b}.close-button{border:0;background:#ecf0f1;border-radius:10px;width:35px;height:35px;font-size:27px}.modal h2{font-size:clamp(29px,4vw,48px);margin:10px 0}.modal-lead{color:#6a7782;font-size:13px;line-height:1.65;max-width:580px}.steps{display:grid;gap:9px;margin:22px 0}.steps>div{display:flex;gap:15px;align-items:start;background:#f5f7f6;padding:12px 14px;border-radius:14px}.steps b{font-family:'Space Grotesk',Arial,sans-serif;font-size:21px;color:#2ba68a}.steps p{font-size:12px;line-height:1.6;margin:0;color:#465463}.steps strong{color:#253441}.rules-note{background:#fff4dd;padding:16px 18px;border-radius:12px;margin-bottom:15px;font-size:12px;line-height:1.8;color:#6d5a35}.toast{position:fixed;z-index:120;bottom:25px;left:50%;transform:translate(-50%,22px);background:#142d32;color:white;padding:14px 21px;border-radius:12px;font-size:12px;font-weight:800;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:all .24s;max-width:min(94vw,500px);text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}.bonus-grid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px}.bonus-answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:20px}.bonus-answers button{background:#2a4056;border:1px solid #57718a;border-radius:11px;color:#fff;text-align:left;padding:16px;font-size:12px;font-weight:800;display:flex;justify-content:space-between;gap:10px}.bonus-answers button:hover:not(:disabled){background:#3d5b70}.bonus-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}.bonus-summary .panel b{font-size:34px;font-family:'Space Grotesk'}.bonus-question-table{width:100%;border-collapse:collapse}.bonus-question-table td,.bonus-question-table th{border-bottom:1px solid #edf0f1;padding:12px;font-size:11px;text-align:left}.bonus-question-table td:not(:first-child){text-align:right}.host-footer-hint{margin-top:17px;font-size:11px;color:#74808a}.count-ring{border-radius:999px;border:2px solid #9bc6b9;padding:4px 10px;display:inline-flex;font-size:12px;font-weight:800;color:#23695a}.host-controls-note{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px}.host-controls-note .btn{white-space:nowrap}.reveal-loader{display:inline-block;width:23px;height:23px;border:3px solid #f8d966;border-top-color:transparent;border-radius:50%;animation:spin .45s linear infinite;vertical-align:middle;margin-right:10px}.host-legend{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:15px;color:#7e8992;font-size:11px}.host-legend i{display:inline-block;width:8px;height:8px;background:var(--teal);border-radius:100%}.audience-only{display:none}body.is-audience{background:#071622;color:#fff;min-height:100vh}body.is-audience #siteShell{display:none}body.is-audience .audience-only{display:block}.audience-view{min-height:100vh;max-width:1800px;margin:auto;padding:clamp(18px,3.3vw,55px);display:flex;flex-direction:column;gap:20px}.aud-top{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#adcad5;font-size:clamp(10px,1vw,15px);font-weight:800;letter-spacing:.12em;text-transform:uppercase}.aud-logo{font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(18px,2vw,28px);font-weight:800;color:#fff;letter-spacing:-.07em}.aud-logo span{color:var(--teal)}.aud-score{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(10px,2vw,28px)}.aud-team{background:#182e40;border-radius:clamp(13px,2vw,27px);padding:clamp(13px,2.2vw,28px);text-align:center;border:2px solid #29475c}.aud-team.active{border-color:#50d7b4}.aud-team small{display:block;font-size:clamp(9px,1vw,15px);font-weight:800;letter-spacing:.06em;color:#b5c8d0}.aud-team strong{display:block;font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(30px,5vw,83px);line-height:1.1;letter-spacing:-.06em}.aud-between{color:#f5d66c;font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(14px,2vw,36px);font-weight:800}.aud-question{text-align:center;font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(27px,4.25vw,70px);font-weight:700;line-height:1.08;letter-spacing:-.05em;max-width:1500px;margin:clamp(5px,1vw,10px) auto}.aud-question small{display:block;color:var(--teal);font-family:'DM Sans';font-size:clamp(10px,1.1vw,16px);letter-spacing:.12em;margin-bottom:15px;font-weight:800}.aud-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(8px,1.3vw,20px);width:100%;margin:auto;max-width:1480px}.aud-answer{min-height:clamp(56px,8.2vh,111px);border:2px solid #415f75;border-radius:clamp(10px,1.2vw,19px);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;background:linear-gradient(160deg,#25445b,#1b354a);padding:clamp(12px,1.4vw,22px);color:#f1f8fb;position:relative}.aud-answer>span:nth-child(2){font-size:clamp(13px,2vw,28px);font-weight:800;overflow-wrap:anywhere;letter-spacing:-.03em}.aud-answer .rank{background:#41657f;border-radius:9px;width:clamp(30px,3vw,54px);height:clamp(30px,3vw,54px);display:grid;place-items:center;font-family:'Space Grotesk',Arial,sans-serif;font-weight:800;font-size:clamp(14px,1.8vw,27px)}.aud-answer .value{font-family:'Space Grotesk',Arial,sans-serif;font-weight:800;font-size:clamp(19px,2.4vw,39px)}.aud-answer.hidden-answer>span:nth-child(2){color:#688da0}.aud-answer.shown{background:linear-gradient(135deg,#d6f6e3,#56d2af);border-color:#70e3c0;color:#12362b;animation:flipIn .45s both}.aud-answer.shown .rank{background:#b7ebd4;color:#195a48}.aud-answer.shown .value{color:#175b49}.aud-bottom{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:auto;padding-top:8px}.aud-strikes{color:var(--peach);font-size:clamp(25px,4vw,60px);font-weight:900;letter-spacing:9px;min-height:70px}.aud-pot{font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(19px,3vw,48px);font-weight:800;color:var(--yellow)}.aud-state{background:#203b4e;padding:12px 20px;border-radius:13px;font-size:clamp(11px,1.25vw,19px);font-weight:800;color:#b8d6dc}.aud-end{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:45px 0;position:relative}.aud-end .huge{font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(42px,7vw,125px);font-weight:800;letter-spacing:-.07em;line-height:.99;margin:18px auto;color:var(--teal)}.aud-end p{color:#bcd1db;font-size:clamp(15px,1.7vw,24px);line-height:1.6}.aud-end .x-effect{font-size:clamp(90px,15vw,210px);font-weight:900;color:var(--peach);text-shadow:0 0 90px rgba(255,137,106,.25);animation:pop .45s}.aud-note{color:#7397a7;font-size:11px;margin-top:12px}.aud-projector-meta{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;color:#a3cbd0;font-weight:800}.aud-progress{display:flex;justify-content:center;gap:7px}.aud-progress i{height:6px;width:24px;border-radius:10px;background:#3b5c6d}.aud-progress i.past{background:var(--teal)}.reveal-dot{background:var(--yellow);width:11px;height:11px;border-radius:100%;display:inline-block;animation:pulse 1s ease-in-out infinite}@keyframes pulse{50%{opacity:.4;transform:scale(1.2)}}@keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.1)}100%{transform:scale(1)}}@keyframes flipIn{0%{opacity:0;transform:rotateX(-60deg) scale(.9)}100%{opacity:1;transform:rotateX(0) scale(1)}}@keyframes enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.animate-in{animation:enter .58s ease both}.hero-copy,.hero-actions,.hero-meta{animation:enter .7s ease both}.hero-actions{animation-delay:.12s}.hero-meta{animation-delay:.2s}@media(max-width:1050px){.hero{grid-template-columns:1fr 1fr}.setup-grid{grid-template-columns:1fr 300px}.host-grid{grid-template-columns:1fr}.side-col{grid-template-columns:1fr 1fr}.side-col .side-box:last-child{grid-column:1/-1}.board-prompt{font-size:31px}}@media(max-width:760px){.topbar{min-height:74px}.top-tag{display:none}.top-link{font-size:11px}.top-actions{gap:6px}.audience-link{padding:10px 12px}.wordmark{font-size:19px}.brandMark{width:36px;height:36px;font-size:26px}.hero{grid-template-columns:1fr;padding-top:32px;padding-bottom:60px;gap:48px}.hero h1{font-size:clamp(50px,11vw,75px)}.mock-stage{max-width:600px;margin:auto;width:100%}.setup-grid{grid-template-columns:1fr}.setup-side{min-height:300px}.setup-side h3{margin-top:9px}.form-row{grid-template-columns:1fr}.host-grid{grid-template-columns:1fr}.side-col{grid-template-columns:1fr}.side-col .side-box:last-child{grid-column:auto}.score-strip{padding:8px;gap:5px}.score-team{padding:12px 10px}.score-team strong{font-size:35px}.score-vs{font-size:11px}.aud-board{grid-template-columns:1fr}.aud-answer{min-height:54px}.aud-score{gap:5px}.aud-team{padding:12px 8px}.aud-team strong{font-size:30px}.aud-score .aud-between{font-size:13px}.aud-question{font-size:clamp(25px,6vw,41px)}.aud-bottom{margin-top:10px}.aud-strikes{min-height:34px;font-size:32px}.aud-view{padding:15px}.bonus-grid{grid-template-columns:1fr}.bonus-answers,.bonus-summary{grid-template-columns:1fr 1fr}.site-footer{flex-direction:column}.foot-right{justify-content:flex-start}.answer-row{grid-template-columns:25px minmax(0,1fr) 45px auto;gap:6px}.answer-row .answer-action{width:45px;font-size:9px}.answer-row .answer-points{font-size:19px}.answer-row .number{width:25px;height:29px}.board-upper{padding:20px 15px}.board-prompt{font-size:27px}.board-footer{padding:15px}.host-header{flex-direction:column;align-items:stretch}.host-actions{gap:5px}.host-actions .btn{flex:1}.round-answers{grid-template-columns:1fr}}@media(max-width:420px){.wordmark{font-size:16px}.topbar{gap:6px}.top-actions{gap:0}.top-link:not(.audience-link){display:none}.audience-link{font-size:10px;white-space:nowrap}.icon-button{width:33px;height:35px}.hero h1{font-size:49px}.hero-actions .btn{width:100%}.hero-actions{flex-direction:column}.bonus-answers{grid-template-columns:1fr}.audience-view{padding:12px}.aud-answer .rank{width:26px;height:26px;font-size:13px}.aud-question{font-size:26px}.aud-team small{font-size:9px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}@media print{.topbar,.site-footer,.host-actions,.side-col,.btn,.modal-backdrop{display:none!important}}
+.aud-rules{display:grid;gap:13px;max-width:1100px;margin:30px auto;text-align:left}.aud-rules>div{background:#19374a;border:1px solid #2b5366;border-radius:15px;padding:clamp(12px,2vw,22px);font-weight:800;font-size:clamp(13px,1.8vw,26px);display:flex;gap:16px;align-items:center}.aud-rules b{color:var(--teal);font-family:'Space Grotesk',sans-serif;font-size:1.3em}
+</style>
+
+</head>
+<body>
+<div id="siteShell">
+<header class="topbar container"><a href="./" class="wordmark" aria-label="Crowd Says home"><span class="brandMark" aria-hidden="true">✳</span><span>CROWD<span class="brandAccent">SAYS!</span><small>THE COMMUNITY SHOWDOWN</small></span></a><div class="top-actions"><span class="top-tag">EARLY ACCESS · PLAYTEST BUILD</span><button type="button" class="top-link" id="topRules">How to play <span aria-hidden="true">↗</span></button><button type="button" class="icon-button" id="soundToggle" title="Toggle sound" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg></button><button type="button" class="top-link audience-link" id="openAudience">Audience display <span aria-hidden="true">↗</span></button></div></header>
+<main id="app" aria-live="polite"><div class="loadingState container"><span class="loadingSpinner"></span> Setting up the show...</div></main>
+<footer class="site-footer container"><div><span class="foot-logo">✳ CROWD SAYS!</span><span>Made for people who bring people together.</span></div><div class="foot-right"><a href="https://github.com/Mogaji-Bolaji-Abdullah/Community-Games-Bank/tree/main/games/crowd-says" target="_blank" rel="noopener">Source on GitHub ↗</a><span>Experimental game · Curated play scores, not survey data</span></div></footer>
+</div>
+<div id="rulesDialog" class="modal-backdrop" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="rulesTitle"><div class="modal-head"><span class="mini-label">HOST PLAYBOOK</span><button class="close-button" type="button" id="closeRules" aria-label="Close rules">×</button></div><h2 id="rulesTitle">How to run the showdown.</h2><p class="modal-lead">For community managers, facilitators and event hosts. You run one laptop; teams answer aloud and the crowd watches the big board.</p><div class="steps"><div><b>01</b><p><strong>Make two teams.</strong> Choose names, select Nigeria, Africa or Global packs and decide how many rounds to play. A host or MC operates the buttons.</p></div><div><b>02</b><p><strong>Face-off.</strong> Read the question. Invite one player per team to answer; reveal any matching answers. The player with the higher-ranked answer wins control, then chooses <em>play</em> or <em>pass</em>.</p></div><div><b>03</b><p><strong>Play the board.</strong> The controlling team takes turns guessing. The host reveals answers and awards their displayed points to a round pot. A wrong answer is one strike.</p></div><div><b>04</b><p><strong>Three strikes = steal.</strong> The opposing team gets ONE final guess. If it reveals a new correct answer, they take the whole round pot. If not, the original team banks it. Clearing the board banks the pot immediately.</p></div><div><b>05</b><p><strong>Count the points.</strong> Rounds 1–2 are ×1, rounds 3–4 are ×2, and rounds 5+ are ×3. After the last round, the highest total wins. Try the optional two-player Bonus Dash.</p></div></div><div class="rules-note"><strong>Fair-play rules:</strong> No phones or audience hints; teams answer within the host's time limit; the host accepts reasonable synonyms and settles disputes. Unrevealed answers are never shown on the projector. The points are fictional, editorial play values — not results from a real survey.</div><button type="button" class="btn primary full" id="rulesGotIt">Got it — let's play <span>→</span></button></div></div>
+<div class="toast" role="status" aria-live="polite" id="toast"></div>
+<script type="application/json" id="questionBank">[
+  {
+    "id": "nigeria-01",
+    "category": "Nigeria",
+    "question": "Name something people often take to a Nigerian owambe.",
+    "answers": [
+      {
+        "text": "Aso-ebi outfit",
+        "points": 35
+      },
+      {
+        "text": "Cash or spraying money",
+        "points": 26
+      },
+      {
+        "text": "Phone / camera",
+        "points": 19
+      },
+      {
+        "text": "Gift",
+        "points": 12
+      },
+      {
+        "text": "Dancing shoes",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-02",
+    "category": "Nigeria",
+    "question": "What might you hear a Nigerian parent say when you leave the lights on?",
+    "answers": [
+      {
+        "text": "Switch it off!",
+        "points": 34
+      },
+      {
+        "text": "Who pays NEPA bill?",
+        "points": 27
+      },
+      {
+        "text": "Are you the owner?",
+        "points": 18
+      },
+      {
+        "text": "Come back here",
+        "points": 13
+      },
+      {
+        "text": "Save electricity",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-03",
+    "category": "Nigeria",
+    "question": "Name a popular Nigerian street food or snack.",
+    "answers": [
+      {
+        "text": "Suya",
+        "points": 37
+      },
+      {
+        "text": "Puff-puff",
+        "points": 24
+      },
+      {
+        "text": "Akara",
+        "points": 17
+      },
+      {
+        "text": "Roasted corn",
+        "points": 13
+      },
+      {
+        "text": "Boli / roasted plantain",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "nigeria-04",
+    "category": "Nigeria",
+    "question": "Name something you might find at a Nigerian wedding reception.",
+    "answers": [
+      {
+        "text": "Jollof rice",
+        "points": 40
+      },
+      {
+        "text": "DJ / live band",
+        "points": 24
+      },
+      {
+        "text": "Party souvenirs",
+        "points": 16
+      },
+      {
+        "text": "MC / host",
+        "points": 12
+      },
+      {
+        "text": "Dance floor",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-05",
+    "category": "Nigeria",
+    "question": "Name a reason a Lagos commuter might arrive late.",
+    "answers": [
+      {
+        "text": "Traffic / go-slow",
+        "points": 36
+      },
+      {
+        "text": "Heavy rain / flooding",
+        "points": 25
+      },
+      {
+        "text": "Vehicle breakdown",
+        "points": 18
+      },
+      {
+        "text": "Transport delay",
+        "points": 12
+      },
+      {
+        "text": "Road construction",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "nigeria-06",
+    "category": "Nigeria",
+    "question": "Name something Nigerians say during a power outage.",
+    "answers": [
+      {
+        "text": "NEPA has taken light",
+        "points": 38
+      },
+      {
+        "text": "Bring fuel",
+        "points": 24
+      },
+      {
+        "text": "Where is the torch?",
+        "points": 18
+      },
+      {
+        "text": "Charge the power bank",
+        "points": 12
+      },
+      {
+        "text": "Start the generator",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-07",
+    "category": "Nigeria",
+    "question": "Name a food many Nigerians pair with stew or sauce.",
+    "answers": [
+      {
+        "text": "Rice",
+        "points": 35
+      },
+      {
+        "text": "Yam",
+        "points": 26
+      },
+      {
+        "text": "Plantain",
+        "points": 19
+      },
+      {
+        "text": "Bread",
+        "points": 12
+      },
+      {
+        "text": "Spaghetti",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-08",
+    "category": "Nigeria",
+    "question": "Name something you might see in a Nigerian market.",
+    "answers": [
+      {
+        "text": "Pepper / tomatoes",
+        "points": 34
+      },
+      {
+        "text": "Clothes / fabrics",
+        "points": 27
+      },
+      {
+        "text": "Traders calling customers",
+        "points": 18
+      },
+      {
+        "text": "Wheelbarrow",
+        "points": 13
+      },
+      {
+        "text": "Baskets of produce",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-09",
+    "category": "Nigeria",
+    "question": "Name a phrase you may hear in a Nigerian queue.",
+    "answers": [
+      {
+        "text": "Who is last?",
+        "points": 37
+      },
+      {
+        "text": "Please shift",
+        "points": 24
+      },
+      {
+        "text": "I was here before you",
+        "points": 17
+      },
+      {
+        "text": "No jumping queue",
+        "points": 13
+      },
+      {
+        "text": "Oga, abeg",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "nigeria-10",
+    "category": "Nigeria",
+    "question": "Name something people often do at a Nigerian naming ceremony.",
+    "answers": [
+      {
+        "text": "Pray / bless the baby",
+        "points": 40
+      },
+      {
+        "text": "Eat and share food",
+        "points": 24
+      },
+      {
+        "text": "Take photos",
+        "points": 16
+      },
+      {
+        "text": "Give gifts",
+        "points": 12
+      },
+      {
+        "text": "Sing / celebrate",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "nigeria-11",
+    "category": "Nigeria",
+    "question": "Name a common reason people gather around a TV during football.",
+    "answers": [
+      {
+        "text": "Watch a big match",
+        "points": 36
+      },
+      {
+        "text": "Cheer their team",
+        "points": 25
+      },
+      {
+        "text": "Argue about players",
+        "points": 18
+      },
+      {
+        "text": "Celebrate a goal",
+        "points": 12
+      },
+      {
+        "text": "See the score",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "nigeria-12",
+    "category": "Nigeria",
+    "question": "Name an item commonly packed for a Nigerian road trip.",
+    "answers": [
+      {
+        "text": "Water / drinks",
+        "points": 38
+      },
+      {
+        "text": "Snacks",
+        "points": 24
+      },
+      {
+        "text": "Power bank / charger",
+        "points": 18
+      },
+      {
+        "text": "Spare clothes",
+        "points": 12
+      },
+      {
+        "text": "Headphones",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-01",
+    "category": "Africa",
+    "question": "Name a famous African destination travellers dream of visiting.",
+    "answers": [
+      {
+        "text": "Cape Town",
+        "points": 38
+      },
+      {
+        "text": "Zanzibar",
+        "points": 24
+      },
+      {
+        "text": "Victoria Falls",
+        "points": 18
+      },
+      {
+        "text": "Marrakech",
+        "points": 12
+      },
+      {
+        "text": "Serengeti",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-02",
+    "category": "Africa",
+    "question": "Name an African dish known beyond its home country.",
+    "answers": [
+      {
+        "text": "Jollof rice",
+        "points": 35
+      },
+      {
+        "text": "Injera",
+        "points": 26
+      },
+      {
+        "text": "Couscous",
+        "points": 19
+      },
+      {
+        "text": "Fufu",
+        "points": 12
+      },
+      {
+        "text": "Bunny chow",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-03",
+    "category": "Africa",
+    "question": "Name something you might see at a cultural festival in Africa.",
+    "answers": [
+      {
+        "text": "Traditional dance",
+        "points": 34
+      },
+      {
+        "text": "Colourful fabrics",
+        "points": 27
+      },
+      {
+        "text": "Drumming",
+        "points": 18
+      },
+      {
+        "text": "Local food",
+        "points": 13
+      },
+      {
+        "text": "Parade / costumes",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-04",
+    "category": "Africa",
+    "question": "Name a popular African music style.",
+    "answers": [
+      {
+        "text": "Afrobeats",
+        "points": 37
+      },
+      {
+        "text": "Amapiano",
+        "points": 24
+      },
+      {
+        "text": "Highlife",
+        "points": 17
+      },
+      {
+        "text": "Bongo Flava",
+        "points": 13
+      },
+      {
+        "text": "Soukous",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "africa-05",
+    "category": "Africa",
+    "question": "Name an animal people hope to see on an African safari.",
+    "answers": [
+      {
+        "text": "Lion",
+        "points": 40
+      },
+      {
+        "text": "Elephant",
+        "points": 24
+      },
+      {
+        "text": "Giraffe",
+        "points": 16
+      },
+      {
+        "text": "Zebra",
+        "points": 12
+      },
+      {
+        "text": "Rhino",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-06",
+    "category": "Africa",
+    "question": "Name an item often sold in an African craft market.",
+    "answers": [
+      {
+        "text": "Beaded jewellery",
+        "points": 36
+      },
+      {
+        "text": "Handwoven baskets",
+        "points": 25
+      },
+      {
+        "text": "Printed fabrics",
+        "points": 18
+      },
+      {
+        "text": "Wooden carvings",
+        "points": 12
+      },
+      {
+        "text": "Artwork",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "africa-07",
+    "category": "Africa",
+    "question": "Name something people share during a community celebration.",
+    "answers": [
+      {
+        "text": "Food",
+        "points": 38
+      },
+      {
+        "text": "Music",
+        "points": 24
+      },
+      {
+        "text": "Stories",
+        "points": 18
+      },
+      {
+        "text": "Dancing",
+        "points": 12
+      },
+      {
+        "text": "Gifts",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-08",
+    "category": "Africa",
+    "question": "Name a way people travel between nearby African towns.",
+    "answers": [
+      {
+        "text": "Bus / minibus",
+        "points": 35
+      },
+      {
+        "text": "Taxi",
+        "points": 26
+      },
+      {
+        "text": "Motorcycle",
+        "points": 19
+      },
+      {
+        "text": "Private car",
+        "points": 12
+      },
+      {
+        "text": "Train",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-09",
+    "category": "Africa",
+    "question": "Name an African country known for beaches.",
+    "answers": [
+      {
+        "text": "Seychelles",
+        "points": 34
+      },
+      {
+        "text": "Mauritius",
+        "points": 27
+      },
+      {
+        "text": "Tanzania",
+        "points": 18
+      },
+      {
+        "text": "Ghana",
+        "points": 13
+      },
+      {
+        "text": "Kenya",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-10",
+    "category": "Africa",
+    "question": "Name something you might see at a big African football viewing centre.",
+    "answers": [
+      {
+        "text": "Big screen",
+        "points": 37
+      },
+      {
+        "text": "Team jerseys",
+        "points": 24
+      },
+      {
+        "text": "Loud cheers",
+        "points": 17
+      },
+      {
+        "text": "Snacks / drinks",
+        "points": 13
+      },
+      {
+        "text": "Goal celebrations",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "africa-11",
+    "category": "Africa",
+    "question": "Name a type of handmade African fashion accessory.",
+    "answers": [
+      {
+        "text": "Beaded necklace",
+        "points": 40
+      },
+      {
+        "text": "Headwrap",
+        "points": 24
+      },
+      {
+        "text": "Bracelet",
+        "points": 16
+      },
+      {
+        "text": "Leather sandals",
+        "points": 12
+      },
+      {
+        "text": "Woven bag",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "africa-12",
+    "category": "Africa",
+    "question": "Name something visitors like to buy as an African travel souvenir.",
+    "answers": [
+      {
+        "text": "Art prints",
+        "points": 36
+      },
+      {
+        "text": "Traditional fabric",
+        "points": 25
+      },
+      {
+        "text": "Crafts / carvings",
+        "points": 18
+      },
+      {
+        "text": "Spices",
+        "points": 12
+      },
+      {
+        "text": "Jewellery",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "global-01",
+    "category": "Global",
+    "question": "Name something people usually forget when packing for a trip.",
+    "answers": [
+      {
+        "text": "Toothbrush",
+        "points": 38
+      },
+      {
+        "text": "Phone charger",
+        "points": 24
+      },
+      {
+        "text": "Passport / ID",
+        "points": 18
+      },
+      {
+        "text": "Socks",
+        "points": 12
+      },
+      {
+        "text": "Sunscreen",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-02",
+    "category": "Global",
+    "question": "Name an app people check shortly after waking up.",
+    "answers": [
+      {
+        "text": "WhatsApp / messages",
+        "points": 35
+      },
+      {
+        "text": "Instagram",
+        "points": 26
+      },
+      {
+        "text": "Email",
+        "points": 19
+      },
+      {
+        "text": "TikTok",
+        "points": 12
+      },
+      {
+        "text": "Weather app",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-03",
+    "category": "Global",
+    "question": "Name something that can ruin an online meeting.",
+    "answers": [
+      {
+        "text": "Bad internet",
+        "points": 34
+      },
+      {
+        "text": "Muted microphone",
+        "points": 27
+      },
+      {
+        "text": "Background noise",
+        "points": 18
+      },
+      {
+        "text": "Low battery",
+        "points": 13
+      },
+      {
+        "text": "Wrong link",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-04",
+    "category": "Global",
+    "question": "Name something people do to celebrate a birthday.",
+    "answers": [
+      {
+        "text": "Eat cake",
+        "points": 37
+      },
+      {
+        "text": "Sing Happy Birthday",
+        "points": 24
+      },
+      {
+        "text": "Give gifts",
+        "points": 17
+      },
+      {
+        "text": "Take photos",
+        "points": 13
+      },
+      {
+        "text": "Throw a party",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "global-05",
+    "category": "Global",
+    "question": "Name a sport people enjoy watching with friends.",
+    "answers": [
+      {
+        "text": "Football / soccer",
+        "points": 40
+      },
+      {
+        "text": "Basketball",
+        "points": 24
+      },
+      {
+        "text": "Tennis",
+        "points": 16
+      },
+      {
+        "text": "Cricket",
+        "points": 12
+      },
+      {
+        "text": "Formula 1",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-06",
+    "category": "Global",
+    "question": "Name something you might see in an airport.",
+    "answers": [
+      {
+        "text": "Suitcases",
+        "points": 36
+      },
+      {
+        "text": "Departure screens",
+        "points": 25
+      },
+      {
+        "text": "Security checks",
+        "points": 18
+      },
+      {
+        "text": "Boarding gates",
+        "points": 12
+      },
+      {
+        "text": "Duty-free shops",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "global-07",
+    "category": "Global",
+    "question": "Name a reason someone might be late to work.",
+    "answers": [
+      {
+        "text": "Traffic",
+        "points": 38
+      },
+      {
+        "text": "Overslept",
+        "points": 24
+      },
+      {
+        "text": "Transport delay",
+        "points": 18
+      },
+      {
+        "text": "Family emergency",
+        "points": 12
+      },
+      {
+        "text": "Bad weather",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-08",
+    "category": "Global",
+    "question": "Name something friends often bring to a picnic.",
+    "answers": [
+      {
+        "text": "Snacks / food",
+        "points": 35
+      },
+      {
+        "text": "Drinks",
+        "points": 26
+      },
+      {
+        "text": "Picnic mat",
+        "points": 19
+      },
+      {
+        "text": "Games",
+        "points": 12
+      },
+      {
+        "text": "Music speaker",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-09",
+    "category": "Global",
+    "question": "Name something people do when their phone battery is low.",
+    "answers": [
+      {
+        "text": "Find a charger",
+        "points": 34
+      },
+      {
+        "text": "Turn on low power mode",
+        "points": 27
+      },
+      {
+        "text": "Borrow a power bank",
+        "points": 18
+      },
+      {
+        "text": "Dim the screen",
+        "points": 13
+      },
+      {
+        "text": "Close apps",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-10",
+    "category": "Global",
+    "question": "Name something you might find at a music concert.",
+    "answers": [
+      {
+        "text": "Stage",
+        "points": 37
+      },
+      {
+        "text": "Speakers",
+        "points": 24
+      },
+      {
+        "text": "Crowd",
+        "points": 17
+      },
+      {
+        "text": "Lights",
+        "points": 13
+      },
+      {
+        "text": "Merchandise",
+        "points": 9
+      }
+    ]
+  },
+  {
+    "id": "global-11",
+    "category": "Global",
+    "question": "Name a reason people leave a group chat.",
+    "answers": [
+      {
+        "text": "Too many messages",
+        "points": 40
+      },
+      {
+        "text": "Spam / adverts",
+        "points": 24
+      },
+      {
+        "text": "Arguments",
+        "points": 16
+      },
+      {
+        "text": "Not interested",
+        "points": 12
+      },
+      {
+        "text": "Notifications",
+        "points": 8
+      }
+    ]
+  },
+  {
+    "id": "global-12",
+    "category": "Global",
+    "question": "Name a fun activity at a team-building retreat.",
+    "answers": [
+      {
+        "text": "Icebreaker games",
+        "points": 36
+      },
+      {
+        "text": "Trivia quiz",
+        "points": 25
+      },
+      {
+        "text": "Treasure hunt",
+        "points": 18
+      },
+      {
+        "text": "Group challenge",
+        "points": 12
+      },
+      {
+        "text": "Talent show",
+        "points": 9
+      }
+    ]
+  }
+]
+</script>
+<script>(() => {
+'use strict';
+const STORAGE='community-games-bank:crowd-says:v1';
+const STAGE='community-games-bank:crowd-says:audience-rules';
+const CATEGORY_ICONS={Nigeria:'🇳🇬',Africa:'🌍',Global:'🌐'};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $=selector=>document.querySelector(selector);
+const AUDIENCE=new URLSearchParams(location.search).get('view')==='audience';
+let questions=[],qMap=new Map(),game=null,projectionRules=false,undoStack=[],soundOn=true,context=null,tickHandle=null,toastHandle=null,revealHandle=null,lastAudienceSignature='';
+function currentQ(){return qMap.get(game?.questionIds?.[game.roundIndex]);}
+function roundMultiplier(i=game?.roundIndex??0){return i<2?1:i<4?2:3;}
+function getScore(team){return game?.scores?.[team]??0;}
+function other(team){return team===0?1:0;}
+function roundPot(){return game?.round?.pot??0;}
+function normalise(s){return String(s||'').trim().slice(0,36);}
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function timeText(n){const k=Math.max(0,Number(n)||0);return `${String(Math.floor(k/60)).padStart(2,'0')}:${String(k%60).padStart(2,'0')}`;}
+function isInteractive(){return game&&['faceoff','choice','play','steal'].includes(game.phase);}
+function save(){try{localStorage.setItem(STORAGE,JSON.stringify(game));}catch(e){/* private browsing without storage */}}
+function storeSnap(){if(!game)return;undoStack.push(JSON.stringify(game));if(undoStack.length>20)undoStack.shift();}
+function undo(){if(!undoStack.length){toast('Nothing to undo yet');return;}game=JSON.parse(undoStack.pop());clearTimeout(revealHandle);save();render();toast('Last action undone');}
+function toast(t){const el=$('#toast');if(!el)return;el.textContent=t;el.classList.add('show');clearTimeout(toastHandle);toastHandle=setTimeout(()=>el.classList.remove('show'),3400);}
+function sound(type){if(!soundOn||AUDIENCE)return;try{context=context||new(window.AudioContext||window.webkitAudioContext)();if(context.state==='suspended')context.resume();const now=context.currentTime;function beep(f,t,d,v=.08){const o=context.createOscillator(),g=context.createGain();o.type='sine';o.frequency.setValueAtTime(f,now+t);g.gain.setValueAtTime(.001,now+t);g.gain.linearRampToValueAtTime(v,now+t+.018);g.gain.exponentialRampToValueAtTime(.001,now+t+d);o.connect(g).connect(context.destination);o.start(now+t);o.stop(now+t+d+.02);}if(type==='good'){beep(580,0,.17);beep(850,.12,.25)}if(type==='bad'){beep(210,0,.2,.10);beep(142,.17,.38,.08)}if(type==='click'){beep(420,0,.12,.055)}if(type==='winner'){[380,490,610,820].forEach((f,i)=>beep(f,i*.13,.3,.10))}if(type==='timer'){beep(470,0,.15,.085)}if(type==='drum'){const len=Math.floor(context.sampleRate*2.6);const buf=context.createBuffer(1,len,context.sampleRate),data=buf.getChannelData(0);for(let i=0;i<len;i++){const t=i/context.sampleRate;const pulse=(Math.sin(t*t*65*2*Math.PI)>0.2)?1:0.16;data[i]=(Math.random()*2-1)*pulse*(0.13+t*.17)*(1-Math.pow(t/2.6,6));}const src=context.createBufferSource(),g=context.createGain(),filter=context.createBiquadFilter();src.buffer=buf;filter.type='lowpass';filter.frequency.value=1300;g.gain.value=.31;src.connect(filter).connect(g).connect(context.destination);src.start(now);}}catch(e){/* audio context optional */}}
+function load(){try{projectionRules=localStorage.getItem(STAGE)==='true';}catch(e){}try{const old=JSON.parse(localStorage.getItem(STORAGE));if(old&&typeof old==='object'&&Array.isArray(old.questionIds)&&Array.isArray(old.scores)&&old.teamNames?.length===2)game=old;}catch(e){/* corrupted save */}}
+function btn(text,action,style='ghost',extra=''){return `<button type="button" class="btn ${style}" data-action="${action}" ${extra}>${text}</button>`;}
+function scoreBar(){return `<div class="score-strip"><div class="score-team ${game.round?.controllingTeam===0?'active':''}"><small>TEAM ONE</small><strong>${esc(game.teamNames[0])}</strong><p>${getScore(0)} points</p></div><div class="score-vs">VS</div><div class="score-team ${game.round?.controllingTeam===1?'active':''}"><small>TEAM TWO</small><strong>${esc(game.teamNames[1])}</strong><p>${getScore(1)} points</p></div></div>`;}
+function phaseTitle(){if(!game)return '';return ({faceoff:'Face-off',choice:'Play or pass?',play:'In play',steal:'Steal chance',result:'Round results',finished:'Game complete',cancelled:'Game cancelled',bonus:'Bonus Dash'})[game.phase]||'';}
+function hostHead(){const inRound=isInteractive()||game.phase==='result';return `<div class="host-header"><div class="host-title"><span class="kicker"><span class="dot"></span> LIVE SHOW CONTROL · HOST ONLY</span><h1>${phaseTitle()}</h1><p>${inRound?`QUESTION ${game.roundIndex+1} OF ${game.questionIds.length} · ${roundMultiplier()}× POINTS`:'Manage the showdown with the controls below.'}</p></div><div class="host-actions">${btn('↺ Undo','undo','soft small',undoStack.length?'':'disabled')}${btn('↗ Audience view','audience','ghost small')}${btn('▤ '+(projectionRules?'Hide player rules':'Project player rules'),'projectRules','ghost small')}${btn('✕ Cancel game','cancel','danger small')}${btn('↻ New game','reset','ghost small')}</div></div>`;}
+function clockControls(){const sec=game.timer?.remaining??0;return `<div class="side-box"><span class="phase-label">ROUND CLOCK</span><div class="timer-display ${sec<=10?'warning':''}" id="timerDisplay">${timeText(sec)}</div><div class="timer-cue" id="timerCue">${game.timer.running?'COUNTING DOWN':'HOST CONTROLLED'}</div><div class="control-button-grid">${game.timer.running?btn('Ⅱ Pause','pauseTimer','ghost small'):btn('▶ Start timer','startTimer','dark small')}${btn('↻ Reset','resetTimer','soft small')}${btn('+15 sec','addTime','soft small')}</div><p style="text-align:center;margin:13px 0 0">When time ends, the host decides whether to count the answer as a miss.</p></div>`;}
+function answerRow(item,i){const revealed=game.round.revealed.includes(i);let allow=['faceoff','play','steal'].includes(game.phase)&&!revealed;if(game.phase==='steal'&&game.round.stealRevealed)allow=false;return `<button type="button" class="answer-row ${revealed?'revealed':'available'}" data-action="reveal" data-index="${i}" ${allow?'':'disabled'} aria-label="${revealed?'Revealed':'Reveal'} answer ${i+1}: ${esc(item.text)}"><span class="number">${i+1}</span><span class="answer-text">${esc(item.text)}</span><span class="answer-points">${item.points}</span><span class="answer-action">${revealed?'REVEALED':'REVEAL ↗'}</span></button>`;}
+function showRoundHost(){const q=currentQ(),r=game.round;let help=({faceoff:'Read the question. Let one representative from each team give an answer. Reveal matches, then choose the higher-ranked team.',choice:'The face-off winner decides: PLAY the board or PASS control to the other team.',play:'The team in control takes turns guessing. Reveal a matching answer or give one strike for a miss.',steal:'Three strikes! The other team gets ONE final guess. Reveal a matching new answer, or award the miss.'})[game.phase];let control='';if(game.phase==='faceoff')control=`<span class="phase-label">STEP 1 · FACE-OFF</span><h3>Who won the face-off?</h3><p>Reveal any matching opening answers on the board. The highest-ranked answer decides who has first choice.</p><div class="actions-stack">${btn(`🏅 ${esc(game.teamNames[0])} won`,'faceoff','primary full','data-team="0"')}${btn(`🏅 ${esc(game.teamNames[1])} won`,'faceoff','dark full','data-team="1"')}</div>`;
+if(game.phase==='choice')control=`<span class="phase-label">STEP 2 · CHOOSE CONTROL</span><h3>${esc(game.teamNames[r.faceoffTeam])} won.</h3><p>Which team will play the rest of the board?</p><div class="actions-stack">${btn('▶ Play the board','play','primary full')}${btn('↪ Pass to opponents','pass','ghost full')}</div>`;
+if(game.phase==='play')control=`<span class="phase-label">STEP 3 · PLAY THE BOARD</span><h3>${esc(game.teamNames[r.controllingTeam])} is guessing</h3><p>Reveal correct answers by tapping their row on the board, or give a strike when a guess does not match.</p><div class="strike-track">${[0,1,2].map(i=>`<div class="strike-chip ${i<r.strikes?'on':''}">✕</div>`).join('')}</div><div class="actions-stack">${btn('✕ Wrong answer · add strike','strike','danger full')}${btn('✓ End round · bank pot','bank','ghost full')}</div><small style="display:block;margin-top:12px;color:#82919a">The board automatically closes when every answer is found.</small>`;
+if(game.phase==='steal')control=`<span class="phase-label">STEP 4 · LAST CHANCE</span><h3>${esc(game.teamNames[other(r.controllingTeam)])} can steal!</h3><p>One guess only. Click the matching hidden answer on the board if correct. If wrong, return points to the original team.</p><div class="actions-stack">${btn('✓ Successful steal · award pot','stealSuccess','primary full',r.stealRevealed?'':'disabled')}${btn('✕ Steal missed · original team wins','stealFail','danger full',r.stealRevealed?'disabled':'')}</div>`;
+return `<div class="host-wrap container animate-in">${hostHead()}${scoreBar()}<div class="host-grid"><div><section class="board-host"><div class="board-upper"><div class="board-meta"><span>${esc(q.category)} PACK · QUESTION ${game.roundIndex+1}</span><span>${roundMultiplier()}× MULTIPLIER</span></div><h2 class="board-prompt">${esc(q.question)}</h2><p class="board-tip">${help}</p></div><div class="answer-list">${q.answers.map(answerRow).join('')}</div><div class="board-footer"><div class="round-pot">${r.pot*roundMultiplier()} <span>POINTS IN THE POT</span></div><small>${r.revealed.length} of ${q.answers.length} answers revealed · Curated play values</small></div></section><div class="host-legend"><i></i> This is the host's private answer key. The audience screen hides unrevealed entries.</div></div><aside class="side-col"><div class="side-box">${control}</div>${clockControls()}<div class="side-box"><h3>Keep the game flowing</h3><p>Decide borderline synonyms as the host. Need a fresh question? You can skip this round without awarding any points.</p><div class="actions-stack">${btn('↪ Skip round (no points)','skipRound','soft full')}${btn('📖 Full rules','rules','ghost full')}</div></div></aside></div></div>`;}
+function roundsTable(){return `<div class="panel result-table"><h3>Scorebook</h3><table><thead><tr><th>Round</th><th>${esc(game.teamNames[0])}</th><th>${esc(game.teamNames[1])}</th><th>Winner</th></tr></thead><tbody>${game.records.map((r,i)=>`<tr><td>${i+1} · ×${r.multiplier}</td><td>${r.winner===0?r.points:0}</td><td>${r.winner===1?r.points:0}</td><td>${r.winner==null?'Skipped':esc(game.teamNames[r.winner])}</td></tr>`).join('')}<tr><th>Total</th><th>${game.scores[0]}</th><th>${game.scores[1]}</th><th></th></tr></tbody></table></div>`;}
+function resultHost(){const r=game.round,q=currentQ();const winnerText=r.winner==null?'No points awarded':`${game.teamNames[r.winner]} take the round!`;const reason=r.reason==='cleared'?'Every answer was found.':r.reason==='steal'?'A successful steal changed the game!':r.reason==='steal-missed'?'The stealing team missed.':r.reason==='bank'?'The host banked the round.':'This round was skipped.';const possibleNext=game.roundIndex+1<game.questionIds.length;return `<section class="result-section animate-in">${hostHead()}${scoreBar()}<div class="result-banner"><span class="mini-label" style="color:var(--yellow)">ROUND ${game.roundIndex+1} COMPLETE</span><h1>${esc(winnerText)}</h1><p>${esc(reason)}</p><div class="celebrate">${r.winner==null?'—':`+${r.points} points`}</div><div class="result-actions">${!r.resultShown?btn(r.resultRevealing?'<span class="reveal-loader"></span> Drumroll...':'🥁 Drumroll · reveal result','showResult','yellow',r.resultRevealing?'disabled':''):btn(possibleNext?'Next question →':'Finish match →','nextRound','primary')}${btn('↗ Audience screen','audience','ghost')}${btn('↺ Undo result','undo','soft',undoStack.length?'':'disabled')}</div></div><div class="panel" style="margin-top:20px"><div class="section-head"><div><span class="kicker">HOST RECAP</span><h2 style="font-size:25px">Question answers</h2><p>These are visible to the host. Audience sees the full board only after the reveal.</p></div><span class="pill">${roundMultiplier()}× ROUND</span></div><div class="round-answers">${q.answers.map((a,i)=>`<div><span>${i+1}. ${esc(a.text)} ${r.revealed.includes(i)?'✓':''}</span><strong>${a.points}</strong></div>`).join('')}</div></div>${roundsTable()}</section>`;}
+function finishedHost(cancelled=false){const scores=game.scores,draw=scores[0]===scores[1],winner=scores[0]>scores[1]?0:1;return `<section class="result-section animate-in">${hostHead()}<div class="result-banner"><span class="mini-label" style="color:var(--yellow)">${cancelled?'MATCH ENDED EARLY':draw?'WHAT A MATCH!':'WE HAVE A CHAMPION'}</span><h1>${cancelled?'Game stopped.':draw?'It’s a tie!':'The crowd has spoken.'}</h1><p>${cancelled?'The host ended this game. Scores recorded so far are preserved.':draw?'Both teams finished on the same score. Play a tiebreaker to find your winner.':'The points are in. Thank you for playing Crowd Says!'}</p><div class="celebrate">${cancelled?'No winner declared':draw?'Both teams level':esc(game.teamNames[winner])+' 🏆'}</div><div class="result-actions">${!cancelled&&draw?btn('⚡ Play a tiebreaker question','tiebreak','yellow'):''}${!cancelled&&!draw?btn('⚡ Optional Bonus Dash','bonus','yellow'):''}${btn('↻ Start a new match','reset','primary')}${btn('↓ Download results','csv','ghost')}${btn('↗ Audience screen','audience','ghost')}</div></div>${scoreBar()}${roundsTable()}<p class="host-footer-hint">Bonus Dash is optional, played by the champion team, and does not change the main match result. All match scores are saved locally in this browser.</p></section>`;}
+function bonusHost(){const b=game.bonus,w=game.teamNames[b.winner],q=qMap.get(b.questionIds[b.q]);let left='';if(b.stage==='ready')left=`<div class="board-host"><div class="board-upper"><span class="phase-label">OPTIONAL BONUS · 2 PLAYERS</span><h2 class="board-prompt">The Bonus Dash</h2><p class="board-tip">The winning team sends two different players. Both answer five quick prompts. Player two must not repeat player one's answers for the same question. Reach 200 combined points to win the bonus celebration.</p></div><div class="answer-list"><div class="note-box"><strong>MC checklist</strong><br>Keep player two out of earshot during player one's turn. Read each question aloud. Click the matching curated answer or press Pass. The audience screen will hide the answer values until the final reveal.</div></div></div>`;
+if(b.stage==='live')left=`<div class="board-host"><div class="board-upper"><span class="phase-label">PLAYER ${b.player+1} · QUESTION ${b.q+1} OF 5</span><h2 class="board-prompt">${esc(q.question)}</h2><p class="board-tip">Host-only answer key · If their guess is not here, choose Pass (0). Each correct answer is worth its printed score. Player two cannot reuse the same answer.</p></div><div class="answer-list">${q.answers.map((a,i)=>{const duplicate=b.player===1&&b.picks[0][b.q]===i;return `<button class="answer-row" data-action="bonusPick" data-index="${i}" ${duplicate?'disabled':''}><span class="number">${i+1}</span><span class="answer-text">${esc(a.text)}</span><span class="answer-points">${a.points}</span><span class="answer-action">${duplicate?'USED':'PICK ↗'}</span></button>`;}).join('')}</div><div class="board-footer">${btn('↪ Pass · 0 points','bonusPass','ghost')}<span style="color:#c1d8de;font-size:11px">The player answers aloud, the host selects.</span></div></div>`;
+if(b.stage==='between')left=`<div class="result-banner"><span class="mini-label" style="color:var(--yellow)">HALFTIME</span><h1>New player, new picks.</h1><p>Player two must not have heard player one's answers. Bring them in, then start their 25-second turn.</p><div class="result-actions">${btn('▶ Start Player 2 · 25 sec','bonusStart','primary')}</div></div>`;
+if(b.stage==='summary')left=`<div class="result-banner"><span class="mini-label" style="color:var(--yellow)">BONUS RESULTS</span><h1>${b.scores[0]+b.scores[1]>=200?'Bonus goal smashed!':'Bonus Dash complete!'}</h1><p>${esc(w)} earned ${b.scores[0]+b.scores[1]} bonus points. Goal: 200. These bonus points don't affect the match champion.</p><div class="celebrate">${b.scores[0]+b.scores[1]} / 200</div><div class="result-actions">${btn('↩ Back to match result','bonusExit','primary')}${btn('↗ Audience view','audience','ghost')}</div></div>`;
+return `<div class="host-wrap container animate-in">${hostHead()}<div class="section-head"><div><span class="kicker">WINNER'S BONUS ROUND</span><h2>One more shot at glory.</h2><p>Team ${esc(w)} · five short questions · two separate players · curated point values.</p></div></div><div class="bonus-grid"><div>${left}${b.stage==='summary'?`<div class="panel" style="margin-top:16px"><h3>Bonus answer sheet</h3><table class="bonus-question-table"><thead><tr><th>Question</th><th>Player 1</th><th>Player 2</th></tr></thead><tbody>${b.questionIds.map((id,i)=>{const card=qMap.get(id);return `<tr><td>${esc(card.question)}</td>${[0,1].map(p=>{const choice=b.picks[p][i];return `<td>${choice==null?'Pass':esc(card.answers[choice].text)} (${choice==null?0:card.answers[choice].points})</td>`;}).join('')}</tr>`;}).join('')}</tbody></table></div>`:''}</div><aside class="side-col"><div class="side-box"><span class="phase-label">BONUS CLOCK</span><div class="timer-display ${b.remaining<=5?'warning':''}" id="bonusTimer">${timeText(b.remaining)}</div><div class="timer-cue">${b.stage==='live'?'PLAYER '+(b.player+1)+' ON THE CLOCK':'HOST CONTROLS THE START'}</div>${b.stage==='ready'?btn('▶ Start Player 1 · 20 sec','bonusStart','primary full'):''}${b.stage==='live'?btn('Ⅱ Pause / ▶ Resume','bonusPause','ghost full'):''}${b.stage==='between'?btn('▶ Player 2 · 25 sec','bonusStart','primary full'):''}${b.stage==='summary'?btn('↩ Back to result','bonusExit','ghost full'):''}</div><div class="side-box"><h3>${esc(w)}</h3><p>Player 1: <b>${b.scores[0]}</b> points<br>Player 2: <b>${b.scores[1]}</b> points<br>Goal: <b>200</b> combined points</p><div class="note-box">Bonus scores are separate from the main leaderboard. Players answer aloud; the host clicks the selected answer.</div></div></aside></div></div>`;}
+function setupView(){return `<section class="hero container"><div><span class="kicker"><span class="dot"></span> THE SURVEY SHOWDOWN FOR REAL PEOPLE</span><h1 class="hero-title">The crowd<br>has <em>spoken.</em></h1><p class="hero-copy">Two teams. Hidden answers. Three strikes. One big chance to steal the show. An event-ready guessing game with Nigerian, African and global flavour.</p><div class="hero-actions"><a class="btn dark" href="#setup">Set up a showdown <span>↗</span></a>${btn('See the rules ↗','rules','ghost')}${btn('▤ Project player rules','projectRules','ghost')}</div><div class="hero-meta"><span><span class="dot"></span> No sign-up needed</span><span>◈ Built for in-person events</span><span>★ Host-controlled scoring</span></div></div><div class="mock-stage" aria-label="Illustration of a survey guessing game board"><div class="mock-header"><span>✳ CROWD SAYS!</span><span>ROUND 01 / 05 · ×1</span></div><div class="mock-board"><div class="mock-question">Name something people take to an owambe.</div><div class="fake-row filled"><span>01 &nbsp; Aso-ebi</span><b>36</b></div><div class="fake-row"><span>02 &nbsp; ▰▰▰▰▰▰▰</span><b>?</b></div><div class="fake-row"><span>03 &nbsp; ▰▰▰▰▰▰▰</span><b>?</b></div><div class="fake-row"><span>04 &nbsp; ▰▰▰▰▰▰▰</span><b>?</b></div><div class="mock-bottom"><div class="mini-team"><span>TEAM JOLLOF</span><strong>100</strong></div><div class="x-marks">X X _</div><div class="mini-team"><span>TEAM SUYA</span><strong>80</strong></div></div></div></div></div></section><div class="stripe">🎤 YOU BRING THE PEOPLE. WE BRING THE QUESTION BOARD. ✳ READY TO PLAY?</div><section class="setup container" id="setup" style="padding-top:70px"><div class="section-head"><div><span class="kicker">01 / GET THE ROOM READY</span><h2>Set the stage.</h2><p>Only one host needs to touch the controls. The two teams play together in person.</p></div><span class="pill"><span class="dot"></span> 36 original questions</span></div><div class="setup-grid"><form id="setupForm" class="panel"><h3 class="panel-title">Your match</h3><div class="form-row"><div class="field"><label for="teamOne">Team one</label><input id="teamOne" name="teamOne" value="Team Jollof" maxlength="36" required autocomplete="off"></div><div class="field"><label for="teamTwo">Team two</label><input id="teamTwo" name="teamTwo" value="Team Suya" maxlength="36" required autocomplete="off"></div></div><div class="field"><span class="field-label">Choose your question packs</span><div class="pack-select"><label class="pack-toggle"><input type="checkbox" name="pack" value="Nigeria" checked><span>🇳🇬 Nigeria</span></label><label class="pack-toggle"><input type="checkbox" name="pack" value="Africa" checked><span>🌍 Africa</span></label><label class="pack-toggle"><input type="checkbox" name="pack" value="Global" checked><span>🌐 Global</span></label></div><small>Mix themes or focus on one. All prompts are family- and community-friendly.</small></div><div class="form-row"><div class="field"><label for="roundCount">Number of rounds</label><select id="roundCount" name="roundCount"><option value="3">3 · Quick warm-up</option><option value="5" selected>5 · Classic showdown</option><option value="7">7 · Full programme</option><option value="10">10 · Big event</option><option value="12">12 · Marathon</option></select></div><div class="field"><label for="roundTime">Guessing clock</label><select id="roundTime" name="roundTime"><option value="30">30 seconds</option><option value="45" selected>45 seconds</option><option value="60">60 seconds</option><option value="90">90 seconds</option></select></div></div><div class="note-box" style="margin-bottom:20px"><strong>What you need:</strong> An MC or host, two teams of ideally 3–6 players, a laptop and optionally a projector. Open <b>Audience display</b> in a separate window so the crowd never sees the host's answer key.</div><button type="submit" class="btn primary full" style="font-size:15px;min-height:56px">Start the showdown →</button><div class="host-footer-hint" style="text-align:center">Saved on this browser · No account · No internet after the game loads</div></form><aside class="setup-side"><div><span class="mini-label">MADE FOR COMMUNITY ENERGY</span><h3>Less setup.<br>More shout-outs.</h3><p>Perfect for team socials, icebreakers, retreats, campus hangouts, community meetups and office events.</p></div><div class="side-facts"><div><b>02</b><span>teams competing at a time</span></div><div><b>03</b><span>strikes to unlock a steal</span></div><div><b>36</b><span>original Nigeria, Africa & Global prompts</span></div></div></aside></div><div class="host-legend" style="margin-top:17px"><i></i> Inspired by classic survey-answer games, but not affiliated with the Family Feud television show. Curated, illustrative game points; no people were polled.</div></section>`;}
+function publicScore(team){return game.phase==='result'&&!game.round.resultShown&&game.round.winner===team?Math.max(0,getScore(team)-game.round.points):getScore(team);}
+function audienceScore(){return `<div class="aud-score">${[0,1].map((team,i)=>`${i===1?'<div class="aud-between">VS</div>':''}<div class="aud-team ${game.round?.controllingTeam===team?'active':''}"><small>${esc(game.teamNames[team])}</small><strong>${publicScore(team)}</strong></div>`).join('')}</div>`;}
+function audienceBoard(q,showAll=false){return `<div class="aud-board">${q.answers.map((a,i)=>{const visible=showAll||game.round?.revealed?.includes(i);return `<div class="aud-answer ${visible?'shown':'hidden-answer'}"><span class="rank">${i+1}</span><span>${visible?esc(a.text):'● ● ● ● ●'}</span><span class="value">${visible?a.points:'?'}</span></div>`;}).join('')}</div>`;}
+function audienceView(){if(projectionRules)return `<section class="audience-view"><div class="aud-top"><span class="aud-logo">✳ CROWD <span>SAYS!</span></span><span>RULES FOR PLAYERS</span></div><div class="aud-end"><div><span style="color:var(--teal);font-weight:800;letter-spacing:.12em">BE READY TO SHOUT IT OUT</span><div class="huge" style="font-size:clamp(35px,5vw,80px)">HOW TO PLAY</div><div class="aud-rules"><div><b>01</b> One person from each team faces off to win control.</div><div><b>02</b> Guess what might be on the hidden answer board.</div><div><b>03</b> Correct guesses earn points. Three wrong guesses = three strikes.</div><div><b>04</b> Opponents get one chance to steal the round's points.</div><div><b>05</b> The team with the highest total at the end wins!</div></div><p>Play fair: no phones, no audience hints, and the MC decides close guesses. The points are curated for fun, not from a real survey.</p></div></div></section>`;if(!game)return `<section class="audience-view"><div class="aud-top"><span class="aud-logo">✳ CROWD <span>SAYS!</span></span><span>THE SHOW STARTS SOON</span></div><div class="aud-end"><div><div class="huge">READY TO<br>PLAY?</div><p>Waiting for the host to set up the match.</p></div></div><div class="aud-note">Keep this window in the same browser/device as the host console for live updates.</div></section>`;
+let mid='',lower='',small='';if(['faceoff','choice','play','steal'].includes(game.phase)){const q=currentQ();small=`${game.phase==='faceoff'?'FACE-OFF!':game.phase==='choice'?'PLAY OR PASS':game.phase==='steal'?'ONE CHANCE TO STEAL':'THE BOARD IS LIVE'} · ROUND ${game.roundIndex+1} OF ${game.questionIds.length} · ×${roundMultiplier()}`;mid=`<h1 class="aud-question"><small>${esc(q.category.toUpperCase())} QUESTION</small>${esc(q.question)}</h1>${audienceBoard(q)}`;lower=`<div class="aud-bottom"><div class="aud-strikes">${'✕ '.repeat(game.round.strikes)}${'○ '.repeat(3-game.round.strikes)}</div><div class="aud-state"><span id="audRoundClock">${timeText(game.timer.remaining)}</span> · ${game.phase==='faceoff'?'Who will take control?':game.phase==='choice'?'Play it or pass it!':game.phase==='steal'?'STEAL CHANCE — ONE GUESS!':`${esc(game.teamNames[game.round.controllingTeam])} IS PLAYING`}</div><div class="aud-pot">${game.round.pot*roundMultiplier()} <span style="font-size:.4em;color:#b0c9d1">POT</span></div></div>`;}
+if(game.phase==='result'){small=`ROUND ${game.roundIndex+1} OF ${game.questionIds.length} · RESULTS`;mid=game.round.resultShown?`<div class="aud-end"><div><div class="aud-logo">✳ ROUND COMPLETE</div><div class="huge">${game.round.winner==null?'NO POINTS':esc(game.teamNames[game.round.winner])}</div><p>${game.round.winner==null?'This question was skipped.':`+${game.round.points} points added to the leaderboard.`}</p></div></div>${audienceBoard(currentQ(),true)}`:`<div class="aud-end"><div><div class="huge">${game.round.resultRevealing?'<span class="reveal-dot"></span> THE REVEAL':'RESULTS ARE IN'}</div><p>The host will reveal the result in a moment.</p></div></div>`;lower=`<div class="aud-bottom"><div class="aud-state">${game.round.resultShown?'READY FOR THE NEXT QUESTION':'WAIT FOR THE HOST'}</div></div>`;}
+if(game.phase==='finished'||game.phase==='cancelled'){const draw=game.scores[0]===game.scores[1];const win=game.scores[0]>game.scores[1]?0:1;small='FINAL SCOREBOARD';mid=`<div class="aud-end"><div><div class="aud-logo">✳ ${game.phase==='cancelled'?'MATCH STOPPED':'IT’S A WRAP'}</div><div class="huge">${game.phase==='cancelled'?'MATCH ENDED':draw?'IT’S A TIE!':esc(game.teamNames[win])}</div><p>${game.phase==='cancelled'?'The host ended the match.':draw?'Two teams, one legendary finish.':'Your Crowd Says! champions.'}</p></div></div>`;lower='<div class="aud-bottom"><div class="aud-state">THANK YOU FOR PLAYING · CROWD SAYS!</div></div>';}
+if(game.phase==='bonus'){const b=game.bonus;small='BONUS DASH · '+esc(game.teamNames[b.winner]);if(b.stage==='live'){const card=qMap.get(b.questionIds[b.q]);mid=`<div class="aud-end"><div><div class="aud-logo">PLAYER ${b.player+1} · ${b.q+1} OF 5</div><div class="huge" style="font-size:clamp(30px,5vw,85px)">${esc(card.question)}</div><p>Answer aloud. The host is keeping score.</p><div class="aud-pot"><span id="audBonusClock">${timeText(b.remaining)}</span> LEFT</div></div></div>`;}else if(b.stage==='summary'){const total=b.scores[0]+b.scores[1];mid=`<div class="aud-end"><div><div class="aud-logo">BONUS RESULTS</div><div class="huge">${total} / 200</div><p>${total>=200?'BONUS GOAL REACHED!':'Great effort!'} The main match winner remains the same.</p></div></div>`;}else{mid=`<div class="aud-end"><div><div class="huge">BONUS DASH!</div><p>${b.stage==='between'?'Player 2, get ready!':'The host is getting the team ready.'}</p></div></div>`;}lower='<div class="aud-bottom"><div class="aud-state">2 PLAYERS · 5 QUESTIONS · 200-POINT GOAL</div></div>';}
+return `<section class="audience-view"><div class="aud-top"><span class="aud-logo">✳ CROWD <span>SAYS!</span></span><span>${small}</span></div>${audienceScore()}${mid}${lower}<div class="aud-note">Points are illustrative game values, not real survey results. Hosted in person · Keep the host and projector in the same browser.</div></section>`;}
+function render(){if(AUDIENCE){renderAudience();return;}const app=$('#app');if(!app)return;if(!game){app.innerHTML=setupView();return;}if(isInteractive())app.innerHTML=showRoundHost();else if(game.phase==='result')app.innerHTML=resultHost();else if(game.phase==='finished'||game.phase==='cancelled')app.innerHTML=finishedHost(game.phase==='cancelled');else if(game.phase==='bonus')app.innerHTML=bonusHost();updateTimerText();}
+function audienceSignature(){if(!game)return 'empty|'+projectionRules;const r=game.round||{};const b=game.bonus||{};return JSON.stringify([projectionRules,game.phase,game.roundIndex,game.teamNames,game.scores,r.revealed,r.strikes,r.controllingTeam,r.winner,r.points,r.resultShown,r.resultRevealing,b.stage,b.player,b.q,b.scores]);}
+function renderAudience(){const signature=audienceSignature();if(signature===lastAudienceSignature){updateTimerText();return;}lastAudienceSignature=signature;let node=$('#audRoot');if(!node){document.body.insertAdjacentHTML('beforeend','<div id="audRoot" class="audience-only"></div>');node=$('#audRoot');}node.innerHTML=audienceView();updateTimerText();}
+function updateTimerText(){let a=$('#audRoundClock');if(a&&game)a.textContent=timeText(game.timer?.remaining);let ab=$('#audBonusClock');if(ab&&game?.bonus)ab.textContent=timeText(game.bonus.remaining);let span=$('#timerDisplay');if(span&&game){span.textContent=timeText(game.timer.remaining);span.classList.toggle('warning',game.timer.remaining<=10)}let cue=$('#timerCue');if(cue&&game)cue.textContent=game.timer.running?'COUNTING DOWN':'HOST CONTROLLED';let bt=$('#bonusTimer');if(bt&&game?.bonus)bt.textContent=timeText(game.bonus.remaining);}
+function startTimer(seconds=null){if(!game)return;if(game.phase==='bonus'){if(game.bonus.stage!=='live')return;if(seconds!=null)game.bonus.remaining=seconds;game.bonus.endsAt=Date.now()+game.bonus.remaining*1000;game.bonus.running=true;}else{if(!['faceoff','choice','play','steal'].includes(game.phase))return;if(seconds!=null)game.timer.remaining=seconds;game.timer.endsAt=Date.now()+game.timer.remaining*1000;game.timer.running=true;}save();updateTimerText();}
+function stopTimer(){if(!game)return;if(game.timer?.running){game.timer.remaining=Math.max(0,Math.ceil((game.timer.endsAt-Date.now())/1000));game.timer.running=false;game.timer.endsAt=null;}save();}
+function bonusStop(){const b=game.bonus;if(!b)return;if(b.running){b.remaining=Math.max(0,Math.ceil((b.endsAt-Date.now())/1000));b.running=false;b.endsAt=null;}}
+function tick(){if(!game)return;let changed=false;const timer=game.phase==='bonus'?game.bonus:game.timer;if(timer?.running){const rem=Math.max(0,Math.ceil((timer.endsAt-Date.now())/1000));if(rem!==timer.remaining){timer.remaining=rem;changed=true;}if(rem<=0){timer.running=false;timer.endsAt=null;if(game.phase==='bonus'&&game.bonus.stage==='live'){endBonusPlayer();return;}sound('timer');if(!AUDIENCE)toast('Time! Host decides the call.');changed=true;}}if(changed){if(!AUDIENCE){save();updateTimerText();}else updateTimerText();}}
+function resetRound(){game.round={revealed:[],strikes:0,pot:0,faceoffTeam:null,controllingTeam:null,stealRevealed:false,winner:null,points:0,reason:null,resultShown:false,resultRevealing:false};game.phase='faceoff';game.timer={remaining:game.config.roundTime,running:false,endsAt:null};}
+function createMatch(form){const data=new FormData(form);const teamNames=[normalise(data.get('teamOne')),normalise(data.get('teamTwo'))];if(teamNames.some(x=>!x)){toast('Please name both teams.');return;}if(teamNames[0].toLowerCase()===teamNames[1].toLowerCase()){toast('Give the teams different names.');return;}const categories=data.getAll('pack').filter(v=>CATEGORY_ICONS[v]);if(!categories.length){toast('Select at least one question pack.');return;}const roundTime=Math.max(30,Math.min(90,Number(data.get('roundTime'))||45));const count=Math.max(3,Math.min(12,Number(data.get('roundCount'))||5));const pool=shuffle(questions.filter(q=>categories.includes(q.category)));if(pool.length<count){toast('Not enough questions for this setting.');return;}const ids=pool.slice(0,count).map(x=>x.id);const rest=shuffle(questions.filter(q=>!ids.includes(q.id)));projectionRules=false;try{localStorage.setItem(STAGE,'false');}catch(e){}game={version:1,teamNames,config:{categories,roundTime},questionIds:ids,bonusQuestionIds:rest.slice(0,5).map(x=>x.id),roundIndex:0,scores:[0,0],records:[],phase:'faceoff',round:{},timer:{},bonus:null};resetRound();undoStack=[];save();render();sound('click');window.scrollTo({top:0,behavior:'smooth'});toast('Match ready! Start with a face-off.');}
+function setFaceoff(team){if(game?.phase!=='faceoff')return;storeSnap();game.round.faceoffTeam=team;game.phase='choice';save();render();sound('good');}
+function setController(choice){if(game?.phase!=='choice')return;storeSnap();game.round.controllingTeam=choice==='play'?game.round.faceoffTeam:other(game.round.faceoffTeam);game.phase='play';startTimer(game.config.roundTime);save();render();}
+function reveal(index){if(!game||!['faceoff','play','steal'].includes(game.phase))return;const card=currentQ();if(!Number.isInteger(index)||index<0||index>=card.answers.length||game.round.revealed.includes(index))return;if(game.phase==='steal'&&game.round.stealRevealed)return;storeSnap();game.round.revealed.push(index);game.round.pot+=card.answers[index].points;sound('good');if(game.phase==='steal'){game.round.stealRevealed=true;stopTimer();}else if(game.phase==='play'&&game.round.revealed.length===card.answers.length){award(game.round.controllingTeam,'cleared');return;}save();render();}
+function strike(){if(game?.phase!=='play')return;storeSnap();game.round.strikes=Math.min(3,game.round.strikes+1);sound('bad');if(game.round.strikes===3){stopTimer();game.phase='steal';game.timer.remaining=15;game.timer.endsAt=null;}save();render();}
+function award(team,reason){if(!game||!['play','steal'].includes(game.phase))return;stopTimer();const r=game.round;r.winner=team;r.reason=reason;r.points=team==null?0:r.pot*roundMultiplier();r.resultShown=false;r.resultRevealing=false;if(team!=null)game.scores[team]+=r.points;game.records.push({questionId:currentQ().id,category:currentQ().category,winner:team,reason,points:r.points,multiplier:roundMultiplier(),pot:r.pot});game.phase='result';save();render();}
+function skipRound(){if(!game||!isInteractive())return;if(!window.confirm('Skip this question? No points will be awarded, and both teams move on.'))return;storeSnap();stopTimer();game.round.winner=null;game.round.points=0;game.round.reason='skipped';game.round.resultShown=true;game.round.resultRevealing=false;game.records.push({questionId:currentQ().id,category:currentQ().category,winner:null,reason:'skipped',points:0,multiplier:roundMultiplier(),pot:game.round.pot});game.phase='result';save();render();}
+function showResult(){if(game?.phase!=='result'||game.round.resultShown||game.round.resultRevealing)return;storeSnap();game.round.resultRevealing=true;save();render();sound('drum');const index=game.roundIndex;clearTimeout(revealHandle);revealHandle=setTimeout(()=>{if(game?.phase==='result'&&game.roundIndex===index){game.round.resultRevealing=false;game.round.resultShown=true;save();render();sound('winner');}},2650);}
+function nextRound(){if(game?.phase!=='result'||!game.round.resultShown)return;if(game.roundIndex+1>=game.questionIds.length){game.phase='finished';game.timer={remaining:0,running:false,endsAt:null};}else{game.roundIndex++;resetRound();}undoStack=[];save();render();window.scrollTo({top:0,behavior:'smooth'});}
+function doTiebreak(){if(game?.phase!=='finished'||game.scores[0]!==game.scores[1])return;const spare=shuffle(questions.filter(q=>!game.questionIds.includes(q.id)));if(!spare.length){toast('No unused questions available.');return;}game.questionIds.push(spare[0].id);game.roundIndex++;resetRound();undoStack=[];save();render();toast('Tiebreaker loaded — may the best team win!');}
+function cancel(){if(!game||['cancelled','finished'].includes(game.phase))return;if(!window.confirm('Cancel the current match? Scores remain available, but there will be no winner.'))return;stopTimer();if(game.bonus)bonusStop();game.phase='cancelled';save();render();}
+function reset(){if(game&&!window.confirm('Start a fresh match? This resets the current scores and rounds. Export results first if you need them.'))return;game=null;undoStack=[];save();render();window.scrollTo({top:0,behavior:'smooth'});}
+function downloadScores(){if(!game)return;const rows=[['round','question','category','multiplier','winning team','points']];game.records.forEach((r,i)=>rows.push([i+1,qMap.get(r.questionId)?.question||r.questionId,r.category,r.multiplier,r.winner==null?'Skipped':game.teamNames[r.winner],r.points]));rows.push(['TOTAL',game.teamNames[0],'', '', '',game.scores[0]]);rows.push(['TOTAL',game.teamNames[1], '', '', '',game.scores[1]]);const csv=rows.map(line=>line.map(t=>`"${String(t).replace(/"/g,'""')}"`).join(',')).join('\r\n');const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='crowd-says-results.csv';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500);}
+function launchBonus(){if(game?.phase!=='finished')return;if(game.scores[0]===game.scores[1]){toast('Break the tie first.');return;}const winner=game.scores[0]>game.scores[1]?0:1;game.bonus={winner,questionIds:game.bonusQuestionIds.slice(0,5),stage:'ready',player:0,q:0,picks:[Array(5).fill(null),Array(5).fill(null)],scores:[0,0],running:false,remaining:20,endsAt:null};game.phase='bonus';save();render();}
+function bonusStart(){if(game?.phase!=='bonus'||!['ready','between'].includes(game.bonus.stage))return;const b=game.bonus;if(b.stage==='between')b.player=1;b.q=0;b.stage='live';b.remaining=b.player===0?20:25;startTimer();save();render();}
+function endBonusPlayer(){const b=game.bonus;if(!b)return;bonusStop();if(b.player===0){b.stage='between';b.remaining=25;}else{b.stage='summary';b.remaining=0;sound('winner');}save();render();}
+function bonusPick(index){if(game?.phase!=='bonus'||game.bonus.stage!=='live')return;const b=game.bonus,card=qMap.get(b.questionIds[b.q]);if(!card||!card.answers[index])return;if(b.player===1&&b.picks[0][b.q]===index){toast('Player 2 must choose a different answer.');return;}b.picks[b.player][b.q]=index;b.scores[b.player]+=card.answers[index].points;sound('good');advanceBonus();}
+function advanceBonus(){const b=game.bonus;b.q++;if(b.q>=5){endBonusPlayer();return;}save();render();}
+function bonusExit(){if(game?.phase!=='bonus')return;bonusStop();game.phase='finished';save();render();}
+function openRules(){const modal=$('#rulesDialog');modal.hidden=false;$('#closeRules').focus();document.body.style.overflow='hidden';}
+function closeRules(){const modal=$('#rulesDialog');modal.hidden=true;document.body.style.overflow='';}
+function toggleProjectionRules(){projectionRules=!projectionRules;try{localStorage.setItem(STAGE,String(projectionRules));}catch(e){}if(AUDIENCE){lastAudienceSignature='';renderAudience();}else{render();toast(projectionRules?'Player rules are on the audience screen':'Player rules hidden — game board restored');}}
+function openAudience(){const url=new URL(location.href);url.searchParams.set('view','audience');window.open(url.href,'crowd-says-audience','noopener');toast('Open the audience tab and move it to your projector. Use the same browser/device.');}
+function handleAction(action,node){switch(action){case'rules':openRules();return;case'projectRules':toggleProjectionRules();return;case'audience':openAudience();return;case'undo':undo();return;case'faceoff':setFaceoff(Number(node.dataset.team));return;case'play':case'pass':setController(action);return;case'reveal':reveal(Number(node.dataset.index));return;case'strike':strike();return;case'bank':if(game?.phase==='play'){storeSnap();award(game.round.controllingTeam,'bank');}return;case'stealSuccess':if(game?.phase==='steal'&&game.round.stealRevealed){storeSnap();award(other(game.round.controllingTeam),'steal');}return;case'stealFail':if(game?.phase==='steal'&&!game.round.stealRevealed){storeSnap();award(game.round.controllingTeam,'steal-missed');}return;case'skipRound':skipRound();return;case'showResult':showResult();return;case'nextRound':nextRound();return;case'cancel':cancel();return;case'reset':reset();return;case'csv':downloadScores();return;case'tiebreak':doTiebreak();return;case'bonus':launchBonus();return;case'bonusStart':bonusStart();return;case'bonusPick':bonusPick(Number(node.dataset.index));return;case'bonusPass':if(game?.phase==='bonus'&&game.bonus.stage==='live')advanceBonus();return;case'bonusPause':if(game?.phase==='bonus'&&game.bonus.stage==='live'){if(game.bonus.running)bonusStop();else startTimer();save();render();}return;case'bonusExit':bonusExit();return;case'startTimer':startTimer();updateTimerText();return;case'pauseTimer':stopTimer();render();return;case'resetTimer':if(!game||!isInteractive())return;game.timer={remaining:game.phase==='steal'?15:game.config.roundTime,running:false,endsAt:null};save();render();return;case'addTime':if(!game||!isInteractive())return;if(game.timer.running){game.timer.endsAt+=15000;}else game.timer.remaining+=15;save();updateTimerText();return;default:return;}}
+function wire(){if(AUDIENCE){document.body.classList.add('is-audience');}document.addEventListener('click',e=>{const n=e.target.closest('[data-action]');if(n){e.preventDefault();handleAction(n.dataset.action,n);}});document.addEventListener('submit',e=>{if(e.target.id==='setupForm'){e.preventDefault();createMatch(e.target);}});$('#topRules').addEventListener('click',openRules);$('#openAudience').addEventListener('click',openAudience);$('#soundToggle').addEventListener('click',()=>{soundOn=!soundOn;$('#soundToggle').classList.toggle('is-muted',!soundOn);$('#soundToggle').setAttribute('aria-label',soundOn?'Mute sound':'Unmute sound');if(soundOn)sound('click');toast(soundOn?'Audio cues on':'Audio cues muted');});$('#closeRules').addEventListener('click',closeRules);$('#rulesGotIt').addEventListener('click',closeRules);$('#rulesDialog').addEventListener('click',e=>{if(e.target.id==='rulesDialog')closeRules();});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#rulesDialog').hidden)closeRules();});window.addEventListener('storage',e=>{if(e.key===STAGE){projectionRules=e.newValue==='true';if(AUDIENCE){lastAudienceSignature='';renderAudience();}return;}if(e.key!==STORAGE)return;try{const newest=JSON.parse(e.newValue);if(AUDIENCE){game=newest;renderAudience();}}catch(err){/* ignore */}});document.addEventListener('visibilitychange',()=>{if(!document.hidden&&AUDIENCE){try{game=JSON.parse(localStorage.getItem(STORAGE));}catch(err){game=null;}renderAudience();}});tickHandle=setInterval(tick,250);}
+async function boot(){wire();load();try{const response={ok:true,json:async()=>JSON.parse(document.getElementById('questionBank').textContent)};if(!response.ok)throw new Error(`Question pack unavailable (${response.status})`);questions=await response.json();if(!Array.isArray(questions)||questions.length<20)throw new Error('Question bank incomplete');qMap=new Map(questions.map(x=>[x.id,x]));if(game?.questionIds?.some(id=>!qMap.has(id))){game=null;save();}if(game?.phase==='result'&&game.round?.resultRevealing){game.round.resultRevealing=false;game.round.resultShown=true;save();}if(game?.timer?.running&&!AUDIENCE){tick();}render();}catch(err){$('#app').innerHTML=`<section class="container" style="padding:80px 0"><h2>Could not load the question pack.</h2><p>${esc(err.message)}. The game must be served from a web server rather than opened as a file.</p><button class="btn dark" onclick="location.reload()">Retry</button></section>`;}}
+boot();
+})();
+</script>
+</body></html>
