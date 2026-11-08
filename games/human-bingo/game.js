@@ -33,8 +33,16 @@ let lobbyChannel = null;
 
 // The game the organizer is running, and the winners already celebrated
 let lobbyGame = null;
+let lastPlayers = [];
 let celebratedWinners = new Set();
 let firstPlayerLoad = true;
+
+// The game this phone is PLAYING in, and its live connection
+let playerGame = null;
+let gameChannel = null;
+
+// Runs once a second to update the countdown timers
+let timerInterval = null;
 
 // ================================
 // SUPABASE CONNECTION
@@ -352,6 +360,8 @@ function showOrganizerLobby(game) {
 
   showJoinTools(game.room_code);
   startLobbyUpdates(game.id);
+  updateOrganizerControls();
+  startTimerTicks();
 
   organizerLobby.scrollIntoView({
     behavior: "smooth",
@@ -441,6 +451,7 @@ function sortLeaderboard(players) {
 
 // Show the live leaderboard on the organizer's screen
 function renderPlayers(players) {
+  lastPlayers = players;
   const total = players.length;
   const cardSize = lobbyGame ? lobbyGame.card_size : 20;
 
@@ -484,10 +495,19 @@ function renderPlayers(players) {
     score.className = "leader-score";
     score.textContent = `${player.completed_count}/${cardSize}`;
 
+    const removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.className = "remove-player";
+    removeButton.textContent = "×";
+    removeButton.title = `Remove ${player.name}`;
+    removeButton.setAttribute("aria-label", `Remove ${player.name} from the game`);
+    removeButton.addEventListener("click", () => removePlayer(player));
+
     row.appendChild(rank);
     row.appendChild(name);
     row.appendChild(bar);
     row.appendChild(score);
+    row.appendChild(removeButton);
 
     playerList.appendChild(row);
   });
@@ -555,6 +575,193 @@ function startLobbyUpdates(gameId) {
         loadPlayers(gameId);
       }
     });
+}
+
+// ================================
+// ORGANIZER: GAME CONTROLS
+// ================================
+
+const timerMinutesSelect = document.getElementById("timerMinutes");
+const startTimerButton = document.getElementById("startTimer");
+const endGameButton = document.getElementById("endGame");
+const downloadButton = document.getElementById("downloadResults");
+
+// Is a game over? (ended by the organizer, or the timer ran out)
+function isGameOver(game) {
+  if (!game) {
+    return false;
+  }
+
+  if (game.status === "ended") {
+    return true;
+  }
+
+  return Boolean(game.ends_at) && Date.now() >= new Date(game.ends_at).getTime();
+}
+
+// Turn milliseconds into "12:05"
+function formatTimeLeft(milliseconds) {
+  const totalSeconds = Math.max(0, Math.ceil(milliseconds / 1000));
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes}:${String(seconds).padStart(2, "0")}`;
+}
+
+// Show the right buttons and text for the game's current state
+function updateOrganizerControls() {
+  if (!lobbyGame) {
+    return;
+  }
+
+  const over = isGameOver(lobbyGame);
+  const timerDisplay = document.getElementById("organizerTimer");
+  const statusText = document.getElementById("gameStatusText");
+
+  startTimerButton.disabled = over;
+  timerMinutesSelect.disabled = over;
+  endGameButton.disabled = over;
+
+  if (over) {
+    timerDisplay.textContent = "Game over";
+    statusText.textContent =
+      "This game has ended. Cards are locked and nobody new can join.";
+  } else if (lobbyGame.ends_at) {
+    const left = new Date(lobbyGame.ends_at).getTime() - Date.now();
+    timerDisplay.textContent = `⏱ ${formatTimeLeft(left)}`;
+    statusText.textContent =
+      "The timer is running on every player's phone. Starting a new timer replaces it.";
+    startTimerButton.textContent = "Restart timer";
+  } else {
+    timerDisplay.textContent = "No timer";
+    statusText.textContent =
+      "Optional: start a timer so everyone sees the same countdown.";
+    startTimerButton.textContent = "Start timer";
+  }
+}
+
+// Save a change to the game (timer or status) and keep the new version
+async function updateGame(changes) {
+  const { data, error } = await supabaseClient
+    .from("games")
+    .update(changes)
+    .eq("id", lobbyGame.id)
+    .select()
+    .single();
+
+  if (error) {
+    console.error("Could not update the game:", error);
+    alert("Sorry, that didn't work. Check your connection and try again.");
+    return false;
+  }
+
+  lobbyGame = data;
+  updateOrganizerControls();
+  return true;
+}
+
+// Start (or restart) the countdown
+startTimerButton.addEventListener("click", async () => {
+  const minutes = Number(timerMinutesSelect.value);
+  const endsAt = new Date(Date.now() + minutes * 60 * 1000).toISOString();
+
+  startTimerButton.disabled = true;
+  await updateGame({ ends_at: endsAt });
+  updateOrganizerControls();
+});
+
+// End the game now
+endGameButton.addEventListener("click", async () => {
+  const sure = confirm(
+    "End the game now? Cards will be locked and nobody new can join."
+  );
+
+  if (sure) {
+    await updateGame({ status: "ended" });
+  }
+});
+
+// Remove a player from the game (e.g. a mistake or a duplicate)
+async function removePlayer(player) {
+  const sure = confirm(`Remove ${player.name} from this game?`);
+
+  if (!sure) {
+    return;
+  }
+
+  const { error } = await supabaseClient
+    .from("players")
+    .delete()
+    .eq("id", player.id);
+
+  if (error) {
+    console.error("Could not remove player:", error);
+    alert("Sorry, the player could not be removed. Please try again.");
+    return;
+  }
+
+  loadPlayers(lobbyGame.id);
+}
+
+// Make one CSV cell safe (commas, quotes and new lines need care)
+function csvCell(value) {
+  const text = value === null || value === undefined ? "" : String(value);
+  return `"${text.replace(/"/g, '""')}"`;
+}
+
+// Download the leaderboard as a spreadsheet file (CSV)
+downloadButton.addEventListener("click", () => {
+  const rows = [
+    ["Rank", "Name", "Squares completed", "Card size", "Won", "Finished at", "Joined at"]
+  ];
+
+  sortLeaderboard(lastPlayers).forEach((player, index) => {
+    rows.push([
+      index + 1,
+      player.name,
+      player.completed_count,
+      lobbyGame.card_size,
+      player.finished_at ? "Yes" : "No",
+      player.finished_at ? new Date(player.finished_at).toLocaleString() : "",
+      player.joined_at ? new Date(player.joined_at).toLocaleString() : ""
+    ]);
+  });
+
+  const csv = rows.map((row) => row.map(csvCell).join(",")).join("\r\n");
+
+  // "\ufeff" helps Excel show special characters (like é) correctly
+  const file = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(file);
+  link.download = `human-bingo-${lobbyGame.room_code}-results.csv`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(link.href);
+});
+
+// ================================
+// TIMERS (organizer and players)
+// ================================
+
+// Every second: update the countdowns, and end the game when time runs out
+function startTimerTicks() {
+  if (timerInterval) {
+    return;
+  }
+
+  timerInterval = setInterval(() => {
+    if (lobbyGame && !organizerLobby.classList.contains("hidden")) {
+      // The organizer's page ends the game when the timer reaches zero
+      if (lobbyGame.status === "active" && isGameOver(lobbyGame)) {
+        updateGame({ status: "ended" });
+      }
+      updateOrganizerControls();
+    }
+
+    if (playerGame && !participantGame.classList.contains("hidden")) {
+      updatePlayerGameState();
+    }
+  }, 1000);
 }
 
 // Copy the room code
@@ -628,7 +835,8 @@ joinGameForm.addEventListener("submit", async (event) => {
       return;
     }
 
-    if (game.status === "ended") {
+    // Ended by the organizer, or the timer has run out
+    if (isGameOver(game)) {
       joinMessage.textContent = "This game has already ended.";
       return;
     }
@@ -756,6 +964,7 @@ function showParticipantCard() {
 
   drawBoard();
   updateProgress();
+  listenToGame(currentPlayer.gameId);
 
   participantGame.scrollIntoView({
     behavior: "smooth",
@@ -811,6 +1020,11 @@ function drawBoard() {
 
 // Open the pop-up for one square
 function openSquare(index) {
+  if (isGameOver(playerGame)) {
+    updatePlayerGameState();
+    return;
+  }
+
   const squareData = currentPlayer.squares[index];
   openSquareIndex = index;
 
@@ -900,6 +1114,14 @@ squareForm.addEventListener("submit", async (event) => {
   submitButton.disabled = false;
 
   if (!foundPlayer) {
+    // Maybe the code is wrong, or maybe this player was removed
+    const stillIn = await checkStillInGame();
+
+    if (!stillIn) {
+      closeSquare();
+      return;
+    }
+
     dialogMessage.textContent =
       `Nobody in this game has the code ${code}. Check it and try again.`;
     return;
@@ -961,6 +1183,126 @@ function saveSquareChange() {
   updateProgress();
   writeSaved(PLAYER_KEY, currentPlayer);
   syncProgress();
+}
+
+// ================================
+// PARTICIPANT: GAME STATUS AND TIMER
+// ================================
+
+// Is this player still in the game? (The organizer may have removed them.)
+async function checkStillInGame() {
+  if (!currentPlayer) {
+    return false;
+  }
+
+  const { data: me, error } = await supabaseClient
+    .from("players")
+    .select("id")
+    .eq("id", currentPlayer.playerId)
+    .maybeSingle();
+
+  if (!error && !me) {
+    handleRemovedPlayer();
+    return false;
+  }
+
+  return true;
+}
+
+// Get the latest version of the game this player is in
+async function refreshPlayerGame() {
+  if (!currentPlayer) {
+    return;
+  }
+
+  const stillIn = await checkStillInGame();
+
+  if (!stillIn) {
+    return;
+  }
+
+  const { data: game } = await supabaseClient
+    .from("games")
+    .select("*")
+    .eq("id", currentPlayer.gameId)
+    .maybeSingle();
+
+  if (game) {
+    playerGame = game;
+    updatePlayerGameState();
+  }
+}
+
+// Listen for the organizer starting a timer or ending the game
+function listenToGame(gameId) {
+  if (gameChannel) {
+    supabaseClient.removeChannel(gameChannel);
+  }
+
+  gameChannel = supabaseClient
+    .channel(`game-${gameId}`)
+    .on(
+      "postgres_changes",
+      {
+        event: "UPDATE",
+        schema: "public",
+        table: "games",
+        filter: `id=eq.${gameId}`
+      },
+      () => refreshPlayerGame()
+    )
+    .subscribe();
+
+  refreshPlayerGame();
+  startTimerTicks();
+}
+
+// Show the countdown, and lock the card when the game is over
+function updatePlayerGameState() {
+  const timer = document.getElementById("playerTimer");
+  const gameOverMessage = document.getElementById("gameOverMessage");
+  const over = isGameOver(playerGame);
+
+  if (playerGame && playerGame.ends_at && !over) {
+    const left = new Date(playerGame.ends_at).getTime() - Date.now();
+    timer.textContent = `⏱ ${formatTimeLeft(left)} left`;
+    timer.classList.toggle("is-ending", left < 60 * 1000);
+    timer.classList.remove("hidden");
+  } else {
+    timer.classList.add("hidden");
+  }
+
+  const wasLocked = participantGame.classList.contains("is-locked");
+  participantGame.classList.toggle("is-locked", over);
+
+  if (over) {
+    gameOverMessage.textContent = playerGame.status === "ended"
+      ? "🏁 The organizer has ended the game. Your card is locked."
+      : "⏰ Time's up! Your card is locked.";
+    gameOverMessage.classList.remove("hidden");
+
+    if (!wasLocked && squareDialog.open) {
+      closeSquare();
+    }
+  } else {
+    gameOverMessage.classList.add("hidden");
+  }
+}
+
+// What happens if the organizer removes this player
+function handleRemovedPlayer() {
+  removeSaved(PLAYER_KEY);
+  currentPlayer = null;
+  playerGame = null;
+
+  if (gameChannel) {
+    supabaseClient.removeChannel(gameChannel);
+    gameChannel = null;
+  }
+
+  participantGame.classList.add("hidden");
+  joinMessage.textContent = "You were removed from that game by the organizer.";
+  document.getElementById("join").scrollIntoView({ behavior: "smooth" });
 }
 
 // Count completed squares
@@ -1070,13 +1412,20 @@ async function syncProgress() {
 
   writeSaved(PLAYER_KEY, currentPlayer);
 
-  const { error } = await supabaseClient
+  const { data: updatedRows, error } = await supabaseClient
     .from("players")
     .update({
       completed_count: countCompleted(),
       finished_at: currentPlayer.finishedAt
     })
-    .eq("id", currentPlayer.playerId);
+    .eq("id", currentPlayer.playerId)
+    .select("id");
+
+  // Nothing was updated: the organizer has removed this player
+  if (!error && updatedRows && updatedRows.length === 0) {
+    handleRemovedPlayer();
+    return;
+  }
 
   if (error) {
     console.error("Could not sync progress:", error);

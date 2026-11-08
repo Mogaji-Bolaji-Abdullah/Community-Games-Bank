@@ -46,6 +46,16 @@ button {
   display: none !important;
 }
 
+/* Hidden on screen, but still read out by screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 /* HEADER */
 
 .site-header {
@@ -184,6 +194,11 @@ button {
 .button-teal {
   background: var(--teal);
   color: var(--navy);
+}
+
+.button-danger {
+  background: #bd4937;
+  color: var(--white);
 }
 
 .button:disabled {
@@ -520,7 +535,7 @@ button {
 
 .leader-row {
   display: grid;
-  grid-template-columns: 30px minmax(0, 1fr) 90px 48px;
+  grid-template-columns: 30px minmax(0, 1fr) 90px 48px 28px;
   align-items: center;
   gap: 10px;
   padding: 9px 12px;
@@ -590,6 +605,108 @@ button {
   font-size: 12px;
   font-weight: 800;
   text-align: right;
+}
+
+/* ORGANIZER CONTROLS */
+
+.controls-panel {
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fbfcfc;
+}
+
+.controls-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.controls-top h3 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.organizer-timer {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 26px;
+}
+
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.control-row select {
+  min-height: 50px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--navy);
+}
+
+.controls-note {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.remove-player {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.remove-player:hover,
+.remove-player:focus-visible {
+  background: #fde8e4;
+  color: #bd4937;
+}
+
+/* PLAYER TIMER AND GAME OVER */
+
+.player-timer {
+  position: sticky;
+  top: 10px;
+  z-index: 5;
+  margin: 0 0 15px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: var(--navy);
+  color: var(--white);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.player-timer.is-ending {
+  background: #bd4937;
+}
+
+.game-over {
+  margin: 0 0 15px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: #fde8e4;
+  color: #8a2f20;
+  font-weight: 800;
+  text-align: center;
+}
+
+.participant-game.is-locked .bingo-square {
+  cursor: not-allowed;
+  opacity: 0.75;
 }
 
 .winner-banner {
@@ -1049,8 +1166,12 @@ button {
     font-size: 10px;
   }
 
+  .control-row > * {
+    flex: 1 1 45%;
+  }
+
   .leader-row {
-    grid-template-columns: 26px minmax(0, 1fr) 60px 42px;
+    grid-template-columns: 26px minmax(0, 1fr) 50px 40px 28px;
     gap: 8px;
     padding: 8px 10px;
   }

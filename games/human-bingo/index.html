@@ -206,6 +206,29 @@
         </div>
       </div>
 
+      <div class="controls-panel">
+        <div class="controls-top">
+          <h3>Game controls</h3>
+          <strong class="organizer-timer" id="organizerTimer">No timer</strong>
+        </div>
+
+        <div class="control-row">
+          <label class="visually-hidden" for="timerMinutes">Timer length</label>
+          <select id="timerMinutes">
+            <option value="5">5 minutes</option>
+            <option value="10">10 minutes</option>
+            <option value="15" selected>15 minutes</option>
+            <option value="20">20 minutes</option>
+            <option value="30">30 minutes</option>
+          </select>
+          <button class="button button-secondary" id="startTimer" type="button">Start timer</button>
+          <button class="button button-secondary" id="downloadResults" type="button">Download results</button>
+          <button class="button button-danger" id="endGame" type="button">End game</button>
+        </div>
+
+        <p class="controls-note" id="gameStatusText"></p>
+      </div>
+
       <p class="winner-banner hidden" id="winnerBanner" role="status"></p>
 
       <div class="lobby-join">
@@ -253,6 +276,9 @@
         <h2 id="participantWelcome">Your Human Bingo card</h2>
         <p>Find someone who matches a square, ask for their player code, then tap the square and enter it.</p>
       </div>
+
+      <p class="player-timer hidden" id="playerTimer" role="timer"></p>
+      <p class="game-over hidden" id="gameOverMessage" role="status"></p>
 
       <div class="my-code-box">
         <div>
