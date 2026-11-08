@@ -85,3 +85,10 @@ html,body{max-width:100%;overflow-x:clip}
 .hero-graphic:before,.hero-graphic:after,.demo-burst:before,.demo-burst:after{display:none!important;box-shadow:none!important}
 .stage,.panel,.recap-card{box-shadow:none!important}
 @media(max-width:700px){.hero-graphic{width:100%;max-width:100%;margin-inline:auto}.hero-graphic *{max-width:100%}}
+
+
+/* FINAL ART-DIRECTION OVERRIDE: flat 2D controls and illustrations. */
+.demo-sticker,.demo-burst,.hero-graphic:before,.hero-graphic:after,.mock-stage:before,.mock-stage:after{display:none!important}
+button,.button,.icon-button,button:hover,.button:hover{transform:none!important;box-shadow:none!important;filter:none!important}
+.hero-graphic,.mock-stage,.board-demo,.demo-sticker,.demo-burst,.brand-mark,.stage-card,.answer-card{perspective:none!important;transform-style:flat!important;transform:none!important;box-shadow:none!important;filter:none!important}
+.hero-graphic,.mock-stage{background:#edf2e4!important;border:1px solid #d4dfc8!important;border-radius:18px!important}
