@@ -149,3 +149,21 @@ html,body{max-width:100%;overflow-x:clip}
 .brandmark{transform:none!important}
 
 .games-more-wrap{display:flex;justify-content:center;margin:30px 0 8px}.games-more-wrap .button{min-width:190px}@media(max-width:700px){.games-more-wrap{margin:22px 0 4px}.games-more-wrap .button{width:100%;max-width:340px}}
+
+
+/* Homepage shows a compact two-game preview; full catalogue lives on /games/ */
+.games-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.games-grid .game-card{display:flex;flex-direction:column;min-height:0}
+.games-grid .game-visual{min-height:220px}
+.games-grid .charades-poster{width:65%;height:175px;max-width:250px}
+.games-grid .game-content{padding:24px;flex:1}
+.games-more-wrap{display:flex;justify-content:center;margin:26px 0 0}
+.games-more-wrap .button{min-width:190px}
+@media(max-width:700px){
+ .games-grid{grid-template-columns:1fr;gap:15px}
+ .games-grid .game-visual{min-height:190px}
+ .games-grid .charades-poster{height:150px}
+ .games-grid .game-content{padding:21px}
+ .games-more-wrap{margin-top:20px}
+ .games-more-wrap .button{width:100%;max-width:340px}
+}
