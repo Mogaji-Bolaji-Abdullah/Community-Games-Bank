@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Human Bingo | Community Games Bank</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="game.js" defer></script>
+</head>
+
+<body>
+
+  <header class="header">
+    <a href="/" class="brand">
+      Community Games Bank <span>✳</span>
+    </a>
+
+    <span class="game-label">NETWORKING GAME</span>
+  </header>
+
+  <main>
+
+    <section class="welcome">
+      <p class="eyebrow">MEET PEOPLE. DISCOVER CONNECTIONS.</p>
+
+      <h1>Let's play <span>Human Bingo!</span></h1>
+
+      <p class="intro">
+        Move around, meet new people, discover interesting things
+        about them and complete your bingo card.
+      </p>
+    </section>
+
+    <section class="entry-options">
+
+      <article class="entry-card">
+        <div class="card-icon">🎯</div>
+
+        <h2>Organize a game</h2>
+
+        <p>
+          Create a networking session, choose a template,
+          customize your prompts and invite participants.
+        </p>
+
+        <form id="createGameForm">
+
+          <label for="organizerName">Your name</label>
+          <input
+            type="text"
+            id="organizerName"
+            placeholder="Enter your name"
+            required
+          >
+
+          <label for="gameTemplate">Choose a template</label>
+          <select id="gameTemplate" required>
+            <option value="general">General Networking</option>
+            <option value="technology">Technology & Innovation</option>
+            <option value="entrepreneurship">Entrepreneurship</option>
+            <option value="students">University & Students</option>
+            <option value="career">Career Networking</option>
+            <option value="icebreakers">Fun & Icebreakers</option>
+            <option value="custom">Create my own</option>
+          </select>
+
+          <button type="submit" class="button button-dark">
+            Create a game →
+          </button>
+
+        </form>
+      </article>
+
+      <article class="entry-card">
+        <div class="card-icon">👋</div>
+
+        <h2>Join a game</h2>
+
+        <p>
+          Have a room code from your organizer?
+          Enter it below to join the networking fun.
+        </p>
+
+        <form id="joinGameForm">
+
+          <label for="participantName">Your name</label>
+          <input
+            type="text"
+            id="participantName"
+            placeholder="Enter your name"
+            required
+          >
+
+          <label for="roomCode">Game room code</label>
+          <input
+            type="text"
+            id="roomCode"
+            placeholder="e.g. BINGO25"
+            maxlength="10"
+            required
+          >
+
+          <button type="submit" class="button button-light">
+            Join the game →
+          </button>
+
+        </form>
+      </article>
+
+    </section>
+
+    <section class="rules">
+      <p class="eyebrow">HOW TO PLAY</p>
+
+      <h2>Meet 20 people. Complete your card.</h2>
+
+      <ol>
+        <li>Join a game using the room code provided by your organizer.</li>
+        <li>Receive a bingo card containing 20 different networking prompts.</li>
+        <li>Move around and find people who match each prompt.</li>
+        <li>Enter the person's name and mark the matching square.</li>
+        <li>Find a different person for every square. You cannot complete a square with yourself.</li>
+        <li>Complete all 20 squares before the game ends!</li>
+      </ol>
+
+      <p class="rules-note">
+        Be friendly, introduce yourself and ask questions.
+        The goal is to make meaningful connections, not just finish first!
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Community Games Bank ✳ · Good people. Good games. Great memories.</p>
+  </footer>
+
+</body>
+</html>
+
+
+
+
+
+

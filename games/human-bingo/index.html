@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Human Bingo is a fun networking game that helps people meet and connect.">
+  <title>Human Bingo | Community Games Bank</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Supabase library: lets the game talk to the database -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js" defer></script>
+  <!-- QR code library: draws the "scan to join" code -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@2.0.4/dist/qrcode.js" defer></script>
+  <!-- Your Supabase project details -->
+  <script src="./config.js" defer></script>
+  <!-- The game itself -->
+  <script src="./game.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../../index.html">COMMUNITY <span>GAMES BANK</span></a>
+      <div class="header-actions">
+        <span class="connection-status" id="connectionStatus">Connecting…</span>
+        <a class="header-link" href="../../index.html">All games ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">MEET PEOPLE · MAKE CONNECTIONS</span>
+        <h1>Find your people.<br><span>Play Human Bingo.</span></h1>
+        <p class="hero-description">
+          A networking game that makes meeting new people fun.
+          Find people who match the prompts, learn something new,
+          and complete your bingo card.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#organizer" class="button">Create a game</a>
+          <a href="#join" class="button button-secondary">Join a game</a>
+        </div>
+      </div>
+
+      <div class="preview-card">
+        <div class="preview-top">
+          <strong>HUMAN BINGO</strong>
+          <span>20 PEOPLE</span>
+        </div>
+
+        <div class="preview-grid">
+          <div class="preview-square">Owns a business</div>
+          <div class="preview-square">Loves travelling</div>
+          <div class="preview-square">Speaks 3 languages</div>
+          <div class="preview-square">Enjoys reading</div>
+          <div class="preview-square">Works in tech</div>
+          <div class="preview-square">Plays an instrument</div>
+          <div class="preview-square">Has a startup idea</div>
+          <div class="preview-square">Loves music</div>
+          <div class="preview-square">Learning to code</div>
+          <div class="preview-square">Has a creative hobby</div>
+          <div class="preview-square">Enjoys sports</div>
+          <div class="preview-square">Has travelled abroad</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="organizer">
+      <div class="section-heading">
+        <span class="eyebrow">GET STARTED</span>
+        <h2>Bring your people together.</h2>
+        <p>Create a game for your event or join one that is already happening.</p>
+      </div>
+
+      <div class="game-options">
+
+        <div class="panel">
+          <span class="panel-icon">✦</span>
+          <h3>Create a game</h3>
+          <p class="panel-description">
+            Organizing an event? Create your own Human Bingo game.
+            Choose a template and add your own prompts.
+          </p>
+
+          <form id="createGameForm">
+            <div class="form-group">
+              <label for="organizerName">Your name</label>
+              <input
+                type="text"
+                id="organizerName"
+                placeholder="Enter your name"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="gameTemplate">Choose a template</label>
+              <select id="gameTemplate" required>
+                <option value="">Loading templates...</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cardSize">Card size</label>
+                <select id="cardSize">
+                  <option value="9">9 squares (3 × 3)</option>
+                  <option value="16">16 squares (4 × 4)</option>
+                  <option value="20" selected>20 squares</option>
+                  <option value="25">25 squares (5 × 5)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="winMode">How to win</label>
+                <select id="winMode">
+                  <option value="full" selected>Complete the full card</option>
+                  <option value="line">Complete one line</option>
+                </select>
+              </div>
+            </div>
+            <small class="form-hint">"Complete one line" works on 9, 16 and 25 square cards.</small>
+
+            <div class="form-group">
+              <label for="customPrompts">Add your own prompts (optional)</label>
+              <textarea
+                id="customPrompts"
+                rows="5"
+                placeholder="Enter one prompt per line. For example:&#10;Has visited another country&#10;Owns a business"
+              ></textarea>
+              <small>Custom prompts will be included in your game.</small>
+            </div>
+
+            <button class="button button-teal" type="submit">
+              Create my game
+            </button>
+
+            <p class="form-message" id="createMessage" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="panel" id="join">
+          <span class="panel-icon">↗</span>
+          <h3>Join a game</h3>
+          <p class="panel-description">
+            Already have a room code? Enter it below to join the game.
+          </p>
+
+          <form id="joinGameForm">
+            <div class="form-group">
+              <label for="participantName">Your name</label>
+              <input
+                type="text"
+                id="participantName"
+                placeholder="Enter your name"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="roomCodeInput">Game room code</label>
+              <input
+                type="text"
+                id="roomCodeInput"
+                placeholder="e.g. ABC123"
+                maxlength="6"
+                required
+              >
+            </div>
+
+            <button class="button" type="submit">Join game</button>
+            <p class="form-message" id="joinMessage" aria-live="polite"></p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ORGANIZER LOBBY -->
+
+    <section class="organizer-lobby hidden" id="organizerLobby">
+      <div class="lobby-header">
+        <div>
+          <span class="eyebrow">YOUR GAME IS READY</span>
+          <h2>Share your game.</h2>
+          <p id="organizerWelcome"></p>
+        </div>
+
+        <div class="room-code-box">
+          <div>
+            <span>ROOM CODE</span>
+            <div class="room-code" id="displayRoomCode"></div>
+          </div>
+          <button class="copy-button" id="copyRoomCode" type="button">
+            Copy
+          </button>
+        </div>
+      </div>
+
+      <p class="winner-banner hidden" id="winnerBanner" role="status"></p>
+
+      <div class="lobby-join">
+        <div class="qr-box" id="qrBox">
+          <div class="qr-code" id="joinQrCode"></div>
+          <p>Scan to join</p>
+        </div>
+
+        <div class="players-panel">
+          <div class="players-heading">
+            <h3>Leaderboard</h3>
+            <span class="player-count" id="playerCount">0 joined</span>
+          </div>
+          <p class="players-empty" id="playersEmpty">Waiting for players to join…</p>
+          <ol class="leaderboard" id="playerList"></ol>
+          <p class="join-link">Or share this link: <a id="joinLink" href="#"></a></p>
+        </div>
+      </div>
+
+      <div class="lobby-details">
+        <h3 id="lobbyTemplateName"></h3>
+        <p>Share the room code with participants so they can join.</p>
+      </div>
+
+      <h3>Your game prompts</h3>
+      <ol class="prompt-list" id="organizerPromptList"></ol>
+
+      <div class="instructions">
+        <h3>What participants should do</h3>
+        <ol>
+          <li>Join the game using the room code.</li>
+          <li>Read each prompt on their bingo card.</li>
+          <li>Move around and find someone who matches each prompt.</li>
+          <li>Ask for that person's player code, tap the square and enter it.</li>
+          <li>Find a different person for every square to win.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PARTICIPANT GAME -->
+
+    <section class="participant-game hidden" id="participantGame">
+      <div class="participant-heading">
+        <span class="eyebrow">LET THE NETWORKING BEGIN</span>
+        <h2 id="participantWelcome">Your Human Bingo card</h2>
+        <p>Find someone who matches a square, ask for their player code, then tap the square and enter it.</p>
+      </div>
+
+      <div class="my-code-box">
+        <div>
+          <span>YOUR PLAYER CODE</span>
+          <strong class="my-code" id="myCode">----</strong>
+        </div>
+        <p>When someone finds you, tell them this code so they can fill in their square.</p>
+      </div>
+
+      <div class="progress-area">
+        <div class="progress-info">
+          <span>Your progress</span>
+          <strong id="progressText">0 completed</strong>
+        </div>
+
+        <div
+          class="progress-track"
+          role="progressbar"
+          aria-label="Bingo card completion"
+          aria-valuemin="0"
+          aria-valuemax="25"
+          aria-valuenow="0"
+          id="progressTrack"
+        >
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <div class="game-instructions">
+        <strong>Remember:</strong>
+        <span id="winRule">Complete every square to win.</span>
+        Use a different person for each square, and not your own code.
+      </div>
+
+      <div class="bingo-board" id="bingoBoard"></div>
+
+      <p class="completion-message hidden" id="completionMessage" role="status">
+        🎉 Congratulations! You have completed your Human Bingo card!
+      </p>
+
+      <!-- Pop-up for filling in one square -->
+      <dialog class="square-dialog" id="squareDialog" aria-labelledby="dialogPrompt">
+        <form id="squareForm">
+          <button class="dialog-close" id="dialogClose" type="button" aria-label="Close">×</button>
+          <span class="square-number" id="dialogSquareNumber"></span>
+          <h3 id="dialogPrompt"></h3>
+
+          <p class="dialog-current" id="dialogCurrent"></p>
+
+          <div class="form-group">
+            <label for="dialogCode">Their player code</label>
+            <input
+              type="text"
+              id="dialogCode"
+              class="code-input"
+              placeholder="e.g. K7PX"
+              maxlength="4"
+              autocomplete="off"
+              autocapitalize="characters"
+              spellcheck="false"
+            >
+            <small>Ask the person for the 4-character code on their screen.</small>
+          </div>
+
+          <p class="form-message" id="dialogMessage" aria-live="polite"></p>
+
+          <div class="dialog-actions">
+            <button class="button button-secondary" id="dialogClear" type="button">Clear square</button>
+            <button class="button button-teal" type="submit">Mark complete</button>
+          </div>
+        </form>
+      </dialog>
+    </section>
+
+    <!-- RULES -->
+
+    <section class="rules-panel">
+      <span class="eyebrow">HOW TO PLAY</span>
+      <h2>Make connections, one square at a time.</h2>
+
+      <ol>
+        <li>Get your game room code from the organizer.</li>
+        <li>Join the game using your name and the room code.</li>
+        <li>Read the prompts on your bingo card.</li>
+        <li>Walk around and talk to other participants.</li>
+        <li>Find one person who matches each prompt.</li>
+        <li>Ask for their player code, tap the matching square and enter it.</li>
+        <li>Use a different person for every square.</li>
+        <li>Complete the full card, or one full line if the organizer chose line mode.</li>
+      </ol>
+
+      <p>
+        Be friendly, respect everyone's privacy, and never pressure
+        anyone to answer a question they are uncomfortable with.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Human Bingo · Community Games Bank</p>
+    </div>
+  </footer>
+</body>
+</html>
