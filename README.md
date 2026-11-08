@@ -18,11 +18,11 @@ The Charades game includes themed rounds, multiple teams, a timer, a leaderboard
 
 ## Suggest a game
 
-You don't need to code! Use [the suggestion form on the website](https://community-games-bank.vercel.app/#contribute), or [open an issue on GitHub](../../issues/new?template=game-suggestion.yml) to share an idea. Contributions can include activity instructions, question packs, improvements to existing games, or completely new game implementations.
+You don't need to code! Use [the suggestion form on the website](https://community-games-bank.vercel.app/#contribute), or [open an issue on GitHub](https://github.com/Mogaji-Bolaji-Abdullah/Community-Games-Bank/issues/new?template=game-suggestion.yml) to share an idea. Contributions can include activity instructions, question packs, improvements to existing games, or completely new game implementations.
 
 ## Contribute to the project
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) to learn how to suggest, design, build, or improve games. Bug reports can be filed with the [GitHub bug report template](../../issues/new?template=bug-report.yml).
+See [CONTRIBUTING.md](CONTRIBUTING.md) to learn how to suggest, design, build, or improve games. Bug reports can be filed with the [GitHub bug report template](https://github.com/Mogaji-Bolaji-Abdullah/Community-Games-Bank/issues/new?template=bug-report.yml).
 
 ## Run locally
 
