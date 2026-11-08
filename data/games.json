@@ -3,7 +3,7 @@
     "id": "charades-club",
     "title": "Charades Club",
     "eyebrow": "ACT IT OUT · GUESS IT FAST",
-    "description": "Take turns acting out hilarious prompts, race against the clock, and climb the live leaderboard. It's the game that gets everyone on their feet.",
+    "description": "Act out a word without speaking. Your team guesses before the timer runs out. Play our words, add yours, or mix both.",
     "category": "Team games",
     "tags": [
       "Team games",
@@ -20,13 +20,12 @@
       "nigerian",
       "african",
       "team building",
-      "community",
-      "mingle"
+      "community"
     ],
     "details": [
       "2–64 teams",
-      "5 themed rounds",
-      "Live leaderboard"
+      "5 rounds",
+      "Add your own words"
     ],
     "status": "live",
     "href": "/games/iih-charades/",
@@ -36,6 +35,49 @@
       "sticker": "YOUR TURN! ↗",
       "lineOne": "ACT",
       "lineTwo": "IT OUT."
+    }
+  },
+  {
+    "id": "crowd-says",
+    "title": "Crowd Says!",
+    "eyebrow": "GUESS · REVEAL · STEAL",
+    "description": "Guess the hidden answers, score points and steal the round. Choose from 120 Nigerian, African and global questions—or add your own.",
+    "category": "Guessing games",
+    "tags": [
+      "Team games",
+      "Guessing games",
+      "Energizers"
+    ],
+    "searchTerms": [
+      "family feud",
+      "crowd says",
+      "survey game",
+      "team games",
+      "trivia",
+      "nigeria",
+      "africa",
+      "global",
+      "question",
+      "quiz",
+      "game night",
+      "party",
+      "group",
+      "custom",
+      "questions"
+    ],
+    "details": [
+      "2–8 teams",
+      "120 ready-made questions",
+      "Build your own questions"
+    ],
+    "status": "live",
+    "href": "/games/crowd-says/",
+    "sourceHref": "https://github.com/Mogaji-Bolaji-Abdullah/Community-Games-Bank/tree/main/games/crowd-says",
+    "art": {
+      "theme": "blue",
+      "sticker": "GUESS THE ANSWER",
+      "lineOne": "CROWD",
+      "lineTwo": "SAYS!"
     }
   }
 ]

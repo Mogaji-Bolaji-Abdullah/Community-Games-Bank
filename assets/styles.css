@@ -21,7 +21,7 @@ body.motion-on.hero-enter .hero-copy .benefits{animation-delay:650ms}
 @keyframes heroRise{from{opacity:0;transform:translate3d(0,36px,0);filter:blur(12px)}to{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}}
 .hero-art{perspective:1200px}
 body.motion-on.hero-enter .mock-window{animation:mockArrive 1.25s var(--motion-snappy) .15s both,mockBreathe 7.5s ease-in-out 1.55s infinite}
-@keyframes mockArrive{from{opacity:0;transform:translate3d(0,63px,0) rotate(-15deg) rotateX(13deg) scale(.84);filter:blur(9px)}to{opacity:1;transform:translate3d(0,0,0) rotate(-4.5deg) rotateX(0) scale(1);filter:blur(0)}}
+@keyframes mockArrive{from{opacity:0;transform:translate3d(0,63px,0) rotate(-15deg) rotate(0deg) scale(.84);filter:blur(9px)}to{opacity:1;transform:translate3d(0,0,0) rotate(-4.5deg) rotate(0deg) scale(1);filter:blur(0)}}
 @keyframes mockBreathe{0%,100%{transform:translate3d(0,0,0) rotate(-4.5deg)}50%{transform:translate3d(0,-10px,0) rotate(-3.4deg)}}
 body.motion-on.hero-enter .tag-top{animation:tagAppear .85s var(--motion-snappy) .8s both,tagFloat 6s ease-in-out 1.7s infinite}
 body.motion-on.hero-enter .tag-bottom{animation:tagAppear .85s var(--motion-snappy) 1s both,tagFloat 5s ease-in-out 1.9s infinite reverse}
@@ -48,7 +48,7 @@ body.motion-on.hero-enter .tag-bottom{animation:tagAppear .85s var(--motion-snap
 .marquee-strip:hover .marquee-inner.is-looping{animation-play-state:paused}
 @keyframes marqueeRoll{to{transform:translateX(-50%)}}
 /* Responsive interactive game art, plus visual cycling on the featured poster. */
-.game-card{transform-style:preserve-3d}
+.game-card{transform-style:flat}
 .game-card:hover{box-shadow:0 25px 80px #3654361b,0 4px 13px #37552b12;transform:translateY(-5px)}
 .charades-poster{transition:transform .8s var(--motion-snappy),box-shadow .5s ease}
 .game-card:hover .charades-poster{transform:rotate(-7deg) translateY(-7px) scale(1.04)}
@@ -97,3 +97,25 @@ body.motion-on.hero-enter .tag-bottom{animation:tagAppear .85s var(--motion-snap
 .preview-pip:hover:before{background:#6b8d4e}
 .preview-toggle{min-height:33px}
 @media(max-width:700px){.preview-pip,.preview-pip.is-active{width:21px;height:28px}.preview-pip.is-active:before{width:19px}.hero-preview-nav{bottom:0;gap:5px}}
+
+/* Two playable games, illustrated in flat 2D. */
+.game-card,.game-visual,.mock-window,.charades-poster,.survey-illustration{transform-style:flat!important;perspective:none!important}
+.mock-window{box-shadow:0 0 0 3px #182120!important}
+.game-card:hover .charades-poster{transform:translateY(-5px) rotate(-3deg)}
+.visual-blue{background:#d8e7ff;display:grid;place-items:center;position:relative;overflow:hidden}
+.visual-blue:before,.visual-blue:after{content:'';position:absolute;border:2px solid #2b4d8b;border-radius:50%;height:100px;width:100px;top:-30px;right:-25px;opacity:.22}
+.visual-blue:after{top:auto;right:auto;left:-35px;bottom:-35px;height:150px;width:150px}
+.survey-illustration{width:min(95%,350px);border:3px solid #1b3773;border-radius:15px;padding:14px;position:relative;background:#203f80;transform:rotate(-3deg);color:#fff;box-shadow:none;font-family:var(--font-body,inherit);z-index:1}
+.survey-top{display:flex;align-items:center;justify-content:space-between;gap:4px;text-align:center;letter-spacing:.06em;font-size:14px;padding:2px 0 12px;color:#ffd969}
+.survey-spark{font-size:20px;color:#ffcd5a}
+.survey-question{font-size:14px;text-align:center;background:#ffda73;color:#1b3773;padding:12px 6px;border-radius:8px;font-weight:900;line-height:1.3;margin-bottom:12px}
+.survey-answers{display:grid;gap:6px}.survey-answers>div{display:grid;grid-template-columns:30px minmax(0,1fr) 30px;gap:5px;align-items:center;background:#f9fbff;color:#233b70;border-radius:6px;padding:8px 6px;font-size:11px;font-weight:800}.survey-answers>div b,.survey-answers>div strong{text-align:center}.survey-answers>div.blank{background:#385b9f;color:#eaf3ff}.survey-answers>div span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.survey-bottom{display:flex;justify-content:space-between;gap:6px;color:#fff4d7;font-size:10px;font-weight:850;margin:12px 0 1px;text-align:center}.survey-bottom span{color:#ff957d}
+.game-card:hover .survey-illustration{transform:rotate(-1deg) translateY(-5px)}
+.survey-illustration{transition:transform .4s ease}
+@media(max-width:550px){.survey-illustration{width:min(94%,330px)}.survey-top{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.game-card:hover .survey-illustration{transform:none}.game-card:hover .charades-poster{transform:none}}
+/* Narrow-phone overflow guard: keep illustration inside the viewport. */
+html,body{max-width:100%;overflow-x:clip}
+.hero-art,.library-header{min-width:0}
+@media(max-width:360px){.hero-art{overflow:clip;border-radius:15px}.library-count{flex-shrink:0}.library-header{gap:12px}.section-header>div{min-width:0}.mock-bottom{gap:5px}}

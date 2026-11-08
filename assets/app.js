@@ -16,6 +16,7 @@
     const visual = el('div', `game-visual visual-${theme}`);
     visual.setAttribute('aria-hidden', 'true');
     visual.innerHTML = `<span class="little-sticker">${esc(art.sticker||'LET’S PLAY ↗')}</span><div class="charades-poster"><div class="poster-top">COMMUNITY GAMES BANK</div><div class="poster-stars">✳</div><div class="poster-word"><span class="poster-word-one">${esc(art.lineOne||'LET’S')}</span><br><em class="poster-word-two">${esc(art.lineTwo||'PLAY.')}</em></div><div class="poster-foot">GOOD GAMES. GREAT PEOPLE.</div></div>`;
+    if(game.id==='crowd-says') visual.innerHTML = `<span class="little-sticker">GUESS. REVEAL. STEAL.</span><div class="survey-illustration"><div class="survey-top"><span class="survey-spark">✳</span><strong>CROWD SAYS!</strong><span class="survey-spark">✳</span></div><div class="survey-question">What's on the board?</div><div class="survey-answers"><div><b>01</b><span>GOOD ANSWER</span><strong>40</strong></div><div><b>02</b><span>BIG REVEAL!</span><strong>25</strong></div><div class="blank"><b>03</b><span>?????</span><strong>??</strong></div><div class="blank"><b>04</b><span>?????</span><strong>??</strong></div></div><div class="survey-bottom">3 STRIKES <span>✕ ✕ ✕</span> ONE STEAL</div></div>`;
     const info = el('div','game-content');
     const top = el('div','game-topline');
     top.append(el('span','status-badge','PLAYABLE NOW'),el('span','game-category',game.category.toUpperCase()));
@@ -24,7 +25,7 @@
     const meta = el('div','game-meta');
     game.details.forEach(detail => meta.append(el('span','',detail)));
     const actions = el('div','game-actions');
-    const play = el('a','button button-dark button-large','Play the game →');
+    const play = el('a','button button-dark button-large','Play now →');
     play.href=game.href;
     play.setAttribute('aria-label',`Play ${game.title}`);
     const src=el('a','inline-source','View source ↗');
@@ -212,7 +213,7 @@
     });
   }
   function rotatePoster(index){
-    const card=$('.game-visual');
+    const card=$('.visual-lime');
     if(!card)return;
     clearTimeout(posterTimeout);
     if(!card.querySelector('.poster-word-one'))return;

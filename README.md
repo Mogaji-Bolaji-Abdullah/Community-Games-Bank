@@ -74,3 +74,11 @@ By keeping each game in its own folder, contributors can extend the library with
 - **No tracking by default**: the website does not collect visitor data or store submitted ideas in a proprietary database.
 
 Built for the people who bring people together. 💚
+
+
+## Available games
+
+- [Charades Club](games/iih-charades/) — five rounds, 2–64 teams, ready-made and custom word packs, scoring and audience view.
+- [Crowd Says!](games/crowd-says/) — survey-board guessing game with 120 original Nigerian, African and global question cards, host scoring, steals and a custom-question editor.
+
+Both games are free and run in the browser. Custom prompts remain on the user's device; export packs to back them up. For event projection, use a host window and audience window on the same browser/device.
