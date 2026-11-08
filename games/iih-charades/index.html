@@ -77,6 +77,13 @@ html,body{min-width:0!important;max-width:100%;overflow-x:clip}
 .round-emoji,.curtain-emoji{filter:none!important;text-shadow:none!important}
 </style>
 
+<style>
+/* Final flat 2D treatment: remove starburst ornaments and depth effects; keep functional SVG icons. */
+.side-decor,.welcome-star,.tiny-star,.curtain-emoji{display:none!important}
+button,.button,.icon-button,button:hover,.button:hover,.logo-icon,.audience-mark,.team-avatar{transform:none!important;box-shadow:none!important;filter:none!important}
+.round-card,.word-card,.score-card,.audience-board,.audience-row,.card,.turn-board{box-shadow:none!important;perspective:none!important;transform-style:flat!important}
+.logo-icon,.audience-mark{border:1px solid currentColor!important;border-radius:12px!important}
+</style>
 </head>
 <body>
 <div class="shell">
