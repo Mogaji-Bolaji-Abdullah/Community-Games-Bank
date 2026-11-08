@@ -2,18 +2,20 @@
   'use strict';
   const REPO = 'https://github.com/Mogaji-Bolaji-Abdullah/Community-Games-Bank';
   const state = { games: [], filter: 'all', search: '' };
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let revealObserver = null;
   const $ = (s) => document.querySelector(s);
   const $$ = (s) => [...document.querySelectorAll(s)];
   const esc = (str) => String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const el = (tag, className, text) => { const node=document.createElement(tag); if(className) node.className=className; if(text!==undefined) node.textContent=text; return node; };
 
   function createCard(game) {
-    const article = el('article', 'game-card');
+    const article = el('article', 'game-card reveal-target');
     const art=game.art||{};
     const theme=String(art.theme||'lime').replace(/[^a-z0-9-]/gi,'');
     const visual = el('div', `game-visual visual-${theme}`);
     visual.setAttribute('aria-hidden', 'true');
-    visual.innerHTML = `<span class="little-sticker">${esc(art.sticker||'LET’S PLAY ↗')}</span><div class="charades-poster"><div class="poster-top">COMMUNITY GAMES BANK</div><div class="poster-stars">✳</div><div class="poster-word">${esc(art.lineOne||'LET’S')}<br><em>${esc(art.lineTwo||'PLAY.')}</em></div><div class="poster-foot">GOOD GAMES. GREAT PEOPLE.</div></div>`;
+    visual.innerHTML = `<span class="little-sticker">${esc(art.sticker||'LET’S PLAY ↗')}</span><div class="charades-poster"><div class="poster-top">COMMUNITY GAMES BANK</div><div class="poster-stars">✳</div><div class="poster-word"><span class="poster-word-one">${esc(art.lineOne||'LET’S')}</span><br><em class="poster-word-two">${esc(art.lineTwo||'PLAY.')}</em></div><div class="poster-foot">GOOD GAMES. GREAT PEOPLE.</div></div>`;
     const info = el('div','game-content');
     const top = el('div','game-topline');
     top.append(el('span','status-badge','PLAYABLE NOW'),el('span','game-category',game.category.toUpperCase()));
@@ -50,7 +52,13 @@
     const q=state.search.trim().toLowerCase();
     const matches=state.games.filter(g=>g.status==='live'&&(state.filter==='all'||g.tags.includes(state.filter))&&(!q||[g.title,g.description,g.category,...g.tags,...g.searchTerms,...g.details].join(' ').toLowerCase().includes(q)));
     const grid=$('#gamesGrid');grid.replaceChildren();
-    matches.forEach(g=>grid.append(createCard(g)));
+    matches.forEach((g,i)=>{
+      const card=createCard(g);
+      card.style.setProperty('--reveal-delay',`${i*95}ms`);
+      grid.append(card);
+      if(revealObserver) revealObserver.observe(card);
+      else card.classList.add('is-visible');
+    });
     $('#emptyState').hidden=matches.length>0;
   }
 
@@ -115,6 +123,149 @@
   document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&!mobile.hidden)setMenu(false);});
   $('#gameSearch').addEventListener('input',event=>{state.search=event.target.value;renderGames();});
   $('#clearFilters').addEventListener('click',()=>{state.search='';state.filter='all';$('#gameSearch').value='';renderFilters();renderGames();});
+
+  // Sections reveal on entry, not by hiding the site until JavaScript loads.
+  function setupReveals(){
+    if(reducedMotion.matches || !('IntersectionObserver' in window)) return;
+    document.body.classList.add('motion-on');
+    const selectors = [
+      '.section-header > div','.library-count','.directory-tools','.roadmap-title',
+      '.roadmap-card','.how-header > div','.how-header > p','.step',
+      '.about-left','.about-right','.contribute-copy','.contrib-sticker',
+      '.footer-top', '.game-card'
+    ];
+    const targets=$$(selectors.join(','));
+    targets.forEach(node=>{
+      node.classList.add('reveal-target');
+      if(node.matches('.roadmap-card,.step')){
+        const siblings=[...node.parentElement.children];
+        node.style.setProperty('--reveal-delay',`${Math.min(siblings.indexOf(node),5)*125}ms`);
+      }
+    });
+    revealObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:.08,rootMargin:'0px 0px -20px 0px'});
+    targets.forEach(node=>revealObserver.observe(node));
+    // If visitors jump via anchor links, reveal skipped content as well.
+    let revealQueued=false;
+    window.addEventListener('scroll',()=>{
+      if(revealQueued)return;
+      revealQueued=true;
+      requestAnimationFrame(()=>{
+        targets.forEach(node=>{
+          if(!node.classList.contains('is-visible') && node.getBoundingClientRect().bottom<0){
+            node.classList.add('is-visible');
+            revealObserver.unobserve(node);
+          }
+        });
+        revealQueued=false;
+      });
+    },{passive:true});
+    requestAnimationFrame(()=>document.body.classList.add('hero-enter'));
+  }
+
+  // Animate sample *illustrations* only; never claim these are real team scores.
+  const previewScenes=[
+    {top:'ACT IT',bottom:'OUT!',round:'ROUND 01 · EASY & FUN',team:'TEAM SUNSHINE, YOU’RE UP!',score:'240',time:'45'},
+    {top:'GUESS',bottom:'FAST!',round:'ROUND 02 · GET CREATIVE',team:'TEAM FIREWORKS, YOUR TURN!',score:'180',time:'35'},
+    {top:'BEAT THE',bottom:'CLOCK!',round:'ROUND 03 · CULTURE CHECK',team:'TEAM SPARK, SHOW US!',score:'320',time:'20'},
+    {top:'WIN THE',bottom:'CROWD!',round:'FINAL ROUND · BIG ENERGY',team:'TEAM VIBE, TAKE THE STAGE!',score:'480',time:'10'}
+  ];
+  const posterScenes=[
+    {top:'ACT IT',bottom:'OUT!'},
+    {top:'TEAM',bottom:'UP!'},
+    {top:'GUESS',bottom:'FAST!'},
+    {top:'GAME',bottom:'ON!'}
+  ];
+  let previewIndex=0,previewPaused=false,swapTimeout=null,posterTimeout=null;
+  const windowCard=$('.mock-window'),dots=$$('#previewPips .preview-pip'),toggle=$('#previewToggle');
+
+  function setPreview(index,animate=true){
+    const scene=previewScenes[index];
+    if(!scene||!windowCard)return;
+    clearTimeout(swapTimeout);
+    const commit=()=>{
+      windowCard.classList.toggle('is-long',scene.top.length>=7);
+      $('#previewWordTop').textContent=scene.top;
+      $('#previewWordBottom').textContent=scene.bottom;
+      $('.mock-play-label').textContent=scene.round;
+      $('.mock-turn-label').textContent=scene.team;
+      $('#previewScore').textContent=scene.score;
+      const timer=$('.mock-timer');
+      timer.querySelectorAll('span')[2].textContent=scene.time;
+      windowCard.classList.remove('is-swapping');
+    };
+    if(animate&&!reducedMotion.matches){
+      windowCard.classList.add('is-swapping');
+      swapTimeout=window.setTimeout(commit,235);
+    }else commit();
+    previewIndex=index;
+    dots.forEach((dot,i)=>{
+      const selected=i===index;
+      dot.classList.toggle('is-active',selected);
+      dot.setAttribute('aria-pressed',String(selected));
+    });
+  }
+  function rotatePoster(index){
+    const card=$('.game-visual');
+    if(!card)return;
+    clearTimeout(posterTimeout);
+    if(!card.querySelector('.poster-word-one'))return;
+    const commit=()=>{
+      card.querySelector('.poster-word-one').textContent=posterScenes[index].top;
+      card.querySelector('.poster-word-two').textContent=posterScenes[index].bottom;
+      card.classList.remove('is-swapping');
+    };
+    if(!reducedMotion.matches){
+      card.classList.add('is-swapping');
+      posterTimeout=window.setTimeout(commit,250);
+    }else commit();
+  }
+  function syncPreviewButton(){
+    toggle.setAttribute('aria-pressed',String(previewPaused));
+    toggle.setAttribute('aria-label',previewPaused?'Resume game preview animations':'Pause game preview animations');
+    toggle.innerHTML=previewPaused?'<span aria-hidden="true">▶</span> Play':'<span aria-hidden="true">Ⅱ</span> Pause';
+  }
+  function setupPreviews(){
+    if(!windowCard||!toggle)return;
+    if(reducedMotion.matches){
+      previewPaused=true;
+      syncPreviewButton();
+      toggle.disabled=true;
+      toggle.textContent='Motion off';
+      toggle.setAttribute('aria-label','Automatic previews are off because reduced motion is enabled');
+    }
+    dots.forEach(dot=>dot.addEventListener('click',()=>setPreview(Number(dot.dataset.slide))));
+    toggle.addEventListener('click',()=>{
+      previewPaused=!previewPaused;
+      syncPreviewButton();
+    });
+    window.setInterval(()=>{
+      if(previewPaused||reducedMotion.matches||document.hidden||$('#suggestDialog').open)return;
+      setPreview((previewIndex+1)%previewScenes.length);
+      rotatePoster((previewIndex)%posterScenes.length);
+    },4100);
+  }
+  function setupMarquee(){
+    if(reducedMotion.matches)return;
+    const inner=$('.marquee-inner');
+    if(!inner)return;
+    [...inner.children].forEach(child=>{
+      const clone=child.cloneNode(true);
+      clone.setAttribute('aria-hidden','true');
+      inner.append(clone);
+    });
+    inner.classList.add('is-looping');
+  }
+
   $('#year').textContent=new Date().getFullYear();
+  setupReveals();
+  setupMarquee();
+  setupPreviews();
   loadGames();
 })();

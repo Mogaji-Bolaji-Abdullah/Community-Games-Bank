@@ -34,6 +34,10 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000. Use a local HTTP server, rather than double-clicking `index.html`, because the game directory reads `data/games.json`.
 
+## Website animations
+
+The homepage uses lightweight CSS animations and progressive JavaScript enhancements: staggered hero entrance, scroll-reveal sections, a looping occasion ribbon, rotating sample game visuals, and subtle animated card illustrations. The sample scores in the hero are **not real game scores**. Visitors can pause or manually select each preview using the controls underneath it. The site automatically respects the operating system's **Reduce Motion** preference, and the catalogue remains usable if animation or JavaScript is unavailable.
+
 ## Project structure
 
 ```text

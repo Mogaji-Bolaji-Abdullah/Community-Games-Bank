@@ -6,3 +6,94 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 
 .visual-lime{background:#d5ef99}.visual-peach{background:#f9d3ba}.visual-lilac{background:#ded3f5}.visual-sky{background:#cce6e2}.visual-cream{background:#f3e6c9}
+
+/* Motion system — progressive enhancement; page remains readable without JavaScript. */
+:root{--motion-ease:cubic-bezier(.17,.8,.23,1);--motion-snappy:cubic-bezier(.18,1,.3,1)}
+body.motion-on .reveal-target{opacity:0;transform:translate3d(0,43px,0) scale(.976);filter:blur(7px);transition:opacity .85s var(--motion-ease) var(--reveal-delay,0ms),transform .9s var(--motion-snappy) var(--reveal-delay,0ms),filter .85s ease var(--reveal-delay,0ms)}
+body.motion-on .reveal-target.is-visible{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}
+body.motion-on .hero-copy .eyebrow,body.motion-on .hero-copy h1,body.motion-on .hero-copy .hero-description,body.motion-on .hero-copy .hero-buttons,body.motion-on .hero-copy .benefits{opacity:0;transform:translate3d(0,33px,0);filter:blur(9px)}
+body.motion-on.hero-enter .hero-copy .eyebrow,body.motion-on.hero-enter .hero-copy h1,body.motion-on.hero-enter .hero-copy .hero-description,body.motion-on.hero-enter .hero-copy .hero-buttons,body.motion-on.hero-enter .hero-copy .benefits{animation:heroRise .94s var(--motion-snappy) both}
+body.motion-on.hero-enter .hero-copy .eyebrow{animation-delay:90ms}
+body.motion-on.hero-enter .hero-copy h1{animation-delay:200ms}
+body.motion-on.hero-enter .hero-copy .hero-description{animation-delay:360ms}
+body.motion-on.hero-enter .hero-copy .hero-buttons{animation-delay:500ms}
+body.motion-on.hero-enter .hero-copy .benefits{animation-delay:650ms}
+@keyframes heroRise{from{opacity:0;transform:translate3d(0,36px,0);filter:blur(12px)}to{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}}
+.hero-art{perspective:1200px}
+body.motion-on.hero-enter .mock-window{animation:mockArrive 1.25s var(--motion-snappy) .15s both,mockBreathe 7.5s ease-in-out 1.55s infinite}
+@keyframes mockArrive{from{opacity:0;transform:translate3d(0,63px,0) rotate(-15deg) rotateX(13deg) scale(.84);filter:blur(9px)}to{opacity:1;transform:translate3d(0,0,0) rotate(-4.5deg) rotateX(0) scale(1);filter:blur(0)}}
+@keyframes mockBreathe{0%,100%{transform:translate3d(0,0,0) rotate(-4.5deg)}50%{transform:translate3d(0,-10px,0) rotate(-3.4deg)}}
+body.motion-on.hero-enter .tag-top{animation:tagAppear .85s var(--motion-snappy) .8s both,tagFloat 6s ease-in-out 1.7s infinite}
+body.motion-on.hero-enter .tag-bottom{animation:tagAppear .85s var(--motion-snappy) 1s both,tagFloat 5s ease-in-out 1.9s infinite reverse}
+@keyframes tagAppear{from{opacity:0;transform:translate3d(0,24px,0) rotate(-7deg) scale(.86)}to{opacity:1;transform:translate3d(0,0,0) rotate(0) scale(1)}}
+@keyframes tagFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(2deg)}}
+.hero-spark{animation:sparkSwim 12s ease-in-out infinite alternate}
+.hero-spark-two{animation-delay:-5s;animation-direction:alternate-reverse}
+@keyframes sparkSwim{0%{transform:rotate(-15deg) scale(.92)}50%{transform:rotate(18deg) scale(1.15)}100%{transform:rotate(-8deg) scale(.95)}}
+/* Preview rhythm — user may pause or choose a specific scene. */
+.hero-preview-nav{position:absolute;left:50%;bottom:9px;z-index:6;display:flex;align-items:center;gap:13px;transform:translateX(-50%);background:#fffefaee;border:1px solid #e2e7d8;box-shadow:0 12px 35px #1d351b1a;backdrop-filter:blur(12px);padding:9px 11px 9px 14px;border-radius:100px;white-space:nowrap}
+.preview-eyebrow{font-size:8px;letter-spacing:.16em;font-weight:900;color:#73806c}
+.preview-pips{display:flex;gap:6px;align-items:center}
+.preview-pip{display:block;width:9px;height:9px;border:0;border-radius:10px;background:#bac4b2;padding:0;transition:width .35s var(--motion-snappy),background .2s}
+.preview-pip:hover{background:#6b8d4e}
+.preview-pip.is-active{width:28px;background:#3d5b28}
+.preview-toggle{border:0;background:#e6eddc;color:#344d2c;border-radius:20px;padding:7px 11px;font-size:10px;font-weight:800;line-height:1;min-height:28px}
+.preview-toggle:hover{background:#d7e8c5}
+.preview-toggle span{font-weight:900;margin-right:4px}
+.mock-window .mock-play-label,.mock-window .mock-turn-label,.mock-window .mock-word,.mock-window .mock-score strong,.mock-window .mock-timer{transition:opacity .22s ease,transform .25s var(--motion-ease),filter .22s ease}
+.mock-window.is-swapping .mock-play-label,.mock-window.is-swapping .mock-turn-label,.mock-window.is-swapping .mock-word,.mock-window.is-swapping .mock-score strong,.mock-window.is-swapping .mock-timer{opacity:.03;transform:translateY(-12px) scale(.96);filter:blur(5px)}
+.mock-word{transform-origin:left center}
+/* A gently looping occasion strip; duplicated DOM makes a seamless marquee. */
+.marquee-inner.is-looping{width:max-content;min-width:0;justify-content:flex-start;gap:35px;animation:marqueeRoll 38s linear infinite}
+.marquee-strip:hover .marquee-inner.is-looping{animation-play-state:paused}
+@keyframes marqueeRoll{to{transform:translateX(-50%)}}
+/* Responsive interactive game art, plus visual cycling on the featured poster. */
+.game-card{transform-style:preserve-3d}
+.game-card:hover{box-shadow:0 25px 80px #3654361b,0 4px 13px #37552b12;transform:translateY(-5px)}
+.charades-poster{transition:transform .8s var(--motion-snappy),box-shadow .5s ease}
+.game-card:hover .charades-poster{transform:rotate(-7deg) translateY(-7px) scale(1.04)}
+.game-visual .poster-word,.game-visual .poster-stars{transition:opacity .28s,transform .42s var(--motion-snappy),filter .28s}
+.game-visual.is-swapping .poster-word,.game-visual.is-swapping .poster-stars{opacity:0;transform:translateY(13px) rotate(-3deg) scale(.92);filter:blur(8px)}
+.poster-stars{animation:posterTwinkle 5s ease-in-out infinite}
+@keyframes posterTwinkle{0%,100%{transform:rotate(-12deg) scale(1)}50%{transform:rotate(15deg) scale(1.2)}}
+/* Small, lively moments in upcoming game cards without suggesting availability. */
+.roadmap-card{transition:transform .45s var(--motion-snappy),box-shadow .45s ease,border-color .3s ease}
+.roadmap-card:hover{transform:translateY(-7px) rotate(-.4deg);box-shadow:0 25px 55px #2635221b;border-color:#d2dac5}
+.roadmap-card:hover .roadmap-content h4{color:#536f38}
+.art-bingo .bingo-grid span{animation:bingoBeat 6s ease-in-out infinite}
+.art-bingo .bingo-grid span:nth-child(3n){animation-delay:-1.7s}
+.art-bingo .bingo-grid span:nth-child(5n){animation-delay:-3.4s}
+@keyframes bingoBeat{0%,72%,100%{filter:brightness(1);transform:scale(1)}79%{filter:brightness(1.15);transform:scale(1.13)}}
+.trivia-bubble{animation:triviaWobble 5.5s ease-in-out infinite}
+@keyframes triviaWobble{0%,100%{transform:rotate(-10deg) translateY(0)}50%{transform:rotate(8deg) translateY(-7px)}}
+.spinner-art{animation:rouletteRotate 19s linear infinite}
+.roadmap-card:hover .spinner-art{animation-duration:3s}
+@keyframes rouletteRotate{to{transform:rotate(360deg)}}
+.step{transition:box-shadow .35s,transform .45s var(--motion-snappy),border-color .3s}
+.step:hover{transform:translateY(-7px);border-color:#cbdbb1;box-shadow:0 20px 50px #20382013}
+.step:hover .step-icon{transform:rotate(-9deg) scale(1.08)}
+.step-icon{transition:transform .45s var(--motion-snappy)}
+.about-stamp{animation:stampRock 8s ease-in-out infinite}
+@keyframes stampRock{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(-5deg) translateY(-8px)}}
+.contrib-sticker{animation:stickerDance 7s ease-in-out infinite}
+@keyframes stickerDance{0%,100%{transform:rotate(13deg) translateY(0)}50%{transform:rotate(6deg) translateY(-12px)}}
+.contrib-deco{animation:sparkSwim 9s ease-in-out infinite}
+.button .arrow-icon,.button span[aria-hidden="true"]{transition:transform .25s var(--motion-snappy)}
+.button:hover .arrow-icon,.button:hover span[aria-hidden="true"]{transform:translateX(4px)}
+.desktop-nav a{position:relative}
+.desktop-nav a:after{content:'';position:absolute;left:0;right:100%;bottom:-7px;height:2px;background:#85a65b;transition:right .25s var(--motion-snappy)}
+.desktop-nav a:hover:after{right:0}
+@media(max-width:700px){.hero-art{min-height:430px}.hero-preview-nav{bottom:0;gap:8px;padding:8px}.preview-eyebrow{display:none}.preview-pip{height:8px;width:8px}.preview-pip.is-active{width:20px}.preview-toggle{font-size:9px}.marquee-inner.is-looping{animation-duration:30s}}
+@media(prefers-reduced-motion:reduce){body.motion-on .reveal-target,body.motion-on .hero-copy .eyebrow,body.motion-on .hero-copy h1,body.motion-on .hero-copy .hero-description,body.motion-on .hero-copy .hero-buttons,body.motion-on .hero-copy .benefits{opacity:1!important;transform:none!important;filter:none!important;transition:none!important;animation:none!important}.hero-art .mock-window{transform:rotate(-4.5deg)!important}.marquee-inner.is-looping{animation:none!important}.hero-preview-nav,.mock-window,.game-card,.charades-poster,.step,.step-icon,.roadmap-card,.about-stamp,.contrib-sticker,.hero-spark,.poster-stars,.spinner-art,.trivia-bubble,.art-bingo .bingo-grid span{animation:none!important;transition:none!important}}
+
+.mock-window.is-long .mock-word{font-size:clamp(45px,4.5vw,63px);letter-spacing:-.07em}
+@media(max-width:700px){.mock-window.is-long .mock-word{font-size:clamp(38px,8vw,53px)}}
+
+/* Generous tap targets without oversized preview indicators. */
+.preview-pip,.preview-pip.is-active{position:relative;width:23px;height:28px;background:transparent}
+.preview-pip:before{content:'';position:absolute;top:50%;left:50%;width:8px;height:8px;border-radius:12px;background:#b6c4ad;transform:translate(-50%,-50%);transition:width .35s var(--motion-snappy),background .3s}
+.preview-pip.is-active:before{width:24px;background:#3d5b28}
+.preview-pip:hover{background:transparent}
+.preview-pip:hover:before{background:#6b8d4e}
+.preview-toggle{min-height:33px}
+@media(max-width:700px){.preview-pip,.preview-pip.is-active{width:21px;height:28px}.preview-pip.is-active:before{width:19px}.hero-preview-nav{bottom:0;gap:5px}}

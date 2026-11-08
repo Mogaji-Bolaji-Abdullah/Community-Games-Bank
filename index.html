@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/styles.css">
-  <script src="/assets/app.js" defer></script>
+  <link rel="stylesheet" href="/assets/styles.css?v=motion-2">
+  <script src="/assets/app.js?v=motion-2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -57,18 +57,28 @@
         </div>
         <div class="benefits"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg> Free to play</span><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg> No account for hosting</span><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg> Open-source</span></div>
       </div>
-      <div class="hero-art" aria-label="Illustration of the Charades Club game showing a team taking a turn and a live leaderboard" role="img">
+      <div class="hero-art" aria-label="Illustrative Charades Club game preview with sample teams, scores, and changing prompts" role="img">
         <div class="hero-spark hero-spark-one">✳</div><div class="hero-spark hero-spark-two">✦</div>
         <div class="floating-tag tag-top"><span>★</span> Your next icebreaker, sorted.</div>
         <div class="mock-window">
-          <div class="mock-topbar"><span class="mock-brand"><span class="mock-brand-star">✳</span> CHARADES CLUB</span><span class="mock-live"><span></span> LIVE GAME</span></div>
+          <div class="mock-topbar"><span class="mock-brand"><span class="mock-brand-star">✳</span> CHARADES CLUB</span><span class="mock-live"><span></span> DEMO PREVIEW</span></div>
           <div class="mock-body">
             <div class="mock-play-label">ROUND 01 · EASY &amp; FUN</div>
-            <div class="mock-mid"><div class="mock-turn-label">TEAM SUNSHINE, YOU'RE UP!</div><div class="mock-word">ACT IT<br><em>OUT!</em><span class="mock-squiggle">↝</span></div></div>
-            <div class="mock-bottom"><div class="mock-timer"><span>00</span><span>:</span><span>45</span><small>SECONDS LEFT</small></div><div class="mock-score"><span class="mini-trophy">✦</span><div class="mock-score-label">LEADERBOARD <small>01 TEAM SUNSHINE</small></div><strong>240 <small>PTS</small></strong></div></div>
+            <div class="mock-mid"><div class="mock-turn-label">TEAM SUNSHINE, YOU'RE UP!</div><div class="mock-word"><span id="previewWordTop">ACT IT</span><br><em id="previewWordBottom">OUT!</em><span class="mock-squiggle">↝</span></div></div>
+            <div class="mock-bottom"><div class="mock-timer"><span>00</span><span>:</span><span>45</span><small>SECONDS LEFT</small></div><div class="mock-score"><span class="mini-trophy">✦</span><div class="mock-score-label">LEADERBOARD <small>01 TEAM SUNSHINE</small></div><strong><span id="previewScore">240</span> <small>PTS</small></strong></div></div>
           </div>
         </div>
         <div class="floating-tag tag-bottom"><span class="tiny-party">✳</span> Less awkward. More awesome.</div>
+        <div class="hero-preview-nav" aria-label="Animated game preview controls">
+          <span class="preview-eyebrow">PLAY MOMENTS</span>
+          <div class="preview-pips" id="previewPips" role="group" aria-label="Choose a preview">
+            <button type="button" class="preview-pip is-active" data-slide="0" aria-label="Preview one: Act it out" aria-pressed="true"></button>
+            <button type="button" class="preview-pip" data-slide="1" aria-label="Preview two: Guess the word" aria-pressed="false"></button>
+            <button type="button" class="preview-pip" data-slide="2" aria-label="Preview three: Beat the clock" aria-pressed="false"></button>
+            <button type="button" class="preview-pip" data-slide="3" aria-label="Preview four: Top the leaderboard" aria-pressed="false"></button>
+          </div>
+          <button type="button" class="preview-toggle" id="previewToggle" aria-label="Pause game preview animations" aria-pressed="false"><span aria-hidden="true">Ⅱ</span> Pause</button>
+        </div>
         <span class="art-corner-stamp">PLAY <span>↗</span> CONNECT <span>↗</span> REPEAT</span>
       </div>
     </section>
