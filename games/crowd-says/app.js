@@ -35,7 +35,7 @@
   function notify(message) { if(audience)return; document.querySelector('.toast')?.remove();clearTimeout(toastTimeout); const node=document.createElement('div');node.className='toast';node.textContent=message;document.body.append(node);toastTimeout=setTimeout(()=>node.remove(),2900); }
   function stash() { if(audience)return;history.push(clone(state)); if(history.length>14)history.shift(); }
   function shuffled(arr) {const a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-  function available() {return bank().filter(q=>state.category==='Mixed'||(state.category==='Built-in'&&!q.id.startsWith('custom-'))||(state.category==='Custom'&&q.id.startsWith('custom-'))||q.category===state.category);}
+  function available() {return bank().filter(q=>state.category==='Mixed'||(state.category==='Built-in'&&QUESTIONS.some(v=>v.id===q.id))||(state.category==='Custom'&&custom.some(v=>v.id===q.id))||q.category===state.category);}
   function q() {return byId(state.plan[state.round]);}
   function val(id) {return state.scores[id] || 0;}
   function team(id) {return state.teams.find(t=>t.id===id)?.name || 'Team';}
