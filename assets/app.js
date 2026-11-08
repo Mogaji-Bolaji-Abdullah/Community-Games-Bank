@@ -50,8 +50,7 @@
   }
 
   function renderGames() {
-    const q=state.search.trim().toLowerCase();
-    const matches=state.games.filter(g=>g.status==='live'&&(state.filter==='all'||g.tags.includes(state.filter))&&(!q||[g.title,g.description,g.category,...g.tags,...g.searchTerms,...g.details].join(' ').toLowerCase().includes(q)));
+    const matches=state.games.filter(g=>g.status==='live').slice(0,2);
     const grid=$('#gamesGrid');grid.replaceChildren();
     matches.forEach((g,i)=>{
       const card=createCard(g);
@@ -72,7 +71,7 @@
       state.games=games;
       const live=games.filter(g=>g.status==='live').length;
       $('#liveCount').textContent=String(live).padStart(2,'0');
-      renderFilters();renderGames();
+      renderGames();
     } catch(err) {
       const grid=$('#gamesGrid');grid.replaceChildren();
       const msg=el('div','empty-state');
@@ -94,8 +93,8 @@
     dialog.showModal();document.body.classList.add('dialog-open');$('#ideaName').focus();
   }
   function closeSuggest() {dialog.close();document.body.classList.remove('dialog-open');}
-  $('[data-open-suggest]').forEach(btn=>btn.addEventListener('click',()=>openSuggest()));
-  $('[data-request]').forEach(btn=>btn.addEventListener('click',()=>openSuggest(btn.dataset.request)));
+  $$('[data-open-suggest]').forEach(btn=>btn.addEventListener('click',()=>openSuggest()));
+  $$('[data-request]').forEach(btn=>btn.addEventListener('click',()=>openSuggest(btn.dataset.request)));
   $('#closeDialog').addEventListener('click',closeSuggest);
   dialog.addEventListener('close',()=>document.body.classList.remove('dialog-open'));
   dialog.addEventListener('click',(event)=>{if(event.target===dialog)closeSuggest();});
@@ -117,12 +116,11 @@
   menu.addEventListener('click',()=>setMenu(mobile.hidden));
   $$('#mobileNav a').forEach(link=>link.addEventListener('click',()=>setMenu(false)));
   document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&!mobile.hidden)setMenu(false);});
-  $('#gameSearch').addEventListener('input',event=>{state.search=event.target.value;renderGames();});
-  $('#clearFilters').addEventListener('click',()=>{state.search='';state.filter='all';$('#gameSearch').value='';renderFilters();renderGames();});
+
 
   // Sections reveal on entry, not by hiding the site until JavaScript loads.
   function setupReveals(){
-    if(reducedMotion.matches || !('IntersectionObserver' in window)) return;
+    if(!('IntersectionObserver' in window)) return;
     document.body.classList.add('motion-on');
     const selectors = [
       '.section-header > div','.library-count','.directory-tools','.roadmap-title',
